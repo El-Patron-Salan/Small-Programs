@@ -17,21 +17,21 @@ public class MainProgram {
             Scanner input = new Scanner(System.in);
             menu ();
             int option = input.nextInt();
-
+            input.nextLine();
             switch (option){
                 case 1:
                     System.out.println("Message to encrypt: ");
                     String toEncrypt = input.nextLine();
                     System.out.print("Offset: ");
                     int offset = input.nextInt();
-                    System.out.println("Encrypted message: " + Encryption.encrypt(toEncrypt, offset));
+                    System.out.println("\nEncrypted message: " + Encryption.encrypt(toEncrypt, offset));
                     break;
                 case 2:
                     System.out.println("Message to decrypt: ");
                     String toDecrypt = input.nextLine();
                     System.out.print("Offset: ");
                     int decryptOffset = input.nextInt();
-                    System.out.println("Decrypted message: " + Decryption.decrypt(toDecrypt, decryptOffset));
+                    System.out.println("\nDecrypted message: " + Decryption.decrypt(toDecrypt, decryptOffset));
                     break;
                 default:
                     System.out.println("There isn't such an option");
