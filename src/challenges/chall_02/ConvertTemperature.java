@@ -1,4 +1,4 @@
-package challenges.temperature;
+package challenges.chall_02;
 import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;

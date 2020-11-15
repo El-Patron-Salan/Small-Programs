@@ -1,18 +1,17 @@
-package challenges.generator;
+package challenges.chall_00;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
+public class ImportingSurnames {
 
-public class ImportingMaleNames {
+    public void getSurnames()throws NullPointerException, FileNotFoundException {
 
-
-    public void getMaleNames()throws NullPointerException, FileNotFoundException {
-
-        ArrayList <String> nameList = new ArrayList<>();
-        Scanner scanner = new Scanner(new File("/home/alan/Desktop/chall_names/namesMale"));
+        ArrayList<String> nameList = new ArrayList<>();
+        Scanner scanner = new Scanner(new File("/home/alan/Desktop/chall_names/surnamesMain"));
 
         while(scanner.hasNext()) {
             nameList.add(scanner.next());
@@ -29,6 +28,5 @@ public class ImportingMaleNames {
         System.out.println(nameList.get(index));
 
     }
-    
 
 }

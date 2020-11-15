@@ -1,4 +1,4 @@
-package challenges.calcAgeInSec;
+package challenges.chall_03;
 import convert.numbers.ConvertSuffixes;
 
 import java.util.InputMismatchException;

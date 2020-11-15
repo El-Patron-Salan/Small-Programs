@@ -1,4 +1,4 @@
-package challenges.generator;
+package challenges.chall_00;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

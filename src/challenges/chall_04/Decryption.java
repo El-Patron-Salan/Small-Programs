@@ -1,4 +1,4 @@
-package challenges.encryption_decryption;
+package challenges.chall_04;
 
 abstract class Decryption {
 
