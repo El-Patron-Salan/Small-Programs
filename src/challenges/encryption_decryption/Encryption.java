@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Encryption {
 
-    private static StringBuilder encrypt(String input, int offset) {
+    protected static StringBuilder encrypt(String input, int offset) {
 
         StringBuilder sb = new StringBuilder();
 
