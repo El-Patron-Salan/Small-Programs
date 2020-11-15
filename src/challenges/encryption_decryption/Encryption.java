@@ -1,8 +1,6 @@
 package challenges.encryption_decryption;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class Encryption {
+abstract class Encryption {
 
     protected static StringBuilder encrypt(String input, int offset) {
 
@@ -29,21 +27,5 @@ public class Encryption {
                 sb.append(character);
         }
         return sb;
-    }
-
-    public static void main(String[] args) {
-
-        try {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Message to encrypt: ");
-            String toEncrypt = input.nextLine();
-            System.out.print("Offset: ");
-            int offset = input.nextInt();
-
-            System.out.println("Encrypted message: " + encrypt(toEncrypt, offset));
-        }catch(InputMismatchException e){
-            System.out.println(e + " - wrong input");
-        }
-
     }
 }
