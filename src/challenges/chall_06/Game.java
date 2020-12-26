@@ -18,6 +18,7 @@ public class Game {
     }
 
     public void game(){
+        System.out.println("ROUND " + gamesCounter);
         //takes input
         int playerInput = user.userChoice();
         Rules.show(userName(), playerInput);
@@ -42,12 +43,12 @@ public class Game {
         gamesCounter++;
 
         if(userScore == 5){
-            System.out.println("You've won the game!");
-            new Game();
+            System.out.println("\n****You've won the game!****\n");
+            System.exit(0);
         }
         if(computerScore == 5){
-            System.out.println("Computer's beaten you!");
-            new Game();
+            System.out.println("\n****Computer's beaten you!****\n");
+            System.exit(0);
         }
         //another game
         if(user.playAgain() == 'Y') {
