@@ -37,7 +37,6 @@ public class User {
                 userChoice();
                 return 0;
         }
-
     }
 
 }
