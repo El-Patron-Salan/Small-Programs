@@ -40,7 +40,7 @@ public class User {
     }
     public char playAgain(){
         char choice;
-        System.out.println("Do you want to play again? (Y\\N)");
+        System.out.println("Do you want to play another round? (Y\\N)");
         choice = input.next().charAt(0);
         if(choice == 'Y' || choice == 'y')
             return 'Y';
