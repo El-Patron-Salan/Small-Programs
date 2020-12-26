@@ -65,7 +65,7 @@ public class Game {
     }
     public void printStatistics(){
         System.out.println("Number of games: " + gamesCounter);
-        System.out.println(userName() + " score:" + userScore);
-        System.out.println("Computer score: " + computerScore);
+        System.out.println(userName() + "'s score:" + userScore);
+        System.out.println("Computer's score: " + computerScore);
     }
 }
