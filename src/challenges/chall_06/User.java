@@ -38,5 +38,15 @@ public class User {
                 return 0;
         }
     }
+    public char playAgain(){
+        char choice;
+        System.out.println("Do you want to play again?");
+        System.out.println("Input (Y\\N)");
+        choice = input.next().charAt(0);
+        if(choice == 'Y' || choice == 'N' ||
+            choice == 'y' || choice == 'n') return choice;
+        else
+            return 'N';
+    }
 
 }
