@@ -43,8 +43,8 @@ public class User {
         System.out.println("Do you want to play again?");
         System.out.println("Input (Y\\N)");
         choice = input.next().charAt(0);
-        if(choice == 'Y' || choice == 'N' ||
-            choice == 'y' || choice == 'n') return choice;
+        if(choice == 'Y' || choice == 'y')
+            return 'Y';
         else
             return 'N';
     }
