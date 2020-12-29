@@ -13,7 +13,7 @@ public class EulerFirstProblem {
                 sum += i;
             }
         }
-        System.out.println(sum);
+        System.out.println("The sum is: " + sum);
 //        Iterator<Integer> it = list.iterator();
 //        while(it.hasNext()){
 //            System.out.println(it.next());
