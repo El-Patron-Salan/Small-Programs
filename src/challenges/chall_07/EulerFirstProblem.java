@@ -18,10 +18,5 @@ public class EulerFirstProblem {
 //        while(it.hasNext()){
 //            System.out.println(it.next());
 //        }
-//        int sum = 0;
-//        for(int i: list){
-//            sum += i;
-//        }
-//        System.out.println(sum);
     }
 }
