@@ -24,7 +24,7 @@ public class GenerateWord {
         try {
             gen.getWord();
         }catch(FileNotFoundException e){
-            System.out.println(e);
+            System.out.println("File not found - " + e);
         }
     }
 
