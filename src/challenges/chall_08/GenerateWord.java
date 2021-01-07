@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GenerateWord {
 
-    public void getWord() throws NullPointerException, FileNotFoundException{
+    public static ArrayList<String> getWord() throws NullPointerException, FileNotFoundException{
 
         Scanner scanner = new Scanner(new File("words.txt"));
         ArrayList <String> wordList = new ArrayList<>();
@@ -15,18 +15,14 @@ public class GenerateWord {
         while(scanner.hasNext())
             wordList.add(scanner.next());
         scanner.close();
-        System.out.println(wordList);
-        System.out.println(wordList.size());
+        return(wordList);
     }
 
-    public static void main(String[] args) {
-        GenerateWord gen = new GenerateWord();
-        try {
-            gen.getWord();
-        }catch(FileNotFoundException e){
-            System.out.println("File not found - " + e);
-        }
+    public String getRandomWord() throws FileNotFoundException{
+        //GenerateWord g = new GenerateWord();
+        Random rand = new Random();
+        ArrayList<String> wordList = getWord();
+        int index = rand.nextInt(wordList.size());
+        return wordList.get(index);
     }
-
-
 }
