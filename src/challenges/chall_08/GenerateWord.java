@@ -18,7 +18,7 @@ public class GenerateWord {
         return(wordList);
     }
 
-    public String getRandomWord() throws FileNotFoundException{
+    public static String getRandomWord() throws FileNotFoundException{
         //GenerateWord g = new GenerateWord();
         Random rand = new Random();
         ArrayList<String> wordList = getWord();
