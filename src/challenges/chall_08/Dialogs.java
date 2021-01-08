@@ -2,6 +2,8 @@ package challenges.chall_08;
 
 public class Dialogs {
 
+    public Dialogs(){}
+
     public static void descriptionOfGame(){
 
         System.out.println("\t\t\tHello in HANGMAN game! :D");
