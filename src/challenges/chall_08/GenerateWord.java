@@ -9,7 +9,7 @@ public class GenerateWord {
 
     public static ArrayList<String> getWord() throws NullPointerException, FileNotFoundException{
 
-        Scanner scanner = new Scanner(new File("words.txt"));
+        Scanner scanner = new Scanner(new File("/home/alan/Desktop/Java_Examples/out/production/Java_Examples/challenges/chall_08/words.txt"));
         ArrayList <String> wordList = new ArrayList<>();
 
         while(scanner.hasNext())
