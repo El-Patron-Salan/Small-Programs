@@ -13,5 +13,8 @@ public class DriverVersionTwo {
         }
     }
 
+    final private static char[] wordInCharacters = getRandWord.toCharArray();
+    private static char[] hiddenWord = new char[wordInCharacters.length];
+    private static char providedChar;
 
 }
