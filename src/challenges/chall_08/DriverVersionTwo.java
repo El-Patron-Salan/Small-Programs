@@ -19,7 +19,8 @@ public class DriverVersionTwo {
     private static char providedChar;
     private static int correctCharacter = 0;
     private static LinkedList<Character> list = new LinkedList<>();
-    private static int lives = 0;
+    private static int lives = 7;
+    private static boolean lose = false;
 
     //hide word as "_"
     private static void hideWord(char[] arr, int size){
@@ -33,11 +34,27 @@ public class DriverVersionTwo {
                 correctCharacter++;
                 hiddenArr[i] = input;
             }
-            else{
-                list.add(input);
-            }
         }
     }
+
+    private static void checkIfCharacterIsInTheList(char input){
+        if(!(list.contains(input))){
+            list.add(input);
+        }
+        else{
+            System.out.println("This character has been already used - " + input);
+            System.out.println("Unfortunately you lose a life");
+            lives--;
+        }
+    }
+
+    private static boolean lose(){
+        if(list.size() > 7 || lives == 0){
+            return lose = true;
+        }
+        return lose;
+    }
+
 
 
 }
