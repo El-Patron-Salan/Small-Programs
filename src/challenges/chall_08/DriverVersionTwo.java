@@ -17,6 +17,7 @@ public class DriverVersionTwo {
     final private static char[] wordInCharacters = getRandWord.toCharArray();
     private static char[] inputFromUser = new char[wordInCharacters.length];
     private static char providedChar;
+    private static int correctCharacter = 0;
     private static LinkedList<Character> list = new LinkedList<>();
     private static int lives = 0;
 
@@ -25,5 +26,18 @@ public class DriverVersionTwo {
         for(int i = 0; i < size; ++i)
             arr[i] = '_';
     }
+
+    private static void checkIfCorrect(char input, char[] hiddenArr){
+        for(int i = 0; i < inputFromUser.length; ++i){
+            if(input == wordInCharacters[i]){
+                correctCharacter++;
+                hiddenArr[i] = input;
+            }
+            else{
+                list.add(input);
+            }
+        }
+    }
+
 
 }
