@@ -20,7 +20,7 @@ public class Dialogs {
     }
 
     public static void outputAfterTheGame(boolean winOrNot, int numbOfLives){
-        if(winOrNot) {
+        if(!winOrNot) {
             System.out.println("\t\tCongratulations, you've WON the game!");
             System.out.println("\tThe number of lives left: " + numbOfLives);
         }
