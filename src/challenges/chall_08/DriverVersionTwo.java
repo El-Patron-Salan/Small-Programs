@@ -13,7 +13,7 @@ public class DriverVersionTwo {
             e.getStackTrace();
         }
     }
-
+    DriverVersionTwo(){}
     final private static char[] wordInCharacters = getRandWord.toCharArray();
     private static char[] inputFromUser = new char[wordInCharacters.length];
     private static char providedChar;
@@ -34,6 +34,8 @@ public class DriverVersionTwo {
                 correctCharacter++;
                 hiddenArr[i] = input;
             }
+            else
+                lives--;
         }
     }
 
@@ -53,6 +55,13 @@ public class DriverVersionTwo {
             return lose = true;
         }
         return lose;
+    }
+
+    public static void game(char input){
+        Dialogs.descriptionOfGame();
+        System.out.println();
+
+
     }
 
 
