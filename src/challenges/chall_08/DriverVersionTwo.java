@@ -16,11 +16,12 @@ public class DriverVersionTwo {
     DriverVersionTwo(){}
     final private static char[] wordInCharacters = getRandWord.toCharArray();
     private static char[] inputFromUser = new char[wordInCharacters.length];
+    private static int arrayLength = inputFromUser.length;
     private static char providedChar;
     private static int correctCharacter = 0;
     private static LinkedList<Character> list = new LinkedList<>();
     private static int lives = 7;
-    private static boolean lose = false;
+    private static boolean loseGame = false;
 
     //hide word as "_"
     private static void hideWord(char[] arr, int size){
@@ -52,16 +53,22 @@ public class DriverVersionTwo {
 
     private static boolean lose(){
         if(list.size() > 7 || lives == 0){
-            return lose = true;
+            return loseGame = true;
         }
-        return lose;
+        return loseGame;
     }
 
     public static void game(char input){
         Dialogs.descriptionOfGame();
         System.out.println();
+        hideWord(inputFromUser, arrayLength);
+
+        while(!lose()){
+
+            System.out.print("Guess the character: ");
 
 
+        }
     }
 
 
