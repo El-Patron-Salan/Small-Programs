@@ -17,9 +17,6 @@ public class DriverVersionTwo {
     DriverVersionTwo(){}
     final private static char[] wordInCharacters = getRandWord.toCharArray();
     private static char[] inputFromUser = new char[wordInCharacters.length];
-    private static int arrayLength = inputFromUser.length;
-    private static String guess;
-    private static int correctCharacter = 0;
     private static int lives = 7;
     private static int count = 0;
     private static LinkedList<Character> list = new LinkedList<>();
@@ -41,7 +38,6 @@ public class DriverVersionTwo {
         }else {
             for (int i = 0; i < inputFromUser.length; ++i) {
                 if (input.charAt(0) == (wordInCharacters[i])) {
-                    correctCharacter++;
                     hiddenArr[i] = input.charAt(0);
                     System.out.println("Correct! \"" + input.charAt(0) + "\" is in the word!");
                 }
@@ -54,7 +50,7 @@ public class DriverVersionTwo {
             list.add(input);
         }
         else{
-            System.out.println("This character has been already used - " + input);
+            System.out.println("This character - \"" + input + "\" has been already used!");
             System.out.println("Unfortunately you lose a life");
 
         }
@@ -62,7 +58,7 @@ public class DriverVersionTwo {
 
     private static void printUsedCharacters(int count){
         if(count > 0) {
-            System.out.println("Already used characters:");
+            System.out.println("\n\nAlready used characters:");
             System.out.println(list);
         }
     }
@@ -86,14 +82,14 @@ public class DriverVersionTwo {
         Scanner input = new Scanner(System.in);
         Dialogs.descriptionOfGame();
         System.out.println();
-        hideWord(inputFromUser, arrayLength);
+        hideWord(inputFromUser, inputFromUser.length);
 
         while(!lose()){
             System.out.println("\nWord to guess:");
             showHiddenWord(inputFromUser);
             printUsedCharacters(count);
             System.out.print("\n\nGuess the character: ");
-            guess = input.next().toLowerCase();
+            String guess = input.next().toLowerCase();
             checkIfCorrect(guess, inputFromUser);
             checkIfCharacterIsInTheList(guess.charAt(0));
             count++;
