@@ -19,12 +19,14 @@ public class Dialogs {
                 "\n\t\t That's all - Have Fun and enjoy the game;))");
     }
 
-    public static void outputAfterTheGame(boolean winOrNot, int numbOfLives){
-        if(!winOrNot) {
-            System.out.println("\t\tCongratulations, you've WON the game!");
-            System.out.println("\tThe number of lives left: " + numbOfLives);
+    public static void outputAfterTheGame(boolean winOrNot, String correctWord, int numbOfLives){
+        if(winOrNot) {
+            System.out.println("\tCongratulations, you've guessed the correct word \"" + correctWord + "\" and WON the game!");
+            System.out.println("\t\t\tThe number of lives left: " + numbOfLives);
         }
-        else
-            System.out.println("You've run out of lives - you LOSE");
+        else {
+            System.out.println("\t\t\tYou've run out of lives - you LOSE");
+            System.out.println("\t\tThe hidden word was \"" + correctWord + "\"");
+        }
     }
 }
