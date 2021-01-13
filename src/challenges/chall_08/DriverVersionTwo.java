@@ -2,6 +2,7 @@ package challenges.chall_08;
 
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class DriverVersionTwo {
     //it needs to be this way, cuz it has to handle FileNotFoundException
@@ -22,21 +23,32 @@ public class DriverVersionTwo {
     private static LinkedList<Character> list = new LinkedList<>();
     private static int lives = 7;
     private static boolean loseGame = false;
-
+    Scanner input = new Scanner(System.in);
     //hide word as "_"
     private static void hideWord(char[] arr, int size){
         for(int i = 0; i < size; ++i)
             arr[i] = '_';
     }
 
-    private static void checkIfCorrect(char input, char[] hiddenArr){
-        for(int i = 0; i < inputFromUser.length; ++i){
-            if(input == wordInCharacters[i]){
-                correctCharacter++;
-                hiddenArr[i] = input;
-            }
-            else
+    private static void checkIfCorrect(String input, char[] hiddenArr){
+        if(input.length() > 1) {
+            if (input.equals(getRandWord)) {
+                System.out.println("Great job!! You guessed the entire word!");
+            } else {
+                System.out.println("Wrong! You lose a life!");
                 lives--;
+            }
+        }else {
+            for (int i = 0; i < inputFromUser.length; ++i) {
+                if (input.charAt(0) == (wordInCharacters[i])) {
+                    correctCharacter++;
+                    hiddenArr[i] = input.charAt(0);
+                    System.out.println("Correct! \"" + input.charAt(0) + "\" is in the word!");
+                } else {
+                    System.out.println("Wrong! You lose a life!");
+                    lives--;
+                }
+            }
         }
     }
 
@@ -58,7 +70,7 @@ public class DriverVersionTwo {
         return loseGame;
     }
 
-    public static void game(char input){
+    public static void game(){
         Dialogs.descriptionOfGame();
         System.out.println();
         hideWord(inputFromUser, arrayLength);
