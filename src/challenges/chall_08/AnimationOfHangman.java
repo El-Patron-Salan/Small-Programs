@@ -3,7 +3,7 @@ package challenges.chall_08;
 public class AnimationOfHangman {
 
     public static void hangmanImage(int lives) {
-        if (lives == 1) {
+        if (lives == 6) {
             System.out.println("Wrong guess, try again");
             System.out.println();
             System.out.println();
@@ -12,7 +12,7 @@ public class AnimationOfHangman {
             System.out.println("___|___");
             System.out.println();
         }
-        if (lives == 2) {
+        if (lives == 5) {
             System.out.println("Wrong guess, try again");
             System.out.println("   |");
             System.out.println("   |");
@@ -23,7 +23,7 @@ public class AnimationOfHangman {
             System.out.println("   |");
             System.out.println("___|___");
         }
-        if (lives == 3) {
+        if (lives == 4) {
             System.out.println("Wrong guess, try again");
             System.out.println("   ____________");
             System.out.println("   |");
@@ -35,7 +35,7 @@ public class AnimationOfHangman {
             System.out.println("   | ");
             System.out.println("___|___");
         }
-        if (lives == 4) {
+        if (lives == 3) {
             System.out.println("Wrong guess, try again");
             System.out.println("   ____________");
             System.out.println("   |          _|_");
@@ -47,7 +47,7 @@ public class AnimationOfHangman {
             System.out.println("   |");
             System.out.println("___|___");
         }
-        if (lives == 5) {
+        if (lives == 2) {
             System.out.println("Wrong guess, try again");
             System.out.println("   ____________");
             System.out.println("   |          _|_");
@@ -59,7 +59,7 @@ public class AnimationOfHangman {
             System.out.println("   |");
             System.out.println("___|___");
         }
-        if (lives == 6) {
+        if (lives == 1) {
             System.out.println("Wrong guess, try again");
             System.out.println("   ____________");
             System.out.println("   |          _|_");
@@ -71,7 +71,7 @@ public class AnimationOfHangman {
             System.out.println("   |          / \\ ");
             System.out.println("___|___      /   \\");
         }
-        if (lives == 7) {
+        if (lives == 0) {
             System.out.println("GAME OVER!");
             System.out.println("   ____________");
             System.out.println("   |          _|_");
