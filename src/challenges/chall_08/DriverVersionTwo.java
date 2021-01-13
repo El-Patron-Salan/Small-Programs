@@ -3,6 +3,7 @@ package challenges.chall_08;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class DriverVersionTwo {
     //it needs to be this way, cuz it has to handle FileNotFoundException
@@ -14,37 +15,44 @@ public class DriverVersionTwo {
             e.getStackTrace();
         }
     }
+
     DriverVersionTwo(){}
+
     final private static char[] wordInCharacters = getRandWord.toCharArray();
     private static char[] inputFromUser = new char[wordInCharacters.length];
     private static int lives = 7;
     private static int count = 0;
     private static LinkedList<Character> list = new LinkedList<>();
-    private static boolean loseGame = false;
-    //hide word as "_"
+
+
     private static void hideWord(char[] arr, int size){
         for(int i = 0; i < size; ++i)
             arr[i] = '_';
     }
 
     private static void checkIfCorrect(String input, char[] hiddenArr){
-        if(input.length() > 1) {
+        if (input.length() > 1) {
             if (input.equals(getRandWord)) {
-                System.out.println("Great job!! You guessed the entire word!");
+                Dialogs.outputAfterTheGame(true, getRandWord, lives);
+                System.exit(0);
             } else {
                 System.out.println("Wrong! It isn't the correct word, you lose a life!");
-
+                lives--;
             }
         }else {
             for (int i = 0; i < inputFromUser.length; ++i) {
                 if (input.charAt(0) == (wordInCharacters[i])) {
                     hiddenArr[i] = input.charAt(0);
-                    System.out.println("Correct! \"" + input.charAt(0) + "\" is in the word!");
                 }
             }
         }
     }
-
+    /*
+    TO-DO:
+    -subtract lives if provided character isn't correct and also isn't in the list
+    -add hangman animation
+    -handle wrong input such as numbers and special characters
+     */
     private static void checkIfCharacterIsInTheList(char input){
         if(!(list.contains(input))){
             list.add(input);
@@ -52,7 +60,7 @@ public class DriverVersionTwo {
         else{
             System.out.println("This character - \"" + input + "\" has been already used!");
             System.out.println("Unfortunately you lose a life");
-
+            lives--;
         }
     }
 
@@ -70,12 +78,12 @@ public class DriverVersionTwo {
             }
     }
 
+    private static boolean win(){
+        return Arrays.equals(inputFromUser, wordInCharacters);
+    }
 
     private static boolean lose(){
-        if(list.size() > 7){
-            return loseGame = true;
-        }
-        return loseGame;
+        return list.size() > 7 || lives == 0;
     }
 
     public static void game(){
@@ -84,7 +92,8 @@ public class DriverVersionTwo {
         System.out.println();
         hideWord(inputFromUser, inputFromUser.length);
 
-        while(!lose()){
+        while(true){
+            System.out.println("***********************");
             System.out.println("\nWord to guess:");
             showHiddenWord(inputFromUser);
             printUsedCharacters(count);
@@ -92,8 +101,19 @@ public class DriverVersionTwo {
             String guess = input.next().toLowerCase();
             checkIfCorrect(guess, inputFromUser);
             checkIfCharacterIsInTheList(guess.charAt(0));
+            System.out.println("Remaining lives: " + lives);
+            System.out.println("\n^^^^^^^^^^^^^^^^^^^^^^^");
             count++;
+            if(win()) {
+                Dialogs.outputAfterTheGame(true, getRandWord,lives);
+                break;
+            }
+            else if(lose()) {
+                Dialogs.outputAfterTheGame(false, getRandWord,lives);
+                break;
+            }
         }
+        //Dialogs.outputAfterTheGame(end(), lives);
     }
 
 
