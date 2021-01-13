@@ -2,7 +2,6 @@ package challenges.chall_08;
 
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class DriverVersionTwo {
@@ -28,7 +27,7 @@ public class DriverVersionTwo {
     //hide word as "_"
     private static void hideWord(char[] arr, int size){
         for(int i = 0; i < size; ++i)
-            arr[i] = '*';
+            arr[i] = '_';
     }
 
     private static void checkIfCorrect(String input, char[] hiddenArr){
@@ -45,9 +44,6 @@ public class DriverVersionTwo {
                     correctCharacter++;
                     hiddenArr[i] = input.charAt(0);
                     System.out.println("Correct! \"" + input.charAt(0) + "\" is in the word!");
-                } else {
-                    System.out.println("Wrong! You lose a life!");
-
                 }
             }
         }
@@ -65,27 +61,17 @@ public class DriverVersionTwo {
     }
 
     private static void printUsedCharacters(int count){
-        if(count > 1) {
+        if(count > 0) {
             System.out.println("Already used characters:");
             System.out.println(list);
         }
     }
 
-    private static String arrayToString(char[] array )
+    private static void showHiddenWord(char[] array )
     {
-        StringBuilder sb    = new StringBuilder();
-        boolean first = true;
-
-        for( char particle : array )
-        {
-            if( !first )
-                sb.append( ' ' );
-
-            sb.append( particle );
-            first = false;
-        }
-
-        return sb.toString();
+            for(var x : array){
+                System.out.print(x + " ");
+            }
     }
 
 
@@ -103,13 +89,13 @@ public class DriverVersionTwo {
         hideWord(inputFromUser, arrayLength);
 
         while(!lose()){
-            System.out.println("Word to guess:");
-            arrayToString(inputFromUser);
-            System.out.print("Guess the character: ");
+            System.out.println("\nWord to guess:");
+            showHiddenWord(inputFromUser);
+            printUsedCharacters(count);
+            System.out.print("\n\nGuess the character: ");
             guess = input.next().toLowerCase();
             checkIfCorrect(guess, inputFromUser);
             checkIfCharacterIsInTheList(guess.charAt(0));
-            printUsedCharacters(count);
             count++;
         }
     }
