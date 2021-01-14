@@ -22,6 +22,7 @@ public class DriverVersionTwo {
     private static char[] inputFromUser = new char[wordInCharacters.length];
     private static int lives = 7;
     private static int count = 0;
+    private static boolean presence = true;
     private static LinkedList<Character> list = new LinkedList<>();
 
 
@@ -30,7 +31,7 @@ public class DriverVersionTwo {
             arr[i] = '_';
     }
 
-    private static void checkIfCorrect(String input, char[] hiddenArr, Boolean presence){
+    private static void checkIfCorrect(String input, char[] hiddenArr){
         if (input.length() > 1) {
             if (input.equals(getRandWord)) {
                 Dialogs.outputAfterTheGame(true, getRandWord, lives);
@@ -43,18 +44,16 @@ public class DriverVersionTwo {
             for (int i = 0; i < inputFromUser.length; ++i) {
                 if (input.charAt(0) == (wordInCharacters[i])) {
                     hiddenArr[i] = input.charAt(0);
-                    presence = Boolean.FALSE;
+                    presence = false;
                 }
             }
         }
     }
     /*
     TO-DO:
-    -subtract lives if provided character isn't correct and also isn't in the list
-    -add hangman animation
     -handle wrong input such as numbers and special characters
      */
-    private static void checkIfCharacterIsInTheList(char input, Boolean presence){
+    private static void checkIfCharacterIsInTheList(char input){
         if(!(list.contains(input)) && presence){
             list.add(input);
             System.out.println("Wrong guess, try again");
@@ -90,7 +89,7 @@ public class DriverVersionTwo {
     }
 
     private static boolean lose(){
-        return list.size() > 7 || lives == 0;
+        return lives == 0;
     }
 
     public static void game(){
@@ -99,29 +98,29 @@ public class DriverVersionTwo {
         System.out.println();
         hideWord(inputFromUser, inputFromUser.length);
 
-
         while(true){
-            Boolean presence = Boolean.TRUE;
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             AnimationOfHangman.hangmanImage(lives);
             System.out.println("\nWord to guess:");
             showHiddenWord(inputFromUser);
             printUsedCharacters(count);
             System.out.print("\n\nGuess the character: ");
             String guess = input.next().toLowerCase();
-            checkIfCorrect(guess, inputFromUser, presence);
-            checkIfCharacterIsInTheList(guess.charAt(0), presence);
+            checkIfCorrect(guess, inputFromUser);
+            checkIfCharacterIsInTheList(guess.charAt(0));
             System.out.println("Remaining lives: " + lives);
             count++;
+            presence = true;
             if(win()) {
                 Dialogs.outputAfterTheGame(true, getRandWord,lives);
                 break;
             }
             else if(lose()) {
+                AnimationOfHangman.hangmanImage(0);
                 Dialogs.outputAfterTheGame(false, getRandWord,lives);
                 break;
             }
         }
-        //Dialogs.outputAfterTheGame(end(), lives);
     }
 
 
