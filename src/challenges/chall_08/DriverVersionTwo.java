@@ -30,7 +30,7 @@ public class DriverVersionTwo {
             arr[i] = '_';
     }
 
-    private static void checkIfCorrect(String input, char[] hiddenArr){
+    private static void checkIfCorrect(String input, char[] hiddenArr, Boolean presence){
         if (input.length() > 1) {
             if (input.equals(getRandWord)) {
                 Dialogs.outputAfterTheGame(true, getRandWord, lives);
@@ -43,6 +43,7 @@ public class DriverVersionTwo {
             for (int i = 0; i < inputFromUser.length; ++i) {
                 if (input.charAt(0) == (wordInCharacters[i])) {
                     hiddenArr[i] = input.charAt(0);
+                    presence = Boolean.FALSE;
                 }
             }
         }
@@ -53,9 +54,15 @@ public class DriverVersionTwo {
     -add hangman animation
     -handle wrong input such as numbers and special characters
      */
-    private static void checkIfCharacterIsInTheList(char input){
-        if(!(list.contains(input))){
+    private static void checkIfCharacterIsInTheList(char input, Boolean presence){
+        if(!(list.contains(input)) && presence){
             list.add(input);
+            System.out.println("Wrong guess, try again");
+            lives--;
+        }
+        else if(!(list.contains(input)) && !presence){
+            list.add(input);
+            System.out.println("You guessed correct!");
         }
         else{
             System.out.println("This character - \"" + input + "\" has been already used!");
@@ -92,17 +99,18 @@ public class DriverVersionTwo {
         System.out.println();
         hideWord(inputFromUser, inputFromUser.length);
 
+
         while(true){
-            System.out.println("***********************");
+            Boolean presence = Boolean.TRUE;
+            AnimationOfHangman.hangmanImage(lives);
             System.out.println("\nWord to guess:");
             showHiddenWord(inputFromUser);
             printUsedCharacters(count);
             System.out.print("\n\nGuess the character: ");
             String guess = input.next().toLowerCase();
-            checkIfCorrect(guess, inputFromUser);
-            checkIfCharacterIsInTheList(guess.charAt(0));
+            checkIfCorrect(guess, inputFromUser, presence);
+            checkIfCharacterIsInTheList(guess.charAt(0), presence);
             System.out.println("Remaining lives: " + lives);
-            System.out.println("\n^^^^^^^^^^^^^^^^^^^^^^^");
             count++;
             if(win()) {
                 Dialogs.outputAfterTheGame(true, getRandWord,lives);
