@@ -12,7 +12,8 @@ public class Dialogs {
                 "\n2. You or your friends input word and the other person tries to guess it");
         System.out.println("\tThe rules are quite simple:" +
                 "\n~ you've 7 lives(number of tries)" +
-                "\n~ you can provide only character" +
+                "\n~ you can provide only one character or whole word" +
+                "\n~ but be aware of the fact that if you type wrong word u lose immediately!" +
                 "\n~ you're guessing only one word - it doesn't have any space between" +
                 "\n~ when little man is doomed YOU LOSE" +
                 "\n~ when little man escapes YOU WIN" +
