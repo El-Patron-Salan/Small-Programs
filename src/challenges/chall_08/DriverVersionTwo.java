@@ -35,11 +35,10 @@ public class DriverVersionTwo {
         if (input.length() > 1) {
             if (input.equals(getRandWord)) {
                 Dialogs.outputAfterTheGame(true, getRandWord, lives);
-                System.exit(0);
             } else {
-                System.out.println("Wrong! It isn't the correct word, you lose a life!");
-                lives--;
+                System.out.println("Wrong! It isn't the correct word!\n\t\tGAME OVER!");
             }
+            System.exit(0);
         }else {
             for (int i = 0; i < inputFromUser.length; ++i) {
                 if (input.charAt(0) == (wordInCharacters[i])) {
