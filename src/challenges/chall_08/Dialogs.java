@@ -27,7 +27,7 @@ public class Dialogs {
         }
         else {
             System.out.println("\t\t\tYou've run out of lives - you LOSE");
-            System.out.println("\t\tThe hidden word was \"" + correctWord + "\"");
+            System.out.println("\t\t\tThe hidden word was \"" + correctWord + "\"");
         }
     }
 }
