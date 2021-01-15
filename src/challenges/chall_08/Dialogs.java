@@ -9,7 +9,7 @@ public class Dialogs {
         System.out.println("\t\t\tHello in HANGMAN game! :D");
         System.out.println("\t\tThere are two game options:" +
                 "\n1. Computer picks a random word and you've to guess it" +
-                "\n2. You or your friends input word and the other person tries to guess it");
+                "\n2. You or your friends input word and the other person tries to guess it - COMING SOON!");
         System.out.println("\tThe rules are quite simple:" +
                 "\n~ you've 7 lives(number of tries)" +
                 "\n~ you can provide only one character or whole word" +
