@@ -2,6 +2,7 @@ package challenges.chall_09;
 import java.util.Scanner;
 
 public class Driver {
+    private static char[] mustHaveWord = "LOVES".toCharArray();
     private static Scanner input = new Scanner(System.in);
 
     private static String firstName(){
