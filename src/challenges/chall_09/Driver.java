@@ -13,4 +13,8 @@ public class Driver {
         return input.nextLine();
     }
 
+    private static char[] changeNameToArray(String name) {
+        return name.toUpperCase().toCharArray();
+    }
+
 }
