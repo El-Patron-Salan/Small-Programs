@@ -5,17 +5,25 @@ public class Driver {
     private static char[] mustHaveWord = "LOVES".toCharArray();
     private static Scanner input = new Scanner(System.in);
 
-    private static String firstName(){
+    private static String firstName() {
         System.out.println("First name to calculate: ");
         return input.nextLine();
     }
-    private static String secondName(){
+    private static String secondName() {
         System.out.println("Second name to calculate: ");
         return input.nextLine();
     }
 
     private static char[] changeNameToArray(String name) {
         return name.toUpperCase().toCharArray();
+    }
+
+    private static char[] mergeArrays(char[] firstName, char[] word, char[] secondName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(firstName);
+        sb.append(word);
+        sb.append(secondName);
+        return sb.toString().toCharArray();
     }
 
 }
