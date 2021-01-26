@@ -51,8 +51,8 @@ public class Driver {
         return count;
     }
 
-    private static int calculateLoveChance(ArrayList<Integer> list) {
-        int i = 0, finalNumber;
+    public static void calculateLoveChance(ArrayList<Integer> list) {
+        int i = 0;
         while(list.size() != 1) {
             int sum = 0;
             //sum to the point when indexes are the same, then loop again
@@ -68,8 +68,13 @@ public class Driver {
             }
             else
                 list.add(list.get(i));
+            System.out.println("Sum = " + sum);
+            System.out.println("i = " + i);
+            for(int x : list){
+                list.get(x);
+            }
         }
-        return finalNumber = list.get(0);
+        System.out.println(list.get(0));
     }
 
 }
