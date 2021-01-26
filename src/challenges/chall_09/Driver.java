@@ -28,13 +28,15 @@ public class Driver {
         return sb.toString().toCharArray();
     }
 
-    public static ArrayList<Integer> countOccurrenceOfLetters(char[] mergedArray) {
+    private static ArrayList<Integer> countOccurrenceOfLetters(char[] mergedArray) {
         ArrayList<Integer> count = new ArrayList<>();
         int len = mergedArray.length;
+        //array to store frequencies of each letter
         int[] freq = new int[len];
         int visited = -1;
         for(int i = 0; i < len; i++) {
             int found = 1;
+            //check every element after element [i] points to
             for(int j = i + 1; j < len; j++) {
                 if(mergedArray[i] == mergedArray[j]) {
                     found++;
@@ -47,6 +49,9 @@ public class Driver {
             }
         }
         return count;
+    }
+
+    private static int calculateLoveChance(ArrayList<Integer> list) {
     }
 
 }
