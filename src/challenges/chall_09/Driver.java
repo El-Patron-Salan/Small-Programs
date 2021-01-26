@@ -52,6 +52,24 @@ public class Driver {
     }
 
     private static int calculateLoveChance(ArrayList<Integer> list) {
+        int i = 0, finalNumber;
+        while(list.size() != 1) {
+            int sum = 0;
+            //sum to the point when indexes are the same, then loop again
+            int firstElementIndex = list.indexOf(i);
+            int lastElementIndex = list.indexOf(list.size() - 1);
+
+            if(firstElementIndex != lastElementIndex) {
+                sum = list.get(i) + list.get(list.size() - 1);
+                i++;
+                list.remove(firstElementIndex);
+                list.remove(lastElementIndex);
+                list.add(sum);
+            }
+            else
+                list.add(list.get(i));
+        }
+        return finalNumber = list.get(0);
     }
 
 }
