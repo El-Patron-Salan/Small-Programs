@@ -34,7 +34,7 @@ public class Driver {
         int[] freq = new int[len];
         int visited = -1;
         for(int i = 0; i < len; i++) {
-            int found = 0;
+            int found = 1;
             for(int j = i + 1; j < len; j++) {
                 if(mergedArray[i] == mergedArray[j]) {
                     found++;
