@@ -1,8 +1,10 @@
 package challenges.chall_09;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Driver {
-    private static char[] mustHaveWord = "LOVES".toCharArray();
+    private Driver(){}
+    private final static char[] mustHaveWord = "LOVES".toCharArray();
     private static Scanner input = new Scanner(System.in);
 
     private static String firstName() {
@@ -24,6 +26,27 @@ public class Driver {
         sb.append(word);
         sb.append(secondName);
         return sb.toString().toCharArray();
+    }
+
+    public static ArrayList<Integer> countOccurrenceOfLetters(char[] mergedArray) {
+        ArrayList<Integer> count = new ArrayList<>();
+        int len = mergedArray.length;
+        int[] freq = new int[len];
+        int visited = -1;
+        for(int i = 0; i < len; i++) {
+            int found = 0;
+            for(int j = i + 1; j < len; j++) {
+                if(mergedArray[i] == mergedArray[j]) {
+                    found++;
+                    freq[j] = visited;
+                }
+            }
+            if(freq[i] != visited) {
+                freq[i] = found;
+                count.add(freq[i]);
+            }
+        }
+        return count;
     }
 
 }
