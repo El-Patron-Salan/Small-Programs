@@ -11,7 +11,6 @@ public class LoveCalculator {
         lol.add(1);
         lol.add(3);
         lol.add(1);
-        Driver.calculateLoveChance(lol);
     }
 
 }
