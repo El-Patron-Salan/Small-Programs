@@ -50,7 +50,7 @@ public class Driver {
         }
         return count;
     }
-    void show(ArrayList<Integer> list) {
+    static void show(ArrayList<Integer> list) {
         for(int x = 0; x < list.size(); x++) {
             System.out.println("Print value = " + list.get(x));
             System.out.println("Print index = " + list.indexOf(x));
