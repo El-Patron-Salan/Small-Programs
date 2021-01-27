@@ -50,6 +50,12 @@ public class Driver {
         }
         return count;
     }
+    void show(ArrayList<Integer> list) {
+        for(int x = 0; x < list.size(); x++) {
+            System.out.println("Print value = " + list.get(x));
+            System.out.println("Print index = " + list.indexOf(x));
+        }
+    }
 
 //    public static void calculateLoveChance(ArrayList<Integer> list) {
 //        int i = 0;
