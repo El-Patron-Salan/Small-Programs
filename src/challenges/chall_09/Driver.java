@@ -51,30 +51,33 @@ public class Driver {
         return count;
     }
 
-    public static void calculateLoveChance(ArrayList<Integer> list) {
-        int i = 0;
-        while(list.size() != 1) {
-            int sum = 0;
-            //sum to the point when indexes are the same, then loop again
-            int firstElementIndex = list.indexOf(i);
-            int lastElementIndex = list.indexOf(list.size() - 1);
-
-            if(firstElementIndex != lastElementIndex) {
-                sum = list.get(i) + list.get(list.size() - 1);
-                i++;
-                list.remove(firstElementIndex);
-                list.remove(lastElementIndex);
-                list.add(sum);
-            }
-            else
-                list.add(list.get(i));
-            System.out.println("Sum = " + sum);
-            System.out.println("i = " + i);
-            for(int x : list){
-                list.get(x);
-            }
-        }
-        System.out.println(list.get(0));
-    }
+//    public static void calculateLoveChance(ArrayList<Integer> list) {
+//        int i = 0;
+//        while(list.size() != 1) {
+//            int sum = 0;
+//            //sum to the point when indexes are the same, then loop again
+//            int firstElementIndex = list.indexOf(i);
+//            //int lastElementIndex = list.indexOf(list.size() - 1);
+//            System.out.println("Element = " + list.get(i));
+//            System.out.println("Index = " + firstElementIndex + " i " + list.indexOf(list.size() - 1));
+//
+//            if(firstElementIndex != list.indexOf(list.size() - 1)) {
+//                sum = list.get(i) + list.get(list.size() - 1);
+//                System.out.println("Suma = " + sum);
+//                i++;
+//                list.remove(firstElementIndex);
+//                list.remove(list.indexOf(list.size() - 1));
+//                list.add(sum);
+//            }
+//            else
+//                list.add(list.get(i));
+//            System.out.println("Sum = " + sum);
+//            System.out.println("i = " + i);
+//            for(int x : list){
+//                list.get(x);
+//            }
+//        }
+//        System.out.println(list.get(0));
+//    }
 
 }
