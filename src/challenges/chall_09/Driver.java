@@ -51,39 +51,34 @@ public class Driver {
         return count;
     }
     static void show(ArrayList<Integer> list) {
-        for(int x = 0; x < list.size(); x++) {
-            System.out.println("Print value = " + list.get(x));
-            System.out.println("Print index = " + list.indexOf(x));
+        System.out.println("List = " + list);
+        System.out.println("List size = " + list.size());
+        System.out.println("Index of 2 = " + list.indexOf(2));
+
+        for (Integer integer : list) {
+            System.out.println("\nPrint value = " + integer);
         }
     }
 
-//    public static void calculateLoveChance(ArrayList<Integer> list) {
-//        int i = 0;
-//        while(list.size() != 1) {
-//            int sum = 0;
-//            //sum to the point when indexes are the same, then loop again
-//            int firstElementIndex = list.indexOf(i);
-//            //int lastElementIndex = list.indexOf(list.size() - 1);
-//            System.out.println("Element = " + list.get(i));
-//            System.out.println("Index = " + firstElementIndex + " i " + list.indexOf(list.size() - 1));
-//
-//            if(firstElementIndex != list.indexOf(list.size() - 1)) {
-//                sum = list.get(i) + list.get(list.size() - 1);
-//                System.out.println("Suma = " + sum);
-//                i++;
-//                list.remove(firstElementIndex);
-//                list.remove(list.indexOf(list.size() - 1));
-//                list.add(sum);
-//            }
-//            else
-//                list.add(list.get(i));
-//            System.out.println("Sum = " + sum);
-//            System.out.println("i = " + i);
-//            for(int x : list){
-//                list.get(x);
-//            }
-//        }
-//        System.out.println(list.get(0));
-//    }
+    public static void calculateLoveChance(ArrayList<Integer> list) {
+        int i = 0;
+        while(list.size() != 1) {
+            int sum = 0;
+            //sum to the point when indexes are the same, then loop again
+            for(int x = 0; x < list.size(); x++) {
+                for(int j = list.lastIndexOf(list.size() - 1); j <= x; j--) {
+
+                }
+            }
+            if() {
+                sum = list.get(i) + list.get(list.size() - 1);
+                list.remove((Integer) list.size() - 1);
+                list.add(0, sum);
+            }
+            else
+                list.add(list.get(i));
+            i++;
+        }
+    }
 
 }
