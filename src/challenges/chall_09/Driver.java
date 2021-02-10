@@ -89,6 +89,8 @@ public class Driver {
         //put these names in an array
         char[] name1Array = changeNameToArray(name1);
         char[] name2Array = changeNameToArray(name2);
+        //merge
+        mergeArrays(name1Array, mustHaveWord, name2Array);
 
     }
 
