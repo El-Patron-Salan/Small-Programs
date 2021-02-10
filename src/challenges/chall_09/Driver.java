@@ -86,6 +86,9 @@ public class Driver {
         //input names
         String name1 = firstName();
         String name2 = secondName();
+        //put these names in an array
+        char[] name1Array = changeNameToArray(name1);
+        char[] name2Array = changeNameToArray(name2);
 
     }
 
