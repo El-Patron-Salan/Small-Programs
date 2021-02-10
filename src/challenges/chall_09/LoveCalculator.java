@@ -1,5 +1,4 @@
 package challenges.chall_09;
-import java.util.ArrayList;
 
 public class LoveCalculator {
 
