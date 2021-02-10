@@ -80,6 +80,7 @@ public class Driver {
             list.addAll(tempList);
             tempList.clear();
         }
+
     }
 
     static int calculator() {
@@ -90,7 +91,9 @@ public class Driver {
         char[] name1Array = changeNameToArray(name1);
         char[] name2Array = changeNameToArray(name2);
         //merge
-        mergeArrays(name1Array, mustHaveWord, name2Array);
+        char[] merge = mergeArrays(name1Array, mustHaveWord, name2Array);
+        //count occurrences
+        ArrayList<Integer> occurrences = new ArrayList<>(countOccurrenceOfLetters(merge));
 
     }
 
