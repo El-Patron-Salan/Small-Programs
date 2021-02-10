@@ -63,7 +63,7 @@ public class Driver {
         return firstElement + secondElement;
     }
 
-    private static void calculateLoveChance(ArrayList<Integer> list) {
+    private static int calculateLoveChance(ArrayList<Integer> list) {
 
         ArrayList<Integer> tempList = new ArrayList<>();
         while(list.size() != 2) {
@@ -80,7 +80,7 @@ public class Driver {
             list.addAll(tempList);
             tempList.clear();
         }
-
+        return Integer.parseInt(String.valueOf(list.get(0)) + list.get(1));
     }
 
     static int calculator() {
@@ -94,7 +94,8 @@ public class Driver {
         char[] merge = mergeArrays(name1Array, mustHaveWord, name2Array);
         //count occurrences
         ArrayList<Integer> occurrences = new ArrayList<>(countOccurrenceOfLetters(merge));
-
+        //calculate
+        return calculateLoveChance(occurrences);
     }
 
 }
