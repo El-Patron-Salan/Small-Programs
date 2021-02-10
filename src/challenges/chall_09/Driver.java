@@ -50,20 +50,20 @@ public class Driver {
         }
         return count;
     }
-    static void show(ArrayList<Integer> list) {
-        System.out.println("List = " + list);
-        System.out.println("List size = " + list.size());
+//    static void show(ArrayList<Integer> list) {
+//        System.out.println("List = " + list);
+//        System.out.println("List size = " + list.size());
+//
+//        for (Integer integer : list) {
+//            System.out.println("\nPrint value = " + integer);
+//        }
+//    }
 
-        for (Integer integer : list) {
-            System.out.println("\nPrint value = " + integer);
-        }
-    }
-
-    static int sumElements(int firstElement, int secondElement) {
+    private static int sumElements(int firstElement, int secondElement) {
         return firstElement + secondElement;
     }
 
-    public static void calculateLoveChance(ArrayList<Integer> list) {
+    private static void calculateLoveChance(ArrayList<Integer> list) {
 
         ArrayList<Integer> tempList = new ArrayList<>();
         while(list.size() != 2) {
@@ -79,8 +79,11 @@ public class Driver {
             list.clear();
             list.addAll(tempList);
             tempList.clear();
-            show(list);
         }
+    }
+
+    static int calculator() {
+
     }
 
 }
