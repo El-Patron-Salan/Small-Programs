@@ -83,6 +83,9 @@ public class Driver {
     }
 
     static int calculator() {
+        //input names
+        firstName();
+        secondName();
 
     }
 
