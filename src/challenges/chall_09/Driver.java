@@ -8,11 +8,11 @@ public class Driver {
     private static Scanner input = new Scanner(System.in);
 
     private static String firstName() {
-        System.out.println("First name to calculate: ");
+        System.out.println("Your name: ");
         return input.nextLine();
     }
     private static String secondName() {
-        System.out.println("Second name to calculate: ");
+        System.out.println("Your crash name: ");
         return input.nextLine();
     }
 
