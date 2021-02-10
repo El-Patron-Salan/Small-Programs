@@ -66,17 +66,20 @@ public class Driver {
     public static void calculateLoveChance(ArrayList<Integer> list) {
 
         ArrayList<Integer> tempList = new ArrayList<>();
-        for(int i = list.size(); !(i <= 3); i--) {
+        while(list.size() != 2) {
             int midElement = 0;
             for(int j = 0; j < list.size() / 2; j++) {
+
                 midElement = (list.size() / 2);
                 tempList.add(sumElements(list.get(j), (list.get(list.size() - 1 - j))));
+
             }
             if(list.size() % 2 != 0) tempList.add(tempList.size(), list.get(midElement));
             //replace elements in list with tempList
             list.clear();
             list.addAll(tempList);
             tempList.clear();
+            show(list);
         }
     }
 
