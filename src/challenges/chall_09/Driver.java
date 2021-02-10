@@ -64,7 +64,6 @@ public class Driver {
         return firstElement + secondElement;
     }
 
-
     public static void calculateLoveChance(ArrayList<Integer> list) {
         //while(!(list.size() <= 3)) { }
 
@@ -75,7 +74,7 @@ public class Driver {
                 midElement = (list.size() / 2) -1;
                 tempList.add(sumElements(list.get(j), (list.get(list.size() - 1 - j))));
             }
-            if(list.size() % 2 != 0) tempList.add(list.size() - 1, list.get(midElement));
+            if(list.size() % 2 != 0) tempList.add(tempList.size() - 1, list.get(midElement));
             //replace elements in list with tempList
             list.clear();
             list.addAll(tempList);
