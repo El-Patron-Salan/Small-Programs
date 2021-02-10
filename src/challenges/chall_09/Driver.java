@@ -71,7 +71,14 @@ public class Driver {
             for(int j = 0; j < list.size() / 2; j++) {
 
                 midElement = (list.size() / 2);
-                tempList.add(sumElements(list.get(j), (list.get(list.size() - 1 - j))));
+                if(sumElements(list.get(j), (list.get(list.size() - 1 - j))) >= 10) {
+                    String number = String.valueOf(sumElements(list.get(j), (list.get(list.size() - 1 - j))));
+                    char[] digits = number.toCharArray();
+                    for(int i = 0; i <= 1; i++)
+                        tempList.add(Character.getNumericValue(digits[i]));
+                }
+                else
+                    tempList.add(sumElements(list.get(j), (list.get(list.size() - 1 - j))));
 
             }
             if(list.size() % 2 != 0) tempList.add(tempList.size(), list.get(midElement));
