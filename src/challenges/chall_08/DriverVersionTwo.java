@@ -15,10 +15,11 @@ public class DriverVersionTwo {
             e.getStackTrace();
         }
     }
+    private static final String pass = "bociany";
 
     DriverVersionTwo(){}
 
-    final private static char[] wordInCharacters = getRandWord.toCharArray();
+    final private static char[] wordInCharacters = pass.toCharArray();
     private static char[] inputFromUser = new char[wordInCharacters.length];
     private static int lives = 7;
     private static int count = 0;
@@ -34,7 +35,9 @@ public class DriverVersionTwo {
     private static void checkIfCorrect(String input, char[] hiddenArr){
         if (input.length() > 1) {
             if (input.equals(getRandWord)) {
-                Dialogs.outputAfterTheGame(true, getRandWord, lives);
+                System.out.println("\t\tBRAWOO Agunia, odgadnelas haslo <33");
+                System.out.println("Nasze piekne bocianki w afryce symbolizujace nasza milosc i sukces w zyciu :)");
+                System.out.println("Wskazowka: Spojrz na tablice i znajdz niepozorny wzor");
             } else {
                 System.out.println("Wrong! It isn't the correct word!\n\t\tGAME OVER!");
             }
@@ -55,12 +58,12 @@ public class DriverVersionTwo {
     private static void checkIfCharacterIsInTheList(char input){
         if(!(list.contains(input)) && presence){
             list.add(input);
-            System.out.println("Wrong guess, try again");
+            System.out.println("Niestety nie :/");
             lives--;
         }
         else if(!(list.contains(input)) && !presence){
             list.add(input);
-            System.out.println("You guessed correct!");
+            System.out.println("Dobry strzal!");
         }
         else{
             System.out.println("This character - \"" + input + "\" has been already used!");
@@ -71,13 +74,12 @@ public class DriverVersionTwo {
 
     private static void printUsedCharacters(int count){
         if(count > 0) {
-            System.out.println("\n\nAlready used characters:");
+            System.out.println("\n\nWykorzystane juz znaki:");
             System.out.println(list);
         }
     }
 
-    private static void showHiddenWord(char[] array )
-    {
+    private static void showHiddenWord(char[] array){
             for(var x : array){
                 System.out.print(x + " ");
             }
@@ -93,30 +95,40 @@ public class DriverVersionTwo {
 
     public static void game(){
         Scanner input = new Scanner(System.in);
-        Dialogs.descriptionOfGame();
+        char hint;
+        //Dialogs.descriptionOfGame();
+        System.out.println("\t\tOdgadnij haslo, a dostaniesz kolejna wskazowke ;)) <3");
         System.out.println();
         hideWord(inputFromUser, inputFromUser.length);
 
         while(true){
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             AnimationOfHangman.hangmanImage(lives);
-            System.out.println("\nWord to guess:");
+            System.out.println("\nHaslo do odgadniecia:");
             showHiddenWord(inputFromUser);
             printUsedCharacters(count);
-            System.out.print("\n\nGuess the character: ");
+            System.out.print("\n\nWpisz literke lub cale slowo: ");
             String guess = input.next().toLowerCase();
             checkIfCorrect(guess, inputFromUser);
             checkIfCharacterIsInTheList(guess.charAt(0));
-            System.out.println("Remaining lives: " + lives);
+            System.out.println("Pozostale zycia: " + lives);
             count++;
             presence = true;
             if(win()) {
-                Dialogs.outputAfterTheGame(true, getRandWord,lives);
+                System.out.println("\t\tBRAWOO Agunia, odgadnelas haslo <33");
+                System.out.println("Nasze piekne bocianki w afryce symbolizujace nasza milosc i sukces w zyciu :)");
+                System.out.println("Wskazowka: Spojrz na tablice i znajdz niepozorny wzor");
                 break;
             }
             else if(lose()) {
                 AnimationOfHangman.hangmanImage(0);
-                Dialogs.outputAfterTheGame(false, getRandWord,lives);
+                System.out.println("Nic sie nie stalo ;), Sprobuj jeszcze raz");
+                System.out.print("Chcesz wskazowke? Wpisz y(yes) lub n(no): ");
+                hint = input.next().charAt(0);
+                if(hint == 'y') System.out.println("Pewne zwierzatka pijace szampana w afryce :D");
+                else {
+                    System.out.println("A wiec nie skracamy drogi hahah");
+                }
                 break;
             }
         }
