@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Sentences {
 
     private static int randomLength() {
-        return ThreadLocalRandom.current().nextInt(7,8);
+        return ThreadLocalRandom.current().nextInt(7,9);
     }
 
     private static void sevenLengthSentence (String noun1, String noun2, String verb, String prep, String adj) {
