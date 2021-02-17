@@ -24,4 +24,8 @@ public class Sentences {
     private static int randomLength() {
         return lengthOfSentence = ThreadLocalRandom.current().nextInt(7,8);
     }
+
+    private static void sevenLengthSentence (String noun, String verb, String prep, String adj, String the) {
+        System.out.println(the + " " + adj + " " + noun + " " + prep + " " + verb + " " + the.toLowerCase() + " " + noun );
+    }
 }
