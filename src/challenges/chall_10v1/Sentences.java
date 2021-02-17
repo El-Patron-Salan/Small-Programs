@@ -28,4 +28,8 @@ public class Sentences {
     private static void sevenLengthSentence (String noun, String verb, String prep, String adj, String the) {
         System.out.println(the + " " + adj + " " + noun + " " + prep + " " + verb + " " + the.toLowerCase() + " " + noun );
     }
+
+    private static void eightLengthSentence (String noun, String verb, String adj1, String prep, String adj2, String the) {
+        System.out.println(the + " " + adj1 + " " + noun + " " + verb + " " + prep + " " + the.toLowerCase() + " " + adj2 + " " + noun );
+    }
 }
