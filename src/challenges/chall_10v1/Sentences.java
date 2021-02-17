@@ -1,6 +1,5 @@
 package challenges.chall_10v1;
 
-import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Sentences {
@@ -11,7 +10,6 @@ public class Sentences {
     final private String prepositionsPath;
 
     static int lengthOfSentence;
-    RandomWords randWords = new RandomWords();
 
     Sentences() {
         theNode = "The";
