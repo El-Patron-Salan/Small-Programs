@@ -1,4 +1,4 @@
-package challenges.chall_10v1;
+package challenges.chall_10;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
