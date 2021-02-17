@@ -28,6 +28,11 @@ public class Sentences {
         String adj2 = randWords.getRandomWord(new File("adjectives.txt"));
         String prep = randWords.getRandomWord(new File("prepositions.txt"));
 
-
+        //since some words in files starts with capitol letter so move them to lower cases
+        String n = noun.toLowerCase();
+        String v = verb.toLowerCase();
+        String a1 = adj1.toLowerCase();
+        String a2 = adj2.toLowerCase();
+        String p = prep.toLowerCase();
     }
 }
