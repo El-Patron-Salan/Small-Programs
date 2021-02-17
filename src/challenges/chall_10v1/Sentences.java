@@ -11,11 +11,11 @@ public class Sentences {
     }
 
     private static void sevenLengthSentence (String noun1, String noun2, String verb, String prep, String adj) {
-        System.out.println("The" + " " + adj + " " + noun1 + " " + prep + " " + verb + " the " + noun2);
+        System.out.println("The" + " " + adj + " " + noun1 + " " + prep + " " + verb + " the " + noun2 + ".");
     }
 
     private static void eightLengthSentence (String noun1, String noun2, String verb, String adj1, String prep, String adj2) {
-        System.out.println("The" + " " + adj1 + " " + noun1 + " " + verb + " " + prep + " the " + adj2 + " " + noun2);
+        System.out.println("The" + " " + adj1 + " " + noun1 + " " + verb + " " + prep + " the " + adj2 + " " + noun2 + ".");
     }
 
     public static void generator() throws FileNotFoundException {
