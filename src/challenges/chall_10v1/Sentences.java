@@ -11,12 +11,12 @@ public class Sentences {
         return lengthOfSentence = ThreadLocalRandom.current().nextInt(7,8);
     }
 
-    private static void sevenLengthSentence (String noun, String verb, String prep, String adj, String the) {
-        System.out.println(the + " " + adj + " " + noun + " " + prep + " " + verb + " " + the.toLowerCase() + " " + noun );
+    private static void sevenLengthSentence (String noun, String verb, String prep, String adj) {
+        System.out.println("The" + " " + adj + " " + noun + " " + prep + " " + verb + " the " + noun );
     }
 
-    private static void eightLengthSentence (String noun, String verb, String adj1, String prep, String adj2, String the) {
-        System.out.println(the + " " + adj1 + " " + noun + " " + verb + " " + prep + " " + the.toLowerCase() + " " + adj2 + " " + noun );
+    private static void eightLengthSentence (String noun, String verb, String adj1, String prep, String adj2) {
+        System.out.println("The" + " " + adj1 + " " + noun + " " + verb + " " + prep + " the " + adj2 + " " + noun );
     }
 
     public static void generator() throws FileNotFoundException {
