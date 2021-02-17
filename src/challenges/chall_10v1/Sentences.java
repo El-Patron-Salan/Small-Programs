@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Sentences {
-    static int lengthOfSentence;
 
     private static int randomLength() {
-        return lengthOfSentence = ThreadLocalRandom.current().nextInt(7,8);
+        return ThreadLocalRandom.current().nextInt(7,8);
     }
 
     private static void sevenLengthSentence (String noun, String verb, String prep, String adj) {
@@ -34,5 +33,10 @@ public class Sentences {
         String a1 = adj1.toLowerCase();
         String a2 = adj2.toLowerCase();
         String p = prep.toLowerCase();
+
+        if(randomLength() == 7)
+            sevenLengthSentence(n, v, p, a1);
+        else
+            eightLengthSentence(n, v, a1, p, a2);
     }
 }
