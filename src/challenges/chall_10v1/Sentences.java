@@ -21,6 +21,13 @@ public class Sentences {
 
     public static void generator() throws FileNotFoundException {
         RandomWords randWords = new RandomWords();
+
         String noun = randWords.getRandomWord(new File("nouns.txt"));
+        String verb = randWords.getRandomWord(new File("verbs.txt"));
+        String adj1 = randWords.getRandomWord(new File("adjectives.txt"));
+        String adj2 = randWords.getRandomWord(new File("adjectives.txt"));
+        String prep = randWords.getRandomWord(new File("prepositions.txt"));
+
+
     }
 }
