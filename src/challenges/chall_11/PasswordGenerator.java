@@ -23,22 +23,17 @@ public class PasswordGenerator {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-
+        int lengthOfPass = 0;
         //variables specifying the complexity of password
         boolean inclSymbols = false;
         boolean inclLowercaseChars = false;
         boolean inclUppercaseChars = false;
         boolean inclNumbers = false;
-
-        System.out.print("Password length from 6 to 128: ");
-        int lengthOfPass = input.nextInt();
-        //loop as long as user make wrong input
-        while(lengthOfPass < 6 || lengthOfPass > 128) {
-            System.out.println("\t\tThe length of password is incorrect!");
-            System.out.print("Make input once again - password length: ");
+        do {
+            System.out.print("Password length from 6 to 128: ");
             lengthOfPass = input.nextInt();
-        }
-
+            //loop as long as user make wrong input
+        }while (lengthOfPass < 6 || lengthOfPass > 128 || !input.hasNextInt());
         //questions about symbols
         inclSymbols = wantsSymbols(input.next().charAt(0), "symbols", "$,#,@ etc.");
         //lowercaseCharacters
@@ -47,5 +42,7 @@ public class PasswordGenerator {
         inclUppercaseChars = wantsSymbols(input.next().charAt(0), "uppercase characters", "A,B,C...");
         //numbers
         inclNumbers = wantsSymbols(input.next().charAt(0), "numbers", "0,1,2,3...");
+
+
     }
 }
