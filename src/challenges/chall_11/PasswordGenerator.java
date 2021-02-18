@@ -20,7 +20,7 @@ public class PasswordGenerator {
         Scanner input = new Scanner(System.in);
         System.out.print("Password length from 6 to 128: ");
         int lengthOfPass = input.nextInt();
-        //loop as long as user make correct input
+        //loop as long as user make wrong input
         while(lengthOfPass < 6 || lengthOfPass > 128) {
             System.out.println("\t\tThe length of password is incorrect!");
             System.out.print("Make input once again - password length: ");
