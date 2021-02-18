@@ -18,6 +18,12 @@ public class PasswordGenerator {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        //variables specifying the complexity of password
+        boolean inclSymbols = false;
+        boolean inclLowercaseChars = false;
+        boolean inclUppercaseChars = false;
+        boolean inclNumbers = false;
+
         System.out.print("Password length from 6 to 128: ");
         int lengthOfPass = input.nextInt();
         //loop as long as user make wrong input
@@ -28,6 +34,5 @@ public class PasswordGenerator {
         }
 
         //questions about symbols
-
     }
 }
