@@ -27,10 +27,7 @@ public class PasswordGenerator {
         Scanner input = new Scanner(System.in);
         int lengthOfPass = 0;
         //variables specifying the complexity of password
-        boolean inclSymbols = false;
-        boolean inclLowercaseChars = false;
-        boolean inclUppercaseChars = false;
-        boolean inclNumbers = false;
+        boolean inclSymbols, inclLowercaseChars, inclUppercaseChars, inclNumbers;
 
         while (true) {
             System.out.print("Password length from 6 to 128: ");
@@ -51,6 +48,5 @@ public class PasswordGenerator {
         inclUppercaseChars = wantsSymbols("uppercase characters", "A,B,C...");
         //numbers
         inclNumbers = wantsSymbols("numbers", "0,1,2,3...");
-
     }
 }
