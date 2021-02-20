@@ -49,4 +49,9 @@ public class PasswordGenerator {
         //numbers
         inclNumbers = wantsSymbols("numbers", "0,1,2,3...");
     }
+    /*TO-DO:
+    -learn REGEX
+    -try to implement it somehow
+
+     */
 }
