@@ -29,11 +29,17 @@ public class PasswordGenerator {
         boolean inclLowercaseChars = false;
         boolean inclUppercaseChars = false;
         boolean inclNumbers = false;
-        do {
+
+        while (true) {
             System.out.print("Password length from 6 to 128: ");
             lengthOfPass = input.nextInt();
-            //loop as long as user make wrong input
-        }while (lengthOfPass < 6 || lengthOfPass > 128 || !input.hasNextInt());
+            if (lengthOfPass >= 6 && lengthOfPass <= 128) {
+                break;
+            }
+            else {
+                System.out.println("Try again");
+            }
+        }
         //questions about symbols
         inclSymbols = wantsSymbols(input.next().charAt(0), "symbols", "$,#,@ etc.");
         //lowercaseCharacters
