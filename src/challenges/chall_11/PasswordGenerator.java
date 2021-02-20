@@ -16,8 +16,10 @@ public class PasswordGenerator {
     private final int [] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     //methods asking about external symbols
-    private static boolean wantsSymbols(char in, String kind, String example) {
+    private static boolean wantsSymbols(String kind, String example) {
+        Scanner input = new Scanner(System.in);
         System.out.print("Do you want " + kind + " in password like " + example + "?(Y/N) ");
+        char in = input.next().charAt(0);
         return in == 'Y' || in == 'y';
     }
 
@@ -40,15 +42,15 @@ public class PasswordGenerator {
                 System.out.println("Try again");
             }
         }
+        System.out.println();
         //questions about symbols
-        inclSymbols = wantsSymbols(input.next().charAt(0), "symbols", "$,#,@ etc.");
+        inclSymbols = wantsSymbols("symbols", "$,#,@ etc.");
         //lowercaseCharacters
-        inclLowercaseChars = wantsSymbols(input.next().charAt(0), "lowercase characters", "a,b,c...");
+        inclLowercaseChars = wantsSymbols("lowercase characters", "a,b,c...");
         //uppercaseCharacters
-        inclUppercaseChars = wantsSymbols(input.next().charAt(0), "uppercase characters", "A,B,C...");
+        inclUppercaseChars = wantsSymbols("uppercase characters", "A,B,C...");
         //numbers
-        inclNumbers = wantsSymbols(input.next().charAt(0), "numbers", "0,1,2,3...");
-
+        inclNumbers = wantsSymbols("numbers", "0,1,2,3...");
 
     }
 }
