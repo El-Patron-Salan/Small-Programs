@@ -24,8 +24,12 @@ public class PasswordGenerator {
     }
 
     private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
+        StringBuilder sb = new StringBuilder();
+
         if(!(inclLower == inclNumbers == inclUpper == inclSymbols))
             System.out.println("You've to at least include one type of symbol");
+
+
     }
 
     public static void main(String[] args) {
