@@ -25,9 +25,18 @@ public class PasswordGenerator {
     }
 
     //return random value from specified array
-    private static String randValue(char[] arr) {
+    private static char randValue(char[] arr) {
         Random rand = new Random();
-        return String.valueOf(arr[rand.nextInt(arr.length)]);
+        return arr[rand.nextInt(arr.length)];
+    }
+
+    //combine the random values
+    private static char[] combineRandomValues(int length, char [] array) {
+        char [] returnedArray = new char[length];
+        for(int i = 0; i < length; ++i) {
+            returnedArray[i] = randValue(array);
+        }
+        return returnedArray;
     }
 
     private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
