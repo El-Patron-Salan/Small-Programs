@@ -1,6 +1,7 @@
 package challenges.chall_11;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class PasswordGenerator {
     //arrays with optional symbols
@@ -21,6 +22,12 @@ public class PasswordGenerator {
         System.out.print("Do you want " + kind + " in password like " + example + "?(Y/N) ");
         char in = input.next().charAt(0);
         return in == 'Y' || in == 'y';
+    }
+
+    //return random value from specified array
+    private static String randValue(char[] arr) {
+        Random rand = new Random();
+        return String.valueOf(arr[rand.nextInt(arr.length)]);
     }
 
     private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
