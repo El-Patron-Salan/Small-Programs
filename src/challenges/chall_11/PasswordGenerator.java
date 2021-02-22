@@ -41,6 +41,11 @@ public class PasswordGenerator {
         return returnedArray;
     }
 
+    //combine arrays
+    private static char[] combineArrays(char[]arr1, char[]arr2, char[]arr3, char[]arr4) {
+        return Stream.concat(Arrays.stream(new char[][]{arr1}), Arrays.stream(new char[][]{arr2})).toArray( :: new);
+    }
+
     private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
         StringBuilder sb = new StringBuilder();
 
