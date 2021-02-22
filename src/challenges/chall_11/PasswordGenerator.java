@@ -1,7 +1,9 @@
 package challenges.chall_11;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class PasswordGenerator {
     //arrays with optional symbols
