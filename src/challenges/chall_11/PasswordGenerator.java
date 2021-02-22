@@ -23,6 +23,11 @@ public class PasswordGenerator {
         return in == 'Y' || in == 'y';
     }
 
+    private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
+        if(!(inclLower == inclNumbers == inclUpper == inclSymbols))
+            System.out.println("You've to at least include one type of symbol");
+    }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int lengthOfPass = 0;
