@@ -80,23 +80,21 @@ public class PasswordGenerator {
         char upperBool = String.valueOf(inclUpper).toLowerCase().charAt(0);
         char numbersBool = String.valueOf(inclNumbers).toLowerCase().charAt(0);
 
-        if(!(inclLower == inclNumbers == inclUpper == inclSymbols))
+        if(!inclLower && !inclNumbers && !inclUpper && !inclSymbols) {
             System.out.println("You've to at least include one type of symbol");
+            System.exit(0);
+        }
 
         if(symbolsBool == 't') {
-            sArray = new char[length];
             sArray = combineRandomValues(length, obj.symbols);
         }
         if(lowerBool == 't') {
-            lArray = new char[length];
             lArray = combineRandomValues(length, obj.lowerCaseChars);
         }
         if(upperBool == 't') {
-            uArray = new char[length];
             uArray = combineRandomValues(length, obj.upperCaseChars);
         }
         if(numbersBool == 't') {
-            nArray = new char[length];
             nArray = combineRandomValues(length, obj.numbers);
         }
 
@@ -111,7 +109,7 @@ public class PasswordGenerator {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int lengthOfPass = 0;
+        int lengthOfPass;
         //variables specifying the complexity of password
         boolean inclSymbols, inclLowercaseChars, inclUppercaseChars, inclNumbers;
 
