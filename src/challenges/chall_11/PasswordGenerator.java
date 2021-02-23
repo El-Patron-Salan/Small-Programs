@@ -43,11 +43,24 @@ public class PasswordGenerator {
 
     //combine arrays
     private static char[] combineArrays(char[]arr1, char[]arr2, char[]arr3, char[]arr4) {
-        return Stream.concat(Arrays.stream(new char[][]{arr1}), Arrays.stream(new char[][]{arr2})).toArray( :: new);
+        StringBuilder sb = new StringBuilder();
+        if(arr1.length > 0)
+            sb.append(arr1);
+        if(arr2.length > 0)
+            sb.append(arr2);
+        if(arr3.length > 0)
+            sb.append(arr3);
+        if(arr4.length > 0)
+            sb.append(arr4);
+        return sb.toString().toCharArray();
     }
 
     private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
-        StringBuilder sb = new StringBuilder();
+        //take first letters of bool
+        char symbols = String.valueOf(inclSymbols).charAt(0);
+        char lower = String.valueOf(inclLower).charAt(0);
+        char upper = String.valueOf(inclUpper).charAt(0);
+        char numbers = String.valueOf(inclNumbers).charAt(0);
 
         if(!(inclLower == inclNumbers == inclUpper == inclSymbols))
             System.out.println("You've to at least include one type of symbol");
