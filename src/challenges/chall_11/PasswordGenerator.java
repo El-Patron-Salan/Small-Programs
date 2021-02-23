@@ -135,7 +135,8 @@ public class PasswordGenerator {
         //numbers
         inclNumbers = wantsSymbols("numbers", "0,1,2,3...");
 
-
+        //initialize and output password
+        String password = generatePassword(inclSymbols, inclLowercaseChars, inclUppercaseChars, inclNumbers, lengthOfPass);
     }
     /*TO-DO:
     -learn REGEX
