@@ -103,6 +103,9 @@ public class PasswordGenerator {
         //combine array 4 arrays from before
         char[] combinedArray = combineArrays(sArray, lArray, uArray, nArray);
 
+        for(int i = 0; i < length; ++i)
+            sb.append(pickRandomValuesFromLongArray(combinedArray));
+
     }
 
     public static void main(String[] args) {
