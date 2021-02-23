@@ -106,6 +106,7 @@ public class PasswordGenerator {
         for(int i = 0; i < length; ++i)
             sb.append(pickRandomValuesFromLongArray(combinedArray));
 
+        return sb.toString();
     }
 
     public static void main(String[] args) {
