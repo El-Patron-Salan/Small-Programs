@@ -65,6 +65,9 @@ public class PasswordGenerator {
         //created object to use the arrays with values
         PasswordGenerator obj = new PasswordGenerator();
 
+        //using string builder to create password
+        StringBuilder sb = new StringBuilder();
+
         //arrays for random values
         char [] sArray = new char[0];
         char [] lArray = new char[0];
