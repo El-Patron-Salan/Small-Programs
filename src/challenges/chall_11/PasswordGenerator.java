@@ -2,6 +2,7 @@ package challenges.chall_11;
 
 import java.util.Scanner;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PasswordGenerator {
     //arrays with optional symbols
@@ -53,6 +54,12 @@ public class PasswordGenerator {
         return sb.toString().toCharArray();
     }
 
+    //from long array take random value
+    private static char pickRandomValuesFromLongArray(char[] longArray) {
+        int randomNumber = ThreadLocalRandom.current().nextInt(0, longArray.length);
+        return longArray[randomNumber];
+    }
+
     private static String generatePassword(boolean inclSymbols, boolean inclLower,
                                            boolean inclUpper, boolean inclNumbers, int length) {
         //created object to use the arrays with values
@@ -89,6 +96,9 @@ public class PasswordGenerator {
             nArray = new char[length];
             nArray = combineRandomValues(length, obj.numbers);
         }
+
+        //combine array 4 arrays from before
+        char[] combinedArray = combineArrays(sArray, lArray, uArray, nArray);
 
     }
 
