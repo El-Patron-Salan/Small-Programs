@@ -55,7 +55,14 @@ public class PasswordGenerator {
 
     private static String generatePassword(boolean inclSymbols, boolean inclLower,
                                            boolean inclUpper, boolean inclNumbers, int length) {
+        //created object to use the arrays with values
         PasswordGenerator obj = new PasswordGenerator();
+
+        //arrays for random values
+        char [] sArray = new char[0];
+        char [] lArray = new char[0];
+        char [] uArray = new char[0];
+        char [] nArray = new char[0];
 
         //take first letters of bool
         char symbolsBool = String.valueOf(inclSymbols).toLowerCase().charAt(0);
@@ -65,14 +72,23 @@ public class PasswordGenerator {
 
         if(!(inclLower == inclNumbers == inclUpper == inclSymbols))
             System.out.println("You've to at least include one type of symbol");
-        if(symbolsBool == 't')
-            combineRandomValues(length, obj.symbols);
-        if(lowerBool == 't')
-            combineRandomValues(length, obj.lowerCaseChars);
-        if(upperBool == 't')
-            combineRandomValues(length, obj.upperCaseChars);
-        if(numbersBool == 't')
-            combineRandomValues(length, obj.numbers);
+
+        if(symbolsBool == 't') {
+            sArray = new char[length];
+            sArray = combineRandomValues(length, obj.symbols);
+        }
+        if(lowerBool == 't') {
+            lArray = new char[length];
+            lArray = combineRandomValues(length, obj.lowerCaseChars);
+        }
+        if(upperBool == 't') {
+            uArray = new char[length];
+            uArray = combineRandomValues(length, obj.upperCaseChars);
+        }
+        if(numbersBool == 't') {
+            nArray = new char[length];
+            nArray = combineRandomValues(length, obj.numbers);
+        }
 
     }
 
