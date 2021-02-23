@@ -1,9 +1,7 @@
 package challenges.chall_11;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class PasswordGenerator {
     //arrays with optional symbols
@@ -55,16 +53,26 @@ public class PasswordGenerator {
         return sb.toString().toCharArray();
     }
 
-    private static String generatePassword(boolean inclSymbols, boolean inclLower, boolean inclUpper, boolean inclNumbers) {
+    private static String generatePassword(boolean inclSymbols, boolean inclLower,
+                                           boolean inclUpper, boolean inclNumbers, int length) {
+        PasswordGenerator obj = new PasswordGenerator();
+
         //take first letters of bool
-        char symbols = String.valueOf(inclSymbols).charAt(0);
-        char lower = String.valueOf(inclLower).charAt(0);
-        char upper = String.valueOf(inclUpper).charAt(0);
-        char numbers = String.valueOf(inclNumbers).charAt(0);
+        char symbolsBool = String.valueOf(inclSymbols).toLowerCase().charAt(0);
+        char lowerBool = String.valueOf(inclLower).toLowerCase().charAt(0);
+        char upperBool = String.valueOf(inclUpper).toLowerCase().charAt(0);
+        char numbersBool = String.valueOf(inclNumbers).toLowerCase().charAt(0);
 
         if(!(inclLower == inclNumbers == inclUpper == inclSymbols))
             System.out.println("You've to at least include one type of symbol");
-
+        if(symbolsBool == 't')
+            combineRandomValues(length, obj.symbols);
+        if(lowerBool == 't')
+            combineRandomValues(length, obj.lowerCaseChars);
+        if(upperBool == 't')
+            combineRandomValues(length, obj.upperCaseChars);
+        if(numbersBool == 't')
+            combineRandomValues(length, obj.numbers);
 
     }
 
