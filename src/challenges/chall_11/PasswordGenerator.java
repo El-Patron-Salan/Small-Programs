@@ -137,6 +137,7 @@ public class PasswordGenerator {
 
         //initialize and output password
         String password = generatePassword(inclSymbols, inclLowercaseChars, inclUppercaseChars, inclNumbers, lengthOfPass);
+        System.out.printf("\n%s", password);
     }
     /*TO-DO:
     -learn REGEX
