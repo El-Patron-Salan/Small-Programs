@@ -5,7 +5,7 @@ import java.util.Random;
 import java.lang.IllegalArgumentException;
 
 public class PasswordGenerator {
-    /*
+    /**
      * Arrays with optional symbols
      */
     private final char [] SYMBOLS = {'~', '`', '!', '@', '#' , '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+',
@@ -19,11 +19,11 @@ public class PasswordGenerator {
 
     private final char [] NUMBERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-    /*
+    /**
      * Method asking about external symbols
      *
-     * @param String kind to input kind of symbol
-     * @param String example to show what it looks like
+     * @param kind     The kind of symbol
+     * @param example   The example to show what it looks like
      * @return true if user type 'Y' or 'y' and remain false if he doesn't
      */
     private static boolean wantsSymbols(String kind, String example) {
@@ -33,10 +33,10 @@ public class PasswordGenerator {
         return in == 'Y' || in == 'y';
     }
 
-    /*
+    /**
      * Return random value from specified array
      *
-     * @param arr character array to draw character from
+     * @param arr   The char array to draw character from
      * @return a random character from the specified array
      */
     private static char randValue(char[] arr) {
@@ -44,11 +44,11 @@ public class PasswordGenerator {
         return arr[rand.nextInt(arr.length)];
     }
 
-    /*
+    /**
      * Combine the random values
      *
-     * @param int length of given array
-     * @param arr character array to get values from it
+     * @param length    The length of given array
+     * @param array     The array to get values from
      * @return an array with random values from the other array
      */
     private static char[] combineRandomValues(int length, char [] array) {
@@ -59,13 +59,13 @@ public class PasswordGenerator {
         return returnedArray;
     }
 
-    /*
+    /**
      * Combine arrays if they are not empty
      *
-     * @param arr character first array to take every value from it
-     * @param arr character second array to take every value from it
-     * @param arr character third array to take every value from it
-     * @param arr character fourth array to take every value from it
+     * @param arr1 character first array to take every value from it
+     * @param arr2 character second array to take every value from it
+     * @param arr3 character third array to take every value from it
+     * @param arr4 character fourth array to take every value from it
      * @return the character array with the values of other arrays if they are not empty
      */
     private static char[] combineArrays(char[]arr1, char[]arr2, char[]arr3, char[]arr4) {
@@ -85,14 +85,14 @@ public class PasswordGenerator {
         return sb.toString().toCharArray();
     }
 
-    /*
+    /**
      * Generate password based on user requirements
      * or give illegal argument exception if user won't include any kind of symbol
      *
-     * @param boolean to include symbols or not
-     * @param boolean to include lower case characters or not
-     * @param boolean to include upper case characters or not
-     * @param boolean to include numbers or not
+     * @param inclSymbols   The boolean to include symbols or not
+     * @param inclLower   The boolean to include lower case characters or not
+     * @param inclUpper   The boolean to include upper case characters or not
+     * @param inclNumbers   The boolean to include numbers or not
      * @return a string that contains custom generated password
      */
     private static String generatePassword (boolean inclSymbols, boolean inclLower,
