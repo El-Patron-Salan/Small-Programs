@@ -21,8 +21,9 @@ public class PasswordGenerator {
 
     /*
      * Method asking about external symbols
-     * @param var String kind to input kind of symbol
-     * @param var String example to show what it looks like
+     *
+     * @param String kind to input kind of symbol
+     * @param String example to show what it looks like
      * @return true if user type 'Y' or 'y' and remain false if he doesn't
      */
     private static boolean wantsSymbols(String kind, String example) {
@@ -34,6 +35,7 @@ public class PasswordGenerator {
 
     /*
      * Return random value from specified array
+     *
      * @param arr character array to draw character from
      * @return a random character from the specified array
      */
@@ -44,7 +46,8 @@ public class PasswordGenerator {
 
     /*
      * Combine the random values
-     * @param var int length of given array
+     *
+     * @param int length of given array
      * @param arr character array to get values from it
      * @return an array with random values from the other array
      */
@@ -58,6 +61,7 @@ public class PasswordGenerator {
 
     /*
      * Combine arrays if they are not empty
+     *
      * @param arr character first array to take every value from it
      * @param arr character second array to take every value from it
      * @param arr character third array to take every value from it
@@ -77,12 +81,16 @@ public class PasswordGenerator {
         return sb.toString().toCharArray();
     }
 
-//    //from long array take random value
-//    private static char pickRandomValuesFromLongArray(char[] longArray) {
-//        int randomNumber = ThreadLocalRandom.current().nextInt(0, longArray.length);
-//        return longArray[randomNumber];
-//    }
-
+    /*
+     * Generate password based on user requirements
+     * or give illegal argument exception if user won't include any kind of symbol
+     *
+     * @param boolean to include symbols or not
+     * @param boolean to include lower case characters or not
+     * @param boolean to include upper case characters or not
+     * @param boolean to include numbers or not
+     * @return a string that contains custom generated password
+     */
     private static String generatePassword (boolean inclSymbols, boolean inclLower,
                                            boolean inclUpper, boolean inclNumbers, int length) {
         //created object to use the arrays with values
@@ -113,7 +121,7 @@ public class PasswordGenerator {
             throw new IllegalArgumentException("You've to at least include one type of a symbol");
         }
 
-        //combine array 4 arrays from before
+        //combine four arrays into one
         char[] combinedArray = combineArrays(sArray, lArray, uArray, nArray);
 
         for(int i = 0; i < length; ++i)
