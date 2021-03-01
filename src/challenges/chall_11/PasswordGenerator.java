@@ -109,8 +109,8 @@ public class PasswordGenerator {
         if(inclNumbers) {
             nArray = combineRandomValues(length, obj.NUMBERS);
         }
-        else {
-            throw new IllegalArgumentException("You've to at least include one type of symbol");
+        if(!inclLower && !inclNumbers && !inclUpper && !inclSymbols) {
+            throw new IllegalArgumentException("You've to at least include one type of a symbol");
         }
 
         //combine array 4 arrays from before
