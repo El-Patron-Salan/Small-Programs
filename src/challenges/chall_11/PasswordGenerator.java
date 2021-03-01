@@ -2,6 +2,7 @@ package challenges.chall_11;
 
 import java.util.Scanner;
 import java.util.Random;
+import java.lang.IllegalArgumentException;
 
 public class PasswordGenerator {
     /*
@@ -82,7 +83,7 @@ public class PasswordGenerator {
 //        return longArray[randomNumber];
 //    }
 
-    private static String generatePassword(boolean inclSymbols, boolean inclLower,
+    private static String generatePassword (boolean inclSymbols, boolean inclLower,
                                            boolean inclUpper, boolean inclNumbers, int length) {
         //created object to use the arrays with values
         PasswordGenerator obj = new PasswordGenerator();
@@ -96,11 +97,6 @@ public class PasswordGenerator {
         char [] uArray = new char[0];
         char [] nArray = new char[0];
 
-        if(!inclLower && !inclNumbers && !inclUpper && !inclSymbols) {
-            System.out.println("You've to at least include one type of symbol");
-            System.exit(0);
-        }
-
         if(inclSymbols) {
             sArray = combineRandomValues(length, obj.SYMBOLS);
         }
@@ -112,6 +108,9 @@ public class PasswordGenerator {
         }
         if(inclNumbers) {
             nArray = combineRandomValues(length, obj.NUMBERS);
+        }
+        else {
+            throw new IllegalArgumentException("You've to at least include one type of symbol");
         }
 
         //combine array 4 arrays from before
