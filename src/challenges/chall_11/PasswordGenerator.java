@@ -62,10 +62,10 @@ public class PasswordGenerator {
     /**
      * Combine arrays if they are not empty
      *
-     * @param arr1 character first array to take every value from it
-     * @param arr2 character second array to take every value from it
-     * @param arr3 character third array to take every value from it
-     * @param arr4 character fourth array to take every value from it
+     * @param arr1     The first array to take every value from it
+     * @param arr2     The second array to take every value from it
+     * @param arr3     The third array to take every value from it
+     * @param arr4     The fourth array to take every value from it
      * @return the character array with the values of other arrays if they are not empty
      */
     private static char[] combineArrays(char[]arr1, char[]arr2, char[]arr3, char[]arr4) {
