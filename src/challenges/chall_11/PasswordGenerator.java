@@ -7,16 +7,16 @@ public class PasswordGenerator {
     /*
      * Arrays with optional symbols
      */
-    private final char [] symbols = {'~', '`', '!', '@', '#' , '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+',
+    private final char [] SYMBOLS = {'~', '`', '!', '@', '#' , '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+',
             '[', '{', ']', '}', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>', '/', '?'};
 
-    private final char [] lowerCaseChars = {'a' , 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+    private final char [] LOWERCASECHARS = {'a' , 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
             'p', 'q' , 'r', 's', 't', 'u', 'v', 'w', 'x', 'y' , 'z'};
 
-    private final char [] upperCaseChars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+    private final char [] UPPERCASECHARS = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
             'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
-    private final char [] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    private final char [] NUMBERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     /*
      * Method asking about external symbols
@@ -102,16 +102,16 @@ public class PasswordGenerator {
         }
 
         if(inclSymbols) {
-            sArray = combineRandomValues(length, obj.symbols);
+            sArray = combineRandomValues(length, obj.SYMBOLS);
         }
         if(inclLower) {
-            lArray = combineRandomValues(length, obj.lowerCaseChars);
+            lArray = combineRandomValues(length, obj.LOWERCASECHARS);
         }
         if(inclUpper) {
-            uArray = combineRandomValues(length, obj.upperCaseChars);
+            uArray = combineRandomValues(length, obj.UPPERCASECHARS);
         }
         if(inclNumbers) {
-            nArray = combineRandomValues(length, obj.numbers);
+            nArray = combineRandomValues(length, obj.NUMBERS);
         }
 
         //combine array 4 arrays from before
