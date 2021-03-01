@@ -2,7 +2,6 @@ package challenges.chall_11;
 
 import java.util.Scanner;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class PasswordGenerator {
     /*
@@ -97,27 +96,21 @@ public class PasswordGenerator {
         char [] uArray = new char[0];
         char [] nArray = new char[0];
 
-        //take first letters of bool
-        char symbolsBool = String.valueOf(inclSymbols).toLowerCase().charAt(0);
-        char lowerBool = String.valueOf(inclLower).toLowerCase().charAt(0);
-        char upperBool = String.valueOf(inclUpper).toLowerCase().charAt(0);
-        char numbersBool = String.valueOf(inclNumbers).toLowerCase().charAt(0);
-
         if(!inclLower && !inclNumbers && !inclUpper && !inclSymbols) {
             System.out.println("You've to at least include one type of symbol");
             System.exit(0);
         }
 
-        if(symbolsBool == 't') {
+        if(inclSymbols) {
             sArray = combineRandomValues(length, obj.symbols);
         }
-        if(lowerBool == 't') {
+        if(inclLower) {
             lArray = combineRandomValues(length, obj.lowerCaseChars);
         }
-        if(upperBool == 't') {
+        if(inclUpper) {
             uArray = combineRandomValues(length, obj.upperCaseChars);
         }
-        if(numbersBool == 't') {
+        if(inclNumbers) {
             nArray = combineRandomValues(length, obj.numbers);
         }
 
