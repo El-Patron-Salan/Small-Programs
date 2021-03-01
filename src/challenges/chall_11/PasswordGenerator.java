@@ -70,14 +70,18 @@ public class PasswordGenerator {
      */
     private static char[] combineArrays(char[]arr1, char[]arr2, char[]arr3, char[]arr4) {
         StringBuilder sb = new StringBuilder();
-        if(arr1.length > 0)
+        if(arr1.length > 0) {
             sb.append(arr1);
-        if(arr2.length > 0)
+        }
+        if(arr2.length > 0) {
             sb.append(arr2);
-        if(arr3.length > 0)
+        }
+        if(arr3.length > 0) {
             sb.append(arr3);
-        if(arr4.length > 0)
+        }
+        if(arr4.length > 0) {
             sb.append(arr4);
+        }
         return sb.toString().toCharArray();
     }
 
