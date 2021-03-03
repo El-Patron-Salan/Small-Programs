@@ -10,7 +10,7 @@ public class LocalTimeClock {
      * @param time  The object to take local time from
      * @return an hour in integer
      */
-    private int hour(LocalDateTime time) {
+    protected int hour(LocalDateTime time) {
         return time.getHour();
     }
     /**
@@ -19,7 +19,7 @@ public class LocalTimeClock {
      * @param time  The object to take local time from
      * @return the minutes in integer accomplish
      */
-    private int minutes(LocalDateTime time) {
+    protected int minutes(LocalDateTime time) {
         return time.getMinute();
     }
 
@@ -29,7 +29,7 @@ public class LocalTimeClock {
      * @param time  The object to take local seconds
      * @return a float number with seconds
      */
-    private float seconds(LocalDateTime time) {
+    protected float seconds(LocalDateTime time) {
         float seconds = time.getSecond();
         float fraction = time.getNano() / 1_000000000f;
         return seconds + fraction;
