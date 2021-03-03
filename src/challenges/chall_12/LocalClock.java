@@ -7,4 +7,5 @@ interface LocalClock {
     int localHours(LocalTime time);
     int localMinutes(LocalTime time);
     float localSeconds(LocalTime time);
+
 }
