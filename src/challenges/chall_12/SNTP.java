@@ -23,6 +23,12 @@ public class SNTP {
         return time.getMinute();
     }
 
+    /**
+     * Calculate seconds as a float from an object
+     *
+     * @param time  The object to take local seconds
+     * @return a float number with seconds
+     */
     private float seconds(LocalDateTime time) {
         float seconds = time.getSecond();
         float fraction = time.getNano() / 1_000000000f;
