@@ -15,7 +15,7 @@ class LocalTimeClock implements LocalClock{
     @Override
     public String showActualDate(LocalDateTime date) {
         date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss.S [a]");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd-MM-yyyy hh:mm:ss.S(a)");
         return formatter.format(date);
     }
 
