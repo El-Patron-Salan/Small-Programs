@@ -17,7 +17,7 @@ public class SNTP {
         //and UTC time
         ClockTimeUTC utc = new ClockTimeUTC();
 
-        //hours and minutes - local and UTC
+        //initialized hours and minutes - local and UTC
         int localHour = local.localHours(localComputerTime);
         int localMinute = local.localMinutes(localComputerTime);
         int utcHour = utc.utcHours(utcDateTime);
@@ -25,6 +25,7 @@ public class SNTP {
 
         System.out.println(local.showActualDate(localComputerTime));
         compareHoursMinutes(localHour, localMinute, utcHour, utcMinute);
+
     }
 
     private static void compareHoursMinutes(int localHours, int localMinutes,
@@ -34,13 +35,28 @@ public class SNTP {
         int compareMinutes = utcMinutes - localMinutes;
 
         if(compareHours > 0) {
-            System.out.printf("\n(+%02d%02d)", compareHours, compareMinutes);
+            System.out.printf("   (+%02d%02d)", compareHours, compareMinutes);
         }
         else if(utcHours == localHours) {
-            System.out.println("(0000)");
+            System.out.print("   (0000)");
         }
         else {
-            System.out.printf("\n(%02d%02d)", compareHours, compareMinutes);
+            System.out.printf("   (%02d%02d)", compareHours, compareMinutes);
+        }
+    }
+
+    private static void compareSeconds(float localSeconds, float utcSeconds) {
+
+        float compare = utcSeconds - localSeconds;
+
+        if(compare > 0) {
+            System.out.printf("   +%f", compare);
+        }
+        else if(utcSeconds == localSeconds) {
+            System.out.print("   00.00");
+        }
+        else {
+            System.out.printf("   %f", compare);
         }
     }
 }
