@@ -1,5 +1,6 @@
 package challenges.chall_12;
 
+import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
@@ -62,6 +63,15 @@ public class SNTP {
         }
         else {
             System.out.printf("   %f", compare);
+        }
+    }
+
+    private static void wantsDescription() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nDo you want to see description (Y/N)  ");
+        char yup = scanner.next().charAt(0);
+        if(yup == 'Y' || yup == 'y') {
+            Description desc = new Description();
         }
     }
 }
