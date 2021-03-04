@@ -32,6 +32,7 @@ public class SNTP {
         System.out.println(localClockObj.showActualDate(localComputerTime));
         compareHoursMinutes(localHour, localMinute, utcHour, utcMinute);
         compareSeconds(localSeconds, utcSeconds);
+        wantsDescription();
     }
 
     private static void compareHoursMinutes(int localHours, int localMinutes,
