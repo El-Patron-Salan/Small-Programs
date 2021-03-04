@@ -1,7 +1,9 @@
 package challenges.chall_12;
 
-import java.time.LocalDateTime;
-
 public class SNTP {
 
+    public static void main(String[] args) {
+        //take specified values
+        LocalTimeClock local = new LocalTimeClock();
+    }
 }
