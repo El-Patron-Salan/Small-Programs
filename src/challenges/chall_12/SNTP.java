@@ -89,7 +89,7 @@ public class SNTP {
         System.out.print("\nDo you want to see description (Y/N)  ");
         char yup = scanner.next().charAt(0);
         if(yup == 'Y' || yup == 'y') {
-            Description desc = new Description();
+            new Description();
         }
     }
 }
