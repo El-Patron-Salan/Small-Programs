@@ -6,6 +6,6 @@ interface ClockUTC {
 
     int utcHours(OffsetDateTime time);
     int utcMinutes(OffsetDateTime time);
-    int utcSeconds(OffsetDateTime time);
+    float utcSeconds(OffsetDateTime time);
 
 }
