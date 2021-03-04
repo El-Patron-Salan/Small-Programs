@@ -1,8 +1,18 @@
 package challenges.chall_12;
 
 import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class LocalTimeClock implements LocalClock{
+
+
+    @Override
+    public String showActualDate(LocalDateTime date) {
+        date = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss.S [a]");
+        return formatter.format(date);
+    }
 
     /**
      * Get hour from object
