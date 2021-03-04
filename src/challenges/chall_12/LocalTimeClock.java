@@ -6,7 +6,12 @@ import java.time.format.DateTimeFormatter;
 
 class LocalTimeClock implements LocalClock{
 
-
+    /**
+     * Output actual day in specified format
+     *
+     * @param date  The object to take date and time from
+     * @return a String with specified format of date and time
+     */
     @Override
     public String showActualDate(LocalDateTime date) {
         date = LocalDateTime.now();
