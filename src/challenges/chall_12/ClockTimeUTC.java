@@ -14,4 +14,15 @@ class ClockTimeUTC implements ClockUTC{
     public int utcHours(OffsetDateTime time) {
         return time.getHour();
     }
+
+    /**
+     * Get minutes from ZonedDateTime
+     *
+     * @param time  The object to take UTC time
+     * @return the minutes of UTC time
+     */
+    @Override
+    public int utcMinutes(OffsetDateTime time) {
+        return time.getMinute();
+    }
 }
