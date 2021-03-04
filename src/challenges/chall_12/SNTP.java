@@ -69,13 +69,10 @@ public class SNTP {
         float compare = utcSeconds - localSeconds;
 
         if(compare > 0) {
-            System.out.printf("   +%f", compare);
-        }
-        else if(utcSeconds == localSeconds) {
-            System.out.print("   00.00");
+            System.out.printf("   +%.4f", compare);
         }
         else {
-            System.out.printf("   %f", compare);
+            System.out.printf("   %.4f", compare);
         }
     }
 
