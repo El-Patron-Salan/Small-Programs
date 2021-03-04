@@ -35,6 +35,14 @@ public class SNTP {
         wantsDescription();
     }
 
+    /**
+     * Compares seconds and minutes between local and UTC clocks
+     *
+     * @param localHours    The integer with hour of local
+     * @param localMinutes  The integer with minute of local
+     * @param utcHours  The integer with hour of UTC
+     * @param utcMinutes    The integer with minute of UTC
+     */
     private static void compareHoursMinutes(int localHours, int localMinutes,
                                               int utcHours, int utcMinutes) {
 
@@ -52,6 +60,12 @@ public class SNTP {
         }
     }
 
+    /**
+     * Compares seconds between local and UTC clocks
+     *
+     * @param localSeconds  The float with local seconds
+     * @param utcSeconds    The float with UTC seconds
+     */
     private static void compareSeconds(float localSeconds, float utcSeconds) {
 
         float compare = utcSeconds - localSeconds;
@@ -67,6 +81,9 @@ public class SNTP {
         }
     }
 
+    /**
+     * Provide short description of program
+     */
     private static void wantsDescription() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nDo you want to see description (Y/N)  ");
