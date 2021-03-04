@@ -1,5 +1,6 @@
 package challenges.chall_12;
 
+import java.time.ZoneOffset;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
@@ -10,7 +11,7 @@ public class SNTP {
 
         //initialized objects
         LocalDateTime localComputerTime = LocalDateTime.now();
-        OffsetDateTime utcDateTime = OffsetDateTime.now();
+        OffsetDateTime utcDateTime = OffsetDateTime.now(ZoneOffset.UTC);
 
 
         //take specified values of local time
@@ -29,7 +30,7 @@ public class SNTP {
         float utcSeconds = utcObj.utcSeconds(utcDateTime);
 
         //output
-        System.out.println(localClockObj.showActualDate(localComputerTime));
+        System.out.print(localClockObj.showActualDate(localComputerTime));
         compareHoursMinutes(localHour, localMinute, utcHour, utcMinute);
         compareSeconds(localSeconds, utcSeconds);
         wantsDescription();
@@ -50,13 +51,10 @@ public class SNTP {
         int compareMinutes = utcMinutes - localMinutes;
 
         if(compareHours > 0) {
-            System.out.printf("   (+%02d%02d)", compareHours, compareMinutes);
-        }
-        else if(utcHours == localHours) {
-            System.out.print("   (0000)");
+            System.out.printf("   (+%03d%02d)", compareHours, compareMinutes);
         }
         else {
-            System.out.printf("   (%02d%02d)", compareHours, compareMinutes);
+            System.out.printf("   (%03d%02d)", compareHours, compareMinutes);
         }
     }
 
