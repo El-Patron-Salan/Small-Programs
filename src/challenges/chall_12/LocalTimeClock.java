@@ -1,6 +1,6 @@
 package challenges.chall_12;
 
-import java.time.LocalTime;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -26,7 +26,7 @@ class LocalTimeClock implements LocalClock{
      * @return an hour in integer
      */
     @Override
-    public int localHours(LocalTime time) {
+    public int localHours(LocalDateTime time) {
         return time.getHour();
     }
 
@@ -37,7 +37,7 @@ class LocalTimeClock implements LocalClock{
      * @return the minutes in integer accomplish
      */
     @Override
-    public int localMinutes(LocalTime time) {
+    public int localMinutes(LocalDateTime time) {
         return time.getMinute();
     }
 
@@ -48,7 +48,7 @@ class LocalTimeClock implements LocalClock{
      * @return a float number with seconds
      */
     @Override
-    public float localSeconds(LocalTime time) {
+    public float localSeconds(LocalDateTime time) {
         float seconds = time.getSecond();
         float fraction = time.getNano() / 1_000000000f;
         return seconds + fraction;
