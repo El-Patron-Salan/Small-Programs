@@ -13,19 +13,23 @@ public class SNTP {
 
 
         //take specified values of local time
-        LocalTimeClock local = new LocalTimeClock();
+        LocalTimeClock localClockObj = new LocalTimeClock();
         //and UTC time
-        ClockTimeUTC utc = new ClockTimeUTC();
+        ClockTimeUTC utcObj = new ClockTimeUTC();
 
         //initialized hours and minutes - local and UTC
-        int localHour = local.localHours(localComputerTime);
-        int localMinute = local.localMinutes(localComputerTime);
-        int utcHour = utc.utcHours(utcDateTime);
-        int utcMinute = utc.utcMinutes(utcDateTime);
+        int localHour = localClockObj.localHours(localComputerTime);
+        int localMinute = localClockObj.localMinutes(localComputerTime);
+        int utcHour = utcObj.utcHours(utcDateTime);
+        int utcMinute = utcObj.utcMinutes(utcDateTime);
 
-        System.out.println(local.showActualDate(localComputerTime));
+        //initialized seconds for local and UTC
+        float localSeconds = localClockObj.localSeconds(localComputerTime);
+        float utcSeconds = utcObj.utcSeconds(utcDateTime);
+
+        //output
+        System.out.println(localClockObj.showActualDate(localComputerTime));
         compareHoursMinutes(localHour, localMinute, utcHour, utcMinute);
-
     }
 
     private static void compareHoursMinutes(int localHours, int localMinutes,
