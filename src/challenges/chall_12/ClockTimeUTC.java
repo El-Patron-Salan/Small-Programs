@@ -1,6 +1,5 @@
 package challenges.chall_12;
 
-import java.time.LocalTime;
 import java.time.OffsetDateTime;
 
 class ClockTimeUTC implements ClockUTC{
