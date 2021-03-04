@@ -1,6 +1,6 @@
 package challenges.chall_12;
 
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 
 class ClockTimeUTC implements ClockUTC{
 
@@ -11,7 +11,7 @@ class ClockTimeUTC implements ClockUTC{
      * @return an hour of UTC time
      */
     @Override
-    public int utcHours(ZonedDateTime time) {
+    public int utcHours(OffsetDateTime time) {
         return time.getHour();
     }
 }
