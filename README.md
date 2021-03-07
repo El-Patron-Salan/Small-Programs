@@ -9,3 +9,4 @@
 [02] - [Temperature converter](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_02) :heavy_check_mark:\
 [03] - [Age calculator](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_03) :heavy_check_mark:\
 [04] - [Encryption/decryption algorithm](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_04) :heavy_check_mark:\
+[05] - [FizzBuzz](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_05) :heavy_check_mark:\
