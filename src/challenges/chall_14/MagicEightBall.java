@@ -9,4 +9,10 @@ public class MagicEightBall {
         System.out.println("**Ask any question and see what awaits you**");
         System.out.println("");
     }
+
+    private void question() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Your question: ");
+        in.nextLine();
+    }
 }
