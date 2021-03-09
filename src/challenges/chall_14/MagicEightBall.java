@@ -10,7 +10,7 @@ public class MagicEightBall {
     private void entranceDesc() {
         System.out.println("\tWelcome in Magic 8-Ball fortune teller!");
         System.out.println("**Ask any question and see what awaits you**");
-        System.out.println("");
+        System.out.println("\n");
     }
 
     /**
@@ -35,5 +35,14 @@ public class MagicEightBall {
             System.out.printf("%s ", text);
         }
         System.out.println("\n\t\t\t" + answer);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Answers answer = new Answers();
+        MagicEightBall mainProgram = new MagicEightBall();
+
+        mainProgram.entranceDesc();
+        mainProgram.question();
+        mainProgram.simpleAnimationWithAnswer(answer.drawAnswer());
     }
 }
