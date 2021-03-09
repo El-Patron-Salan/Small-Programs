@@ -8,7 +8,7 @@ public class MagicEightBall {
      * Show description at start
      */
     private void entranceDesc() {
-        System.out.println("\tWelcome in Magic 8-Ball fortune teller!");
+        System.out.println("Welcome in Magic 8-Ball fortune teller!");
         System.out.println("**Ask any question and see what awaits you**");
         System.out.println("\n");
     }
@@ -29,12 +29,13 @@ public class MagicEightBall {
      * @throws InterruptedException     Throw Exception
      */
     private void simpleAnimationWithAnswer(String answer) throws InterruptedException {
+        System.out.println("\n\n");
         String text = "Shaking...";
         for(int i = 0; i < 3; ++i) {
-            Thread.sleep(1500);
+            Thread.sleep(500);
             System.out.printf("%s ", text);
         }
-        System.out.println("\n\t\t\t" + answer);
+        System.out.println("\n\t\t\t*" + answer + "*");
     }
 
     public static void main(String[] args) throws InterruptedException {
