@@ -18,4 +18,13 @@ public class Answers {
             "Don’t count on it.", "My reply is no.", "My sources say no.",
             "Outlook not so good.", "Very doubtful."
     };
+
+    /**
+     * Draw random answer from array
+     *
+     * @return
+     */
+    public String drawAnswer() {
+        return answers[ThreadLocalRandom.current().nextInt(0, answers.length)];
+    }
 }
