@@ -22,7 +22,7 @@ public class Answers {
     /**
      * Draw random answer from array
      *
-     * @return
+     * @return random answer
      */
     public String drawAnswer() {
         return answers[ThreadLocalRandom.current().nextInt(0, answers.length)];
