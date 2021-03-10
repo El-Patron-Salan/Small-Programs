@@ -12,7 +12,7 @@ public class CollatzConjecture {
             System.out.println("For what number you want make collatz conjecture?");
             System.out.print("Number: ");
             int x = sc.nextInt();
-
+            System.out.println("Steps: " + collatz(x));
         }catch(InputMismatchException e) {
             System.out.println(e + " - wrong input");
         }
