@@ -13,10 +13,18 @@ public class CollatzConjecture {
             System.out.print("Number: ");
             int x = sc.nextInt();
             System.out.println("Steps: " + collatz(x));
-        }catch(InputMismatchException e) {
+
+        }catch(InputMismatchException e) { //in case of incorrect input
             System.out.println(e + " - wrong input");
         }
     }
+
+    /**
+     * Calculate collatz conjecture
+     *
+     * @param val   The value to be calculated
+     * @return number of steps which takes to get 1
+     */
     private static int collatz(int val) {
         if(val <= 1) {
             System.out.print(val + "\n");
