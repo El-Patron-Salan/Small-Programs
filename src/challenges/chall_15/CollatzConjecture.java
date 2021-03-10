@@ -17,4 +17,18 @@ public class CollatzConjecture {
             System.out.println(e + " - wrong input");
         }
     }
+    private static int collatz(int val) {
+        if(val <= 1) {
+            System.out.print(val + "\n");
+            return 0;
+        }
+        else if(val % 2 != 0) {
+            System.out.print(val + ", ");
+            return 1 + collatz(val * 3 + 1);
+        }
+        else {
+            System.out.print(val + ", ");
+            return 1 + collatz(val / 2);
+        }
+    }
 }
