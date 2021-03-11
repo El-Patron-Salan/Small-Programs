@@ -27,7 +27,7 @@ public class CollatzConjecture {
      */
     private static int collatz(int val) {
         if(val <= 1) {
-            System.out.print(val + "\n");
+            System.out.print("\"" + val + "\"\n");
             return 0;
         }
         else if(val % 2 != 0) {
