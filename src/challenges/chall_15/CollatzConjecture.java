@@ -9,7 +9,7 @@ public class CollatzConjecture {
         Scanner sc = new Scanner(System.in);
         try{
 
-            System.out.println("For what number you want make collatz conjecture?");
+            System.out.println("For what number (greater than 0) you want test collatz conjecture?");
             System.out.print("Number: ");
             int x = sc.nextInt();
             System.out.println("Steps: " + collatz(x));
