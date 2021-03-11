@@ -26,7 +26,7 @@ public class CollatzConjecture {
      * @return number of steps which takes to get 1
      */
     private static int collatz(int val) {
-        if(val <= 1) {
+        if(val == 1) {
             System.out.print("\"" + val + "\"\n");
             return 0;
         }
