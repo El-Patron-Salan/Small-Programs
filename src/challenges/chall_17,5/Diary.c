@@ -2,24 +2,31 @@
 #include <string.h>
 
 int main(void){
-    
+    //point the file   
     FILE *filePointer;
-    char input[50];
+    char input[2000];
 
-    puts( "Open" ) ;
+    //open the file and tell which action it has to do
     filePointer = fopen("notes.txt", "w") ;
-
+    
+    //check if file exist
     if( filePointer == NULL ) {
         printf( "Could not open file ") ;
         return 1;
     }
     puts( "Write smth: " ) ;
     
-    while( strlen ( input ) > 0 ) {
-            fputs( input, filePointer ) ;
-            fputs( "\n", filePointer ) ;
+    //loop as long as user won't terminate program
+    while( !feof( stdin ) ) {
+        
+        //user makes input
+        scanf("%s", input) ;
+        //put his input in file
+        fputs(input, filePointer) ;
+
     }
-    puts( "Closing file" ) ;
+
+    puts( "\nClosing file" ) ;
     fclose(filePointer) ;
     return 0;
 
