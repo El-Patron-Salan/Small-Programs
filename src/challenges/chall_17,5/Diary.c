@@ -15,6 +15,13 @@ int main(void){
     }
     puts( "Write smth: " ) ;
     
+    while( strlen ( input ) > 0 ) {
+            fputs( input, filePointer ) ;
+            fputs( "\n", filePointer ) ;
+    }
+    puts( "Closing file" ) ;
+    fclose(filePointer) ;
+    return 0;
 
 
 }
