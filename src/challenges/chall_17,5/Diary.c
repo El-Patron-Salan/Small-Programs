@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
+/*
+ *
+ * TO-DO separate input from user
+ * so it's like he inputed
+ *
+ */
+
 int main(void){
     //point the file   
     FILE *filePointer;
