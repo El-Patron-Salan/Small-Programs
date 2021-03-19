@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
+#define MAX_INPUT_SZ 256
 /*
  *
  * TO-DO separate input from user
@@ -8,10 +10,10 @@
  *
  */
 
-int main(void){
+int main(int argC, char *argV[]){
     //point the file   
-    FILE *filePointer;
-    char input[2000];
+    FILE *filePointer ;
+    char *input = malloc( MAX_INPUT_SZ ) ;
 
     //open the file and tell which action it has to do
     filePointer = fopen("notes.txt", "w") ;
@@ -27,12 +29,12 @@ int main(void){
     while( !feof( stdin ) ) {
         
         //user makes input
-        scanf("%s", input) ;
+        fgets( input, MAX_INPUT_SZ, stdin ) ;
         //put his input in file
-        fputs(input, filePointer) ;
+        fputs( input, filePointer ) ;
 
     }
-
+    free( input ) ;
     puts( "\nClosing file" ) ;
     fclose(filePointer) ;
     return 0;
