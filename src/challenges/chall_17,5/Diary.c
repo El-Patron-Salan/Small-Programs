@@ -3,12 +3,6 @@
 #include <stdlib.h>
 
 #define MAX_INPUT_SZ 256
-/*
- *
- * TO-DO separate input from user
- * so it's like he inputed
- *
- */
 
 int main(int argC, char *argV[]){
     //point the file   
