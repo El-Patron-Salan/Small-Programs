@@ -4,20 +4,22 @@
 
 #define MAX_INPUT_SZ 256
 
+//Add day/month/year to every input from user
+
 int main(int argC, char *argV[]){
     //point the file   
     FILE *filePointer ;
     char *input = malloc( MAX_INPUT_SZ ) ;
 
     //open the file and tell which action it has to do
-    filePointer = fopen("notes.txt", "w") ;
+    filePointer = fopen("notes.txt", "a") ;
     
     //check if file exist
     if( filePointer == NULL ) {
         printf( "Could not open file ") ;
         return 1;
     }
-    puts( "Write smth: " ) ;
+    
     
     //loop as long as user won't terminate program
     while( !feof( stdin ) ) {
@@ -32,6 +34,6 @@ int main(int argC, char *argV[]){
     puts( "\nClosing file" ) ;
     fclose(filePointer) ;
     return 0;
-
-
 }
+
+
