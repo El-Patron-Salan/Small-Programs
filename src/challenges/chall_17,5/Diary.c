@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define MAX_INPUT_SZ 256
 
-//Add day/month/year to every input from user
+char[] getDate();
 
 int main(int argC, char *argV[]){
     //point the file   
@@ -16,7 +17,7 @@ int main(int argC, char *argV[]){
     
     //check if file exist
     if( filePointer == NULL ) {
-        printf( "Could not open file ") ;
+        perror( "Could not open file ") ;
         return 1;
     }
     
@@ -34,6 +35,11 @@ int main(int argC, char *argV[]){
     puts( "\nClosing file" ) ;
     fclose(filePointer) ;
     return 0;
+}
+
+char[] getDate() {
+    
+
 }
 
 
