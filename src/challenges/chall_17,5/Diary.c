@@ -57,8 +57,27 @@ int main(int argC, char *argV[]){
 
 char* getDate() {
     
-   // time_t 
+   time_t s ;
+   struct tm* current_time ;
 
+   s = time(NULL) ;
+
+   current_time = localtime(&s) ;
+
+   int day = current_time -> tm_mday;
+   int month = current_time -> tm_mon + 1 ;
+   int year = current_time -> tm_year + 1900 ;
+
+   char* actualDate = malloc(8);
+   
+   if( !actualDate ) {
+        perror( "Memory not allocated - getDate()" ) ;
+        exit( EXIT_FAILURE ) ;
+   }
+
+   sprintf( actualDate, "[%d/%d/%d]", day, month, year ) ;
+
+   return actualDate;
 }
 
 
