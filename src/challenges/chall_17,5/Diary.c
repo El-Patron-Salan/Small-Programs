@@ -5,11 +5,12 @@
 
 #define MAX_INPUT_SZ 256
 
-char[] getDate();
+char* getDate();
 
 int main(int argC, char *argV[]){
     //point the file   
     FILE *filePointer ;
+    //dynamically allocated memory
     char *input = malloc( MAX_INPUT_SZ ) ;
 
     //open the file and tell which action it has to do
@@ -18,6 +19,11 @@ int main(int argC, char *argV[]){
     //check if file exist
     if( filePointer == NULL ) {
         perror( "Could not open file ") ;
+        return 1;
+    }
+
+    if( input == NULL ) {
+        perror( "Memory not allocated!" ) ;
         return 1;
     }
     
@@ -37,8 +43,9 @@ int main(int argC, char *argV[]){
     return 0;
 }
 
-char[] getDate() {
+char* getDate() {
     
+   // time_t 
 
 }
 
