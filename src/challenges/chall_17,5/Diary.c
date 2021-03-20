@@ -5,6 +5,18 @@
 
 #define MAX_INPUT_SZ 256
 
+/*
+ *IDEA1 - create one function to get date
+ and return it somehow
+ *
+ *IDEA2 - create separate functions for day, month and year
+ *
+ *IDEA3 - read about global variable declarations and 
+ make IDEA2 like that
+ *
+ *IDEA4 - make user input date ( it contains many exceptions )
+ */
+
 char* getDate();
 
 int main(int argC, char *argV[]){
