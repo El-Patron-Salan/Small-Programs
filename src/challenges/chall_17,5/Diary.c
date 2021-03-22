@@ -84,7 +84,15 @@ char* showPreviousEntries( FILE* fp ) {
         perror( "File to read not found! " ) ;
         return "\n***Proceeding without output***\n" ;
     }
-    
+    //move to the end
+    fseek( fp, 0L, SEEK_END ) ;
+    //get the size of file
+    numbytes = ftell( fp ) ;
+    //move to the start
+    fseek( fp, 0L, SEEK_SET ) ;
+
+    //to be continued
+
     
 
 }
