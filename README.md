@@ -22,3 +22,4 @@
 [15] - [Collatz conjecture](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_15) :heavy_check_mark:\
 [16] - [Reverse a string](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_16) :heavy_check_mark:\
 [17] - [Eulerian Path]
+[17,5] - [Diary in C]
