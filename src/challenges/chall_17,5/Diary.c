@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -24,11 +23,9 @@ int main(int argC, char *argV[]){
     
     char* date = getDate() ;
     printf( "%sWrite in your Diary:\n", date ) ;
+    
 
-    //loop as long as user won't terminate program
-    //while( !feof( stdin) ) {
-
-    fputs( date, filePointer) ; 
+    fputs( date, filePointer ) ; 
     //user makes input
     fgets( input, MAX_INPUT_SZ, stdin ) ;
     //put his input in file
