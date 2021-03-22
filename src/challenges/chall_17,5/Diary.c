@@ -29,7 +29,7 @@ int main(int argC, char *argV[]){
     
     char* date = getDate(); 
     //loop as long as user won't terminate program
-    while( !feof( stdin ) ) {
+    while( !feof( stdin) ) {
 
         fputs( date, filePointer); 
         //user makes input
@@ -38,7 +38,6 @@ int main(int argC, char *argV[]){
         fputs( input, filePointer ) ;
 
         fputs( "\n\n", filePointer ) ;
-
     }
     free( date ) ;
     free( input ) ;
