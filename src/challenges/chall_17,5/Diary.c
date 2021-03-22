@@ -5,18 +5,6 @@
 
 #define MAX_INPUT_SZ 256
 
-/*
- *IDEA1 - create one function to get date
- and return it somehow
- *
- *IDEA2 - create separate functions for day, month and year
- *
- *IDEA3 - read about global variable declarations and 
- make IDEA2 like that
- *
- *IDEA4 - make user input date ( it contains many exceptions )
- */
-
 char* getDate();
 
 int main(int argC, char *argV[]){
@@ -39,16 +27,18 @@ int main(int argC, char *argV[]){
         return 1;
     }
     
-    
+    char* date = getDate(); 
     //loop as long as user won't terminate program
     while( !feof( stdin ) ) {
-        
+
+        fputs( date, filePointer); 
         //user makes input
         fgets( input, MAX_INPUT_SZ, stdin ) ;
         //put his input in file
         fputs( input, filePointer ) ;
 
     }
+    free( date ) ;
     free( input ) ;
     puts( "\nClosing file" ) ;
     fclose(filePointer) ;
@@ -68,7 +58,7 @@ char* getDate() {
    int month = current_time -> tm_mon + 1 ;
    int year = current_time -> tm_year + 1900 ;
 
-   char* actualDate = malloc(8);
+   char* actualDate = malloc(sizeof(actualDate));
    
    if( !actualDate ) {
         perror( "Memory not allocated - getDate()" ) ;
@@ -77,7 +67,7 @@ char* getDate() {
 
    sprintf( actualDate, "[%d/%d/%d]", day, month, year ) ;
 
-   return actualDate;
+   return actualDate ;
 }
 
 
