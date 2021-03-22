@@ -17,21 +17,18 @@ int main(int argC, char *argV[]){
     filePointer = fopen("notes.txt", "a") ;
     
     //check if file exist
-    if( filePointer == NULL ) {
-        perror( "Could not open file ") ;
-        return 1;
-    }
-
-    if( input == NULL ) {
-        perror( "Memory not allocated!" ) ;
-        return 1;
+    if( filePointer == NULL || input == NULL ) {
+        perror( "Error!") ;
+        exit(1) ;
     }
     
-    char* date = getDate(); 
+    char* date = getDate() ;
+    printf( "%sWrite in your Diary:\n", date ) ;
+
     //loop as long as user won't terminate program
     while( !feof( stdin) ) {
 
-        fputs( date, filePointer); 
+        fputs( date, filePointer) ; 
         //user makes input
         fgets( input, MAX_INPUT_SZ, stdin ) ;
         //put his input in file
@@ -39,8 +36,11 @@ int main(int argC, char *argV[]){
 
         fputs( "\n\n", filePointer ) ;
     }
+
+    //free memory
     free( date ) ;
     free( input ) ;
+
     puts( "\nClosing file" ) ;
     fclose(filePointer) ;
     return 0;
