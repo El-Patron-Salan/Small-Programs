@@ -68,4 +68,11 @@ char* getDate() {
    return actualDate ;
 }
 
+/*
+ * TO DO: ask user if he wants to see his previous entries 
+ * Also make program user to prompt password at begging
+ */
+bool* askUser( char input ) {}
+char* showPreviousEntries( FILE* in ) {}
+
 
