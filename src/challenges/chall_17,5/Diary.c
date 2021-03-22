@@ -37,6 +37,8 @@ int main(int argC, char *argV[]){
         //put his input in file
         fputs( input, filePointer ) ;
 
+        fputs( "\n\n", filePointer ) ;
+
     }
     free( date ) ;
     free( input ) ;
@@ -65,7 +67,7 @@ char* getDate() {
         exit( EXIT_FAILURE ) ;
    }
 
-   sprintf( actualDate, "[%d/%d/%d]", day, month, year ) ;
+   sprintf( actualDate, "[%d/%d/%d] ", day, month, year ) ;
 
    return actualDate ;
 }
