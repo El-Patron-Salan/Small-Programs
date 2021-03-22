@@ -17,7 +17,7 @@ int main(int argC, char *argV[]){
     
     //check if file exist
     if( filePointer == NULL || input == NULL ) {
-        perror( "Error!") ;
+        perror( "Error!" ) ;
         exit(1) ;
     }
     
@@ -72,7 +72,21 @@ char* getDate() {
  * TO DO: ask user if he wants to see his previous entries 
  * Also make program user to prompt password at begging
  */
-bool* askUser( char input ) {}
-char* showPreviousEntries( FILE* in ) {}
+
+char* showPreviousEntries( FILE* fp ) {
+    
+    char* buffer ;
+    long numbytes ;
+
+    fp = fopen( "notes.txt", "r" ) ;
+    
+    if( fp == NULL ) {
+        perror( "File to read not found! " ) ;
+        return "\n***Proceeding without output***\n" ;
+    }
+    
+    
+
+}
 
 
