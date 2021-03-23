@@ -91,17 +91,19 @@ char* showPreviousEntries() {
     numbytes = ftell( fp ) ;
     //move to the start
     fseek( fp, 0L, SEEK_SET ) ;
-
-    buffer = ( char* ) calloc( numbytes, sizeof(buffer)) ;
-
+    //allocate memory space
+    buffer = ( char* ) calloc( numbytes, sizeof(char)) ;
+    
     if( buffer == NULL ){
             perror( "Couldn't allocate memory for buffer! " ) ;
             return "\n***Proceeding without output***\n" ;
     }
+    //with fread() copy all the text into an array (buffer) 
+    fread(buffer, sizeof(char), numbytes, fp) ;
+    //close file
+    fclose(fp) ;
 
-
-    
-
+    return buffer ;
 }
 
 
