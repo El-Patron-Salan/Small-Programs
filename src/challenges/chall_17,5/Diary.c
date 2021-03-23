@@ -8,6 +8,8 @@
 #define MAX_INPUT_SZ 256
 #define LENGTH_OF_PIN 4
 
+char* askForPIN();
+int verifyProvidedPIN( char* in );
 char* getDate();
 char* showPreviousEntries();
 
