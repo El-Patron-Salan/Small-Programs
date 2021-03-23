@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 #define MAX_INPUT_SZ 256
+#define LENGTH_OF_PIN 4
 
 char* getDate();
 char* showPreviousEntries();
@@ -47,10 +48,18 @@ int main(int argC, char *argV[]) {
 
 char* askForPIN() {
     
-    char* input = malloc(4 * sizeof(char)) ;
+    char* input = ( char* )malloc(sizeof(char)) ;
+    if( input == NULL ) {
+        perror( "Memory not allocated! " ) ;
+        exit( EXIT_FAILURE ) ;
+    }
     printf( "\nProvide PIN code: " ) ;
-    fgets(input, sizeof(input), stdin) ;
+    fgets(input, LENGTH_OF_PIN, stdin) ;
     return input;
+}
+
+int verifyProvidedPIN( char in ) {
+        
 }
 
 char* getDate() {
