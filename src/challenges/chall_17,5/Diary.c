@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
 
 #define MAX_INPUT_SZ 256
 #define LENGTH_OF_PIN 4
@@ -58,8 +60,13 @@ char* askForPIN() {
     return input;
 }
 
-int verifyProvidedPIN( char in ) {
-        
+int verifyProvidedPIN( char* in ) {
+    
+    for(int i = 0; strlen(in); ++i) {
+        if( !isdigit( in[i] ) )
+            return 0;
+    }
+    return (int) in;
 }
 
 char* getDate() {
