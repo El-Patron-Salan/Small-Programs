@@ -73,8 +73,9 @@ char* getDate() {
  * Also make program user to prompt password at begging
  */
 
-char* showPreviousEntries( FILE* fp ) {
+char* showPreviousEntries() {
     
+    FILE* fp;
     char* buffer ;
     long numbytes ;
 
@@ -91,7 +92,13 @@ char* showPreviousEntries( FILE* fp ) {
     //move to the start
     fseek( fp, 0L, SEEK_SET ) ;
 
-    //to be continued
+    buffer = ( char* ) calloc( numbytes, sizeof(buffer)) ;
+
+    if( buffer == NULL ){
+            perror( "Couldn't allocate memory for buffer! " ) ;
+            return "\n***Proceeding without output***\n" ;
+    }
+
 
     
 
