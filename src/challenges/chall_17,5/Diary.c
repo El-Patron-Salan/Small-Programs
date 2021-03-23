@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 #define MAX_INPUT_SZ 256
 
 char* getDate();
+char* showPreviousEntries();
 
-int main(int argC, char *argV[]){
+int main(int argC, char *argV[]) {
     //point the file   
     FILE *filePointer ;
     //dynamically allocated memory
@@ -41,6 +43,14 @@ int main(int argC, char *argV[]){
     puts( "\nClosing file" ) ;
     fclose(filePointer) ;
     return 0;
+}
+
+char* askForPIN() {
+    
+    char* input = malloc(4 * sizeof(char)) ;
+    printf( "\nProvide PIN code: " ) ;
+    fgets(input, sizeof(input), stdin) ;
+    return input;
 }
 
 char* getDate() {
