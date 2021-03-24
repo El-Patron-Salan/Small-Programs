@@ -18,13 +18,19 @@ int main(int argC, char *argV[]) {
     
     int count = 0;
     bool checker = false;
+    char* PIN;
     do{
-
-        char* PIN = askForPIN() ;
+        
+        if(count == 3){
+            printf( "\n\n\t\t****Access denied****\n\n" );
+            exit(1);
+        }
+        PIN = askForPIN() ;
         checker = checkIfCorrectPIN( verifyProvidedPIN(PIN));
         count++;
 
-    }while( count != 3 || !checker);
+    }while( !checker );
+    free( PIN );
 
     //point the file   
     FILE *filePointer ;
