@@ -10,8 +10,8 @@
 #define PIN_NUMBER 2000
 
 char* askForPIN();
-int* verifyProvidedPIN( char* in );
-bool checkIfCorrectPIN( int* PIN );
+int verifyProvidedPIN( char* in );
+bool checkIfCorrectPIN( int PIN );
 char* getDate();
 char* showPreviousEntries();
 
@@ -81,16 +81,18 @@ char* askForPIN() {
     return input;
 }
 
-int* verifyProvidedPIN( char* in ) {
+int verifyProvidedPIN( char* in ) {
     
+    int* check;
+    check = (int*) in;
     for(int i = 0; strlen(in); ++i) {
         if( !isdigit( in[i] ) )
             return 0;
     }
-    return (int*) in;
+    return *check;
 }
 
-bool checkIfCorrectPIN( int* PIN ) {
+bool checkIfCorrectPIN( int PIN ) {
     return (PIN == PIN_NUMBER) ? true : false;
 }
 
