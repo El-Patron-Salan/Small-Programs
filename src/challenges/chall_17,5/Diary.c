@@ -15,6 +15,13 @@ char* getDate();
 char* showPreviousEntries();
 
 int main(int argC, char *argV[]) {
+    int count = 0;
+    bool checker = false;
+    do{
+        char* PIN = askForPIN() ;
+        checker = checkIfCorrectPIN( verifyProvidedPIN(PIN));
+        count++;
+    }while( count != 3 || !checker)
     //point the file   
     FILE *filePointer ;
     //dynamically allocated memory
