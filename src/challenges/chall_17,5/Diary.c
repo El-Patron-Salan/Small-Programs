@@ -7,10 +7,11 @@
 
 #define MAX_INPUT_SZ 256
 #define LENGTH_OF_PIN 4
+#define PIN_NUMBER 2000
 
 char* askForPIN();
-int verifyProvidedPIN( char* in );
-bool checkIfCorrectPIN( int PIN );
+int* verifyProvidedPIN( char* in );
+bool checkIfCorrectPIN( int* PIN );
 char* getDate();
 char* showPreviousEntries();
 
@@ -70,7 +71,7 @@ int main(int argC, char *argV[]) {
 
 char* askForPIN() {
     
-    char* input = ( char* )malloc(sizeof(char)) ;
+    char* input = ( char* )malloc(sizeof(input)) ;
     if( input == NULL ) {
         perror( "Memory not allocated! " ) ;
         exit( EXIT_FAILURE ) ;
@@ -80,17 +81,17 @@ char* askForPIN() {
     return input;
 }
 
-int verifyProvidedPIN( char* in ) {
+int* verifyProvidedPIN( char* in ) {
     
     for(int i = 0; strlen(in); ++i) {
         if( !isdigit( in[i] ) )
             return 0;
     }
-    return (int) in;
+    return (int*) in;
 }
 
-bool checkIfCorrectPIN( int PIN ) {
-    return (PIN == 2000) ? true : false;
+bool checkIfCorrectPIN( int* PIN ) {
+    return (PIN == PIN_NUMBER) ? true : false;
 }
 
 char* getDate() {
