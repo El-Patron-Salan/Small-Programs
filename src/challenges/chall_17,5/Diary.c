@@ -72,11 +72,7 @@ int verifyProvidedPIN( char* in ) {
 }
 
 bool checkIfCorrectPIN( int PIN ) {
-
-    if( PIN == 2000 )
-        return true;
-    else
-        return false;
+    return (PIN == 2000) ? true : false;
 }
 
 char* getDate() {
