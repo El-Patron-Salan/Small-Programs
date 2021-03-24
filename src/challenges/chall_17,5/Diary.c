@@ -10,6 +10,7 @@
 
 char* askForPIN();
 int verifyProvidedPIN( char* in );
+bool checkIfCorrectPIN( int PIN );
 char* getDate();
 char* showPreviousEntries();
 
