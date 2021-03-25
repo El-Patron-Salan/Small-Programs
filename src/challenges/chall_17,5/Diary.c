@@ -21,7 +21,7 @@ int main(int argC, char *argV[]) {
     int count = 0;
     bool checker = false;
     char* PIN;
-    int i = 0;
+
     do{
         if(count == 3){
             printf( "\n\n\t\t****Access denied****\n\n" ) ;
