@@ -77,7 +77,7 @@ char* askForPIN() {
         exit( EXIT_FAILURE ) ;
     }
     printf( "\nProvide PIN code: " ) ;
-    fgets(input, LENGTH_OF_PIN, stdin) ;
+    fgets(input, strlen(input), stdin) ;
     return input;
 }
 
