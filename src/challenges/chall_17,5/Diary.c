@@ -34,6 +34,11 @@ int main(int argC, char *argV[]) {
     }while( !checker ) ;
     free( PIN ) ;
 
+    char* showDiaryHistory;
+    showDiaryHistory = showPreviousEntries() ;
+    printf( "\n%s\n", showDiaryHistory) ;
+    free (showDiaryHistory);
+
     //point the file   
     FILE *filePointer ;
     //dynamically allocated memory
