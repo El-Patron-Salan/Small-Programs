@@ -23,8 +23,6 @@ int main(int argC, char *argV[]) {
     char* PIN;
     int i = 0;
     do{
-        printf("\n%d\n", i++) ;
-
         if(count == 3){
             printf( "\n\n\t\t****Access denied****\n\n" ) ;
             exit(1);
