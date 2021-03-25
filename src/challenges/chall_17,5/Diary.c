@@ -6,6 +6,7 @@
 #include <ctype.h>
 
 #define MAX_INPUT_SZ 256
+#define MAX_PIN_LENGTH 32
 #define BASE_NUMB 10
 #define PIN_NUMBER 2000
 
@@ -22,18 +23,18 @@ int main(int argC, char *argV[]) {
     char* PIN;
     int i = 0;
     do{
-        printf("\n%d\n", i++);
+        printf("\n%d\n", i++) ;
 
         if(count == 3){
-            printf( "\n\n\t\t****Access denied****\n\n" );
+            printf( "\n\n\t\t****Access denied****\n\n" ) ;
             exit(1);
         }
         PIN = askForPIN() ;
-        checker = checkIfCorrectPIN( verifyProvidedPIN(PIN));
-        count++;
+        checker = checkIfCorrectPIN( verifyProvidedPIN(PIN) ) ;
+        count++ ;
 
-    }while( !checker );
-    free( PIN );
+    }while( !checker ) ;
+    free( PIN ) ;
 
     //point the file   
     FILE *filePointer ;
@@ -79,7 +80,7 @@ char* askForPIN() {
         exit( EXIT_FAILURE ) ;
     }
     printf( "\nProvide PIN code: " ) ;
-    fgets(input, MAX_INPUT_SZ, stdin) ;
+    fgets(input, MAX_PIN_LENGTH, stdin) ;
     return input;
 }
 
@@ -97,11 +98,11 @@ int verifyProvidedPIN( char* in ) {
         }
     }
 
-    return result;
+    return result ;
 }
 
 bool checkIfCorrectPIN( int PIN ) {
-    return (PIN == PIN_NUMBER) ? true : false;
+    return (PIN == PIN_NUMBER) ? true : false ;
 }
 
 char* getDate() {
