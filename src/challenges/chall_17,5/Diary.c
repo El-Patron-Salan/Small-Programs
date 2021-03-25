@@ -6,7 +6,7 @@
 #include <ctype.h>
 
 #define MAX_INPUT_SZ 256
-#define LENGTH_OF_PIN 4
+#define BASE_NUMB 10
 #define PIN_NUMBER 2000
 
 char* askForPIN();
@@ -85,15 +85,19 @@ char* askForPIN() {
 
 int verifyProvidedPIN( char* in ) {
     
-    int* check;
-    printf( "\n%s Is it \n", in) ;
-    check = (int*) in;
-    printf( "\nor this shit %d\n", *check) ;
-    for(int i = 0; strlen(in); ++i) {
-        if( !isdigit( in[i] ) )
+    char* eptr;
+    long result;
+    //used strtol to convert string to long integer
+    result = strtol( in, &eptr, BASE_NUMB ) ;
+
+    for(int i = 0; i < strlen(in) - 1; ++i) {
+        if( !isdigit( in[i] ) ){
+            printf( "\n***PIN code does not have characters!***\n" ) ;
             return 0;
+        }
     }
-    return *check;
+
+    return result;
 }
 
 bool checkIfCorrectPIN( int PIN ) {
