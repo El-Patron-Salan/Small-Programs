@@ -20,8 +20,10 @@ int main(int argC, char *argV[]) {
     int count = 0;
     bool checker = false;
     char* PIN;
+    int i = 0;
     do{
-        
+        printf("\n%d\n", i++);
+
         if(count == 3){
             printf( "\n\n\t\t****Access denied****\n\n" );
             exit(1);
@@ -77,14 +79,16 @@ char* askForPIN() {
         exit( EXIT_FAILURE ) ;
     }
     printf( "\nProvide PIN code: " ) ;
-    fgets(input, strlen(input), stdin) ;
+    fgets(input, MAX_INPUT_SZ, stdin) ;
     return input;
 }
 
 int verifyProvidedPIN( char* in ) {
     
     int* check;
+    printf( "\n%s Is it \n", in) ;
     check = (int*) in;
+    printf( "\nor this shit %d\n", *check) ;
     for(int i = 0; strlen(in); ++i) {
         if( !isdigit( in[i] ) )
             return 0;
