@@ -10,6 +10,11 @@
 #define BASE_NUMB 10
 #define PIN_NUMBER 2000
 
+/*
+ * TO-DO:
+ * show most recent input to Diary
+ */
+
 char* askForPIN();
 int verifyProvidedPIN( char* in );
 bool checkIfCorrectPIN( int PIN );
