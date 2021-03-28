@@ -42,12 +42,18 @@ int main(int argC, char *argV[]) {
     char* response = malloc( sizeof(char) );
     printf( "\nDo you want to see all entries to Diary?(Y/N)\n" ) ;
     fgets( response, 32, stdin ) ;
-    if( strcmp(response, "Y") == 0 || strcmp(response ,"y") == 0 ) {
+    char arr[] = "Yes";
+    char arr2[] = "Yes";
+    int res = strcmp(response, arr) ;
+    int res2 = strcmp(arr, arr2) ;
+    printf( "\n\n%s and %d or %d even %d\n\n", response, strcmp(response, "Yes"), res, res2) ;
+    if( res  == 0 || strcmp(response ,"y") == 0 ) {
         char* showDiaryHistory;
         showDiaryHistory = showPreviousEntries() ;
         printf( "\n%s\n", showDiaryHistory) ;
         free (showDiaryHistory);
     }
+    free(response);
 
     //point the file   
     FILE *filePointer ;
