@@ -39,10 +39,15 @@ int main(int argC, char *argV[]) {
     }while( !checker ) ;
     free( PIN ) ;
 
-    char* showDiaryHistory;
-    showDiaryHistory = showPreviousEntries() ;
-    printf( "\n%s\n", showDiaryHistory) ;
-    free (showDiaryHistory);
+    char* response = malloc( sizeof(char) );
+    printf( "\nDo you want to see all entries to Diary?(Y/N)\n" ) ;
+    fgets( response, 32, stdin ) ;
+    if( strcmp(response, "Y") == 0 || strcmp(response ,"y") == 0 ) {
+        char* showDiaryHistory;
+        showDiaryHistory = showPreviousEntries() ;
+        printf( "\n%s\n", showDiaryHistory) ;
+        free (showDiaryHistory);
+    }
 
     //point the file   
     FILE *filePointer ;
