@@ -10,11 +10,6 @@
 #define BASE_NUMB 10
 #define PIN_NUMBER 2000
 
-/*
- * TO-DO:
- * show most recent input to Diary
- */
-
 char* askForPIN();
 int verifyProvidedPIN( char* in );
 bool checkIfCorrectPIN( int PIN );
@@ -26,7 +21,7 @@ int main(int argC, char *argV[]) {
     int count = 0;
     bool checker = false;
     char* PIN;
-
+    //ask for PIN 
     do{
         if(count == 3){
             printf( "\n\n\t\t****Access denied****\n\n" ) ;
@@ -39,6 +34,8 @@ int main(int argC, char *argV[]) {
     }while( !checker ) ;
     free( PIN ) ;
 
+
+    //show diary entries
     char* response = malloc( sizeof(char) );
     printf( "\nDo you want to see all entries to Diary?(Y/N)\n" ) ;
     fgets( response, 32, stdin ) ;
@@ -50,6 +47,8 @@ int main(int argC, char *argV[]) {
         free (showDiaryHistory);
     }
     free(response);
+
+
 
     //point the file   
     FILE *filePointer ;
@@ -177,5 +176,3 @@ char* showPreviousEntries() {
 
     return buffer ;
 }
-
-
