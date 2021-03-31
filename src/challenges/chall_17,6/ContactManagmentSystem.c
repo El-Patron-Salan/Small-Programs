@@ -3,6 +3,7 @@
 
 #define MAX_FNAME_LENGTH 16
 #define MAX_SNAME_LENGTH 32
+#define MAX_PHONENUMBER_LENGTH 14
 /*
  *This is simpler approach for making this program
  */
@@ -31,3 +32,8 @@ char* inputSurname() {
     return sName;
 }
 
+int inputPhoneNumber() {
+    
+    int phoneNumber;
+    
+}
