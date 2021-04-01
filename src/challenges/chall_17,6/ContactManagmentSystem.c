@@ -9,12 +9,12 @@
  */
 char* inputFirstName();
 char* inputSurname();
-size_t inputPhoneNumber();
+char* inputPhoneNumber();
 
 int main(int argC, char* argV[]) {
     
-    size_t x = inputPhoneNumber();
-    printf( "\n%zu\n", x);
+   // size_t x = inputPhoneNumber();
+   // printf( "\n%zu\n", x);
     return 0;
 }
 
@@ -36,12 +36,10 @@ char* inputSurname() {
 
 
 //phone number functions
-size_t inputPhoneNumber() {
+char* inputPhoneNumber() {
     
     char* phoneNumber = malloc( sizeof(phoneNumber) );
-    char* eptr;
     printf( "%s: ", "Phone number" );
-    
     fgets( phoneNumber, MAX_PHONENUMBER_LENGTH, stdin );
-    return strtol(phoneNumber, &eptr, 10);
+    return phoneNumber;
 }
