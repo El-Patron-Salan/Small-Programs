@@ -24,7 +24,8 @@ int main(int argC, char* argV[]) {
 
 char* inputFirstName() {
     
-    char* name = malloc( sizeof(name) );
+    char* name;
+    name = (char*) malloc( MAX_FNAME_LENGTH * sizeof(char) );
     printf( "%s: ", "First name" );
     fgets( name, MAX_FNAME_LENGTH, stdin );
     return name;
@@ -32,7 +33,8 @@ char* inputFirstName() {
 
 char* inputSurname() {
         
-    char* sName = malloc( sizeof(sName) );
+    char* sName;
+    sName = (char*) malloc( MAX_SNAME_LENGTH * sizeof(char) );
     printf( "%s: ", "Surname");
     fgets( sName, MAX_SNAME_LENGTH, stdin );
     return sName;
@@ -44,7 +46,7 @@ char* inputPhoneNumber() {
     
     char* phoneNumber;
     char* whichOrdinal;
-    phoneNumber = (char*) malloc( sizeof(phoneNumber) );
+    phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
     whichOrdinal = (char*) malloc( 2 * sizeof(char) );
 
     printf( "%s: ", "Phone number" );
