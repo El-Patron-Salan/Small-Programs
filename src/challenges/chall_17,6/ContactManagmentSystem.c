@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 #define MAX_FNAME_LENGTH 16
 #define MAX_SNAME_LENGTH 32
@@ -83,5 +84,26 @@ char* ordinals( int i ) {
             break;
     }
 }
+//search for duplicates
+bool searchDuplicatedNumber(char* buffer, char* search_Number) {
     
+    bool not_found = true;
+    size_t length = sizeof(buffer) / sizeof(*buffer);
+    int from_right = length - 1;
 
+    for(int i = 0; i <= from_right;) {
+
+        if(buffer[i] == search_Number) {
+            not_found = false;
+            return true;
+        }
+
+        if(buffer[from_right] == search_Number) {
+            not_found = false;
+            return true;
+        }
+        i++;
+        from_right--;
+    }
+    if(not_found) return false;
+}
