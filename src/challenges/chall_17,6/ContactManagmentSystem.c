@@ -112,3 +112,7 @@ bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
     free(properties);
     return false;
 }
+
+char* checkPhoneNumber(char* phone_Number, FILE *fp) {
+    //to be continued
+}
