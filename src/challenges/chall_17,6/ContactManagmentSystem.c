@@ -7,6 +7,8 @@
 #define MAX_FNAME_LENGTH 16
 #define MAX_SNAME_LENGTH 32
 #define MAX_PHONENUMBER_LENGTH 15
+#define BUFFER_SIZE 256
+
 /*
  *This is simpler approach for making this program
  */
@@ -85,25 +87,17 @@ char* ordinals( int i ) {
     }
 }
 //search for duplicates
-bool searchDuplicatedNumber(char* buffer, char* search_Number) {
+bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
     
-    bool not_found = true;
-    size_t length = sizeof(buffer) / sizeof(*buffer);
-    int from_right = length - 1;
-
-    for(int i = 0; i <= from_right;) {
-
-        if(buffer[i] == search_Number) {
-            not_found = false;
+    char* properties = (char*) malloc( BUFFER_SIZE );
+    //point to character
+    char *ptc;
+    while( ( fgets(properties, BUFFER_SIZE, fp) ) != NULL ) {
+        
+        ptc = strstr(properties, search_Number);
+        if( ptc != NULL) {
             return true;
         }
-
-        if(buffer[from_right] == search_Number) {
-            not_found = false;
-            return true;
-        }
-        i++;
-        from_right--;
     }
-    if(not_found) return false;
+    return false;
 }
