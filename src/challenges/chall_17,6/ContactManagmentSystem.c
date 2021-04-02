@@ -16,12 +16,22 @@ char* inputFirstName();
 char* inputSurname();
 char* inputPhoneNumber();
 char* ordinals( int i );
+bool searchDuplicatedNumber(FILE *fp, char* search_Number);
 
 int main(int argC, char* argV[]) {
     
     char* x = malloc( sizeof(char));
     x = inputPhoneNumber();
     printf( "\n%s\n", x);
+
+    FILE *fp;
+    fp = fopen("test.txt", "r");
+    if(fp == NULL)
+        exit( EXIT_FAILURE );
+    bool didFound = searchDuplicatedNumber(fp, x);
+    fputs(didFound ? "true" : "false", stdout);
+    free(x);
+    fclose(fp);
     return 0;
 }
 
@@ -99,5 +109,6 @@ bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
             return true;
         }
     }
+    free(properties);
     return false;
 }
