@@ -58,43 +58,11 @@ char* inputSurname() {
 char* inputPhoneNumber() {
     
     char* phoneNumber;
-    char* whichOrdinal;
     phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
-    whichOrdinal = (char*) malloc( 2 * sizeof(char) );
 
     printf( "%s: ", "Phone number" );
     fgets( phoneNumber, MAX_PHONENUMBER_LENGTH, stdin );
-    //check if it has character
-    for(int i = 0; i < strlen(phoneNumber) - 1; ++i) {
-        if( !isdigit( phoneNumber[i] ) ){
-            
-            whichOrdinal = ordinals(i + 1);
-            printf( "\nDetected error in input at %d%s position\nTry again\n"
-                    , i + 1, whichOrdinal);
-            //use recursion to make user provide correct input
-            return inputPhoneNumber();
-        }
-    }
-    free(whichOrdinal);
     return phoneNumber;
-}
-//add ordinals to the number so it'd look more professional
-char* ordinals( int i ) {
-
-    switch(i) {
-        case 1:
-            return "st";
-            break;
-        case 2:
-            return "nd";
-            break;
-        case 3:
-            return "rd";
-            break;
-        default:
-            return "th";
-            break;
-    }
 }
 //search for duplicates
 bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
@@ -113,6 +81,47 @@ bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
     return false;
 }
 
-char* checkPhoneNumber(char* phone_Number, FILE *fp) {
-    //to be continued
+char* checkConditions(FILE *fp) {
+    
+    char* phone_Number;
+    char* which_Ordinal;
+    phone_Number = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
+    which_Ordinal = (char*) malloc( 2 * sizeof(char) );
+
+    phone_Number = inputPhoneNumber();
+    
+    //check if it has character
+    for(int i = 0; i < strlen(phone_Number) - 1; ++i) {
+        if( !isdigit( phone_Number[i] ) ){
+            
+            which_Ordinal = ordinals(i + 1);
+            printf( "\nDetected error in input at %d%s position\nTry again\n"
+                    , i + 1, which_Ordinal);
+            //use recursion to make user provide correct input
+            return inputPhoneNumber();
+        }
+    }
+
+}
+
+
+
+
+//add ordinals to the number so it'd look more professional
+char* ordinals( int i ) {
+
+    switch(i) {
+        case 1:
+            return "st";
+            break;
+        case 2:
+            return "nd";
+            break;
+        case 3:
+            return "rd";
+            break;
+        default:
+            return "th";
+            break;
+    }
 }
