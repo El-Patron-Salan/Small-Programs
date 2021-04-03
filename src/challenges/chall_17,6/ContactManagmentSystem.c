@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include <time.h>
 
 #define MAX_FNAME_LENGTH 16
 #define MAX_SNAME_LENGTH 32
@@ -18,9 +19,10 @@ char* inputPhoneNumber();
 bool searchDuplicatedNumber(FILE *fp, char* search_Number);
 char* checkConditions(FILE *fp);
 char* ordinals( int i );
+int generateID();
 
 int main(int argC, char* argV[]) {
-    
+   /* 
     char* x = malloc( sizeof(char));
     x = inputPhoneNumber();
     printf( "\n%s\n", x);
@@ -33,6 +35,9 @@ int main(int argC, char* argV[]) {
     fputs(didFound ? "true" : "false", stdout);
     free(x);
     fclose(fp);
+    */
+    //int numb = generateID();
+    printf( "\nRandom number: %d\n", generateID());
     return 0;
 }
 
@@ -141,5 +146,6 @@ char* ordinals( int i ) {
 
 //generate unique id for each contact
 int generateID() {
-    
+    srand(time(NULL));
+    return (rand() % (99999 - 10000 + 1)) + 10000;
 }
