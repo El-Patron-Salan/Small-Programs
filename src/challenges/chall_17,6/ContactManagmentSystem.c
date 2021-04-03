@@ -138,3 +138,8 @@ char* ordinals( int i ) {
             break;
     }
 }
+
+//generate unique id for each contact
+int generateID() {
+    
+}
