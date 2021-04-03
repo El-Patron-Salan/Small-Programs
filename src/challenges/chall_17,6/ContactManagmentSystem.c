@@ -81,7 +81,7 @@ bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
     free(properties);
     return false;
 }
-
+//check if p.number meets all conditions
 char* checkConditions(FILE *fp) {
     
     char continue_Question;
@@ -120,8 +120,7 @@ char* checkConditions(FILE *fp) {
     }
     return phone_Number;
 }
-
-//add ordinals to the number so it'd look more professional
+//add ordinals to the number so it'd be grammatically correct 
 char* ordinals( int i ) {
 
     switch(i) {
