@@ -22,22 +22,12 @@ char* ordinals( int i );
 int generateID();
 
 int main(int argC, char* argV[]) {
-   /* 
-    char* x = malloc( sizeof(char));
-    x = inputPhoneNumber();
-    printf( "\n%s\n", x);
+    
+    switch() {
+            
+        //menu
 
-    FILE *fp;
-    fp = fopen("test.txt", "r");
-    if(fp == NULL)
-        exit( EXIT_FAILURE );
-    bool didFound = searchDuplicatedNumber(fp, x);
-    fputs(didFound ? "true" : "false", stdout);
-    free(x);
-    fclose(fp);
-    */
-    //int numb = generateID();
-    printf( "\nRandom number: %d\n", generateID());
+    }
     return 0;
 }
 
@@ -149,3 +139,6 @@ int generateID() {
     srand(time(NULL));
     return (rand() % (99999 - 10000 + 1)) + 10000;
 }
+
+//files handling functions
+
