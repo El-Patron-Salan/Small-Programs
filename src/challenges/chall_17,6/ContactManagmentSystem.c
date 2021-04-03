@@ -15,8 +15,9 @@
 char* inputFirstName();
 char* inputSurname();
 char* inputPhoneNumber();
-char* ordinals( int i );
 bool searchDuplicatedNumber(FILE *fp, char* search_Number);
+char* checkConditions(FILE *fp);
+char* ordinals( int i );
 
 int main(int argC, char* argV[]) {
     
@@ -83,6 +84,7 @@ bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
 
 char* checkConditions(FILE *fp) {
     
+    char continue_Question;
     char* phone_Number;
     char* which_Ordinal;
     phone_Number = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
@@ -98,14 +100,26 @@ char* checkConditions(FILE *fp) {
             printf( "\nDetected error in input at %d%s position\nTry again\n"
                     , i + 1, which_Ordinal);
             //use recursion to make user provide correct input
-            return inputPhoneNumber();
+            return checkConditions(fp);
         }
     }
-
+    free(which_Ordinal);
+    //check for duplicated number 
+    if( searchDuplicatedNumber(fp, phone_Number) ) {
+        printf( "\nPhone number -> %s is assigned to another contact!\n", phone_Number );
+        //if user accidentally provided phone number that already exist in contacts
+        //ask him if he wants to continue
+        printf( "\nWould you like to continue?(Y/N) " );
+        fgets(&continue_Question, 2, stdin);
+        if(continue_Question == 'Y' || continue_Question == 'y') {
+            return checkConditions(fp);
+        }
+        else {
+            exit(0);
+        }
+    }
+    return phone_Number;
 }
-
-
-
 
 //add ordinals to the number so it'd look more professional
 char* ordinals( int i ) {
