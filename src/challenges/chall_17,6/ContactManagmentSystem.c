@@ -19,11 +19,21 @@ char* inputPhoneNumber();
 bool searchDuplicatedNumber(FILE *fp, char* search_Number);
 char* checkConditions(FILE *fp);
 char* ordinals( int i );
-int generateID();
+char* generateID();
+FILE *checkInAllContacts();
+void addNewContact( char* path, FILE *allContacts );
 
 int main(int argC, char* argV[]) {
     
-    //switch() {}
+    char* id = generateID();
+    int option;
+    switch(option) {
+        
+        case 1:
+            addNewContact(id, checkInAllContacts());
+            fclose(checkInAllContacts());
+
+    }
     return 0;
 }
 
@@ -31,7 +41,7 @@ char* inputFirstName() {
     
     char* name;
     name = (char*) malloc( MAX_FNAME_LENGTH * sizeof(char) );
-    printf( "%s: ", "First name" );
+    printf( "\n\n%s: ", "First name" );
     fgets( name, MAX_FNAME_LENGTH, stdin );
     return name;
 }
@@ -40,7 +50,7 @@ char* inputSurname() {
         
     char* sName;
     sName = (char*) malloc( MAX_SNAME_LENGTH * sizeof(char) );
-    printf( "%s: ", "Surname");
+    printf( "\n%s: ", "Surname");
     fgets( sName, MAX_SNAME_LENGTH, stdin );
     return sName;
 }
@@ -52,7 +62,7 @@ char* inputPhoneNumber() {
     char* phoneNumber;
     phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
 
-    printf( "%s: ", "Phone number" );
+    printf( "\n%s: ", "Phone number" );
     fgets( phoneNumber, MAX_PHONENUMBER_LENGTH, stdin );
     return phoneNumber;
 }
@@ -131,12 +141,28 @@ char* ordinals( int i ) {
 }
 
 //generate unique id for each contact
-int generateID() {
+char* generateID() {
     srand(time(NULL));
-    return (rand() % (99999 - 10000 + 1)) + 10000;
+    char* str_id = malloc(4 * sizeof(char));
+    sprintf(str_id, "%d", (rand() % (99999 - 10000 + 1)) + 10000);
+    return str_id;
 }
 
 //files handling functions
+
+//needed to look for duplicates
+FILE *checkInAllContacts() {
+    
+    FILE *fp;
+    fp = fopen( "All_Contacts.txt", "r");
+    if( fp == NULL ) {
+        printf( "\nCould not open file\n" );
+        exit( EXIT_FAILURE );
+    }
+    return fp;
+}
+
+//add new contact
 void addNewContact( char* path, FILE *allContacts ) {
         
     FILE *fp;
