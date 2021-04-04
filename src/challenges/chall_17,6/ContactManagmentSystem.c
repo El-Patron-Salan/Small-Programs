@@ -10,9 +10,7 @@
 #define MAX_PHONENUMBER_LENGTH 15
 #define BUFFER_SIZE 256
 
-/*
- *This is simpler approach for making this program
- */
+//prototypes
 char* inputFirstName();
 char* inputSurname();
 char* inputPhoneNumber();
@@ -22,6 +20,7 @@ char* ordinals( int i );
 char* generateID();
 FILE *checkInAllContacts();
 void addNewContact( char* path, FILE *allContacts );
+
 
 int main(int argC, char* argV[]) {
     
@@ -36,6 +35,8 @@ int main(int argC, char* argV[]) {
     }
     return 0;
 }
+
+//functions-----------------------
 
 char* inputFirstName() {
     
