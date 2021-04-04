@@ -137,7 +137,7 @@ int generateID() {
 }
 
 //files handling functions
-void addNewContact( char* path ) {
+void addNewContact( char* path, FILE *allContacts ) {
         
     FILE *fp;
     fp = fopen(path, "w");
@@ -154,5 +154,20 @@ void addNewContact( char* path ) {
     surname = (char*) malloc(MAX_SNAME_LENGTH * sizeof(char));
     ph_Number = malloc(MAX_PHONENUMBER_LENGTH * sizeof(ph_Number));
     //assign functions to variables
+    f_Name = inputFirstName();
+    surname = inputSurname();
+    ph_Number = checkConditions(allContacts);
+    printf( "Generated id: %s\n", path );
+    
+    //add them to file
+    fprintf( fp, "\nFirst name: %s", f_Name );
+    fprintf( fp, "\nSurname: %s", surname );
+    fprintf( fp, "\nPhone number: %s", ph_Number );
+    fprintf( fp, "\nid: %s\n", path );
 
+    //free memory and close file
+    free(f_Name);
+    free(surname);
+    free(ph_Number);
+    fclose(fp);
 }
