@@ -23,11 +23,7 @@ int generateID();
 
 int main(int argC, char* argV[]) {
     
-    switch() {
-            
-        //menu
-
-    }
+    //switch() {}
     return 0;
 }
 
@@ -141,4 +137,22 @@ int generateID() {
 }
 
 //files handling functions
+void addNewContact( char* path ) {
+        
+    FILE *fp;
+    fp = fopen(path, "w");
+    if(fp == NULL) {
+        printf( "\nUnable to create file\n" );
+        exit( EXIT_FAILURE );
+    }
+    //get user input
+    char* f_Name; 
+    char* surname;
+    char* ph_Number;
+    //allocate memory
+    f_Name = (char*) malloc(MAX_FNAME_LENGTH * sizeof(char));
+    surname = (char*) malloc(MAX_SNAME_LENGTH * sizeof(char));
+    ph_Number = malloc(MAX_PHONENUMBER_LENGTH * sizeof(ph_Number));
+    //assign functions to variables
 
+}
