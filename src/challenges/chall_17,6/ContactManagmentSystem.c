@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <time.h>
 
+#define BASE_DECIMAL 10
 #define MAX_FNAME_LENGTH 16
 #define MAX_SNAME_LENGTH 32
 #define MAX_PHONENUMBER_LENGTH 15
@@ -23,10 +24,30 @@ void addNewContact( char* path, FILE *allContacts );
 
 
 int main(int argC, char* argV[]) {
+    //declare
+    char* id;
+    char* option;
+    int integer_option;
+    char *eptr;
+
+    //allocate
+    id = malloc(5 * sizeof(char));
+    option = malloc(sizeof(char));
+
+    //check
+    if( id == NULL || option == NULL ) {
+        puts( "Memory allocation failed" );
+        return 0;
+    }
+
+    printf(     "\n\t\t***Contact management system***\n1. Add new contact\n2. Show all contacts\n3. Show specific contact\n"      );
+    fgets( option, 1, stdin );
     
-    char* id = generateID();
-    int option;
-    switch(option) {
+    //assign
+    id = generateID();
+    integer_option = strtol( option, &eptr, BASE_DECIMAL );
+
+    switch(integer_option) {
         
         case 1:
             addNewContact(id, checkInAllContacts());
