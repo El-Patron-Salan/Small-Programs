@@ -162,7 +162,7 @@ char* checkConditions(FILE *fp) {
         //if user accidentally provided phone number that already exist in contacts
         //ask him if he wants to continue
         printf( "\nWould you like to continue?(Y/N) " );
-        fgets(&continue_Question, 2, stdin);
+        fgets(&continue_Question, 3, stdin);
         if(continue_Question == 'Y' || continue_Question == 'y') {
             return checkConditions(fp);
         }
