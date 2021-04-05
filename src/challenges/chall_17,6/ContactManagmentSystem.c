@@ -63,6 +63,13 @@ char* inputFirstName() {
     
     char* name;
     name = (char*) malloc( MAX_FNAME_LENGTH * sizeof(char) );
+    
+    if( name == NULL ) {
+        puts( "Memory allocation failed - inputFirstName" );
+        exit( EXIT_FAILURE );
+    }
+
+
     printf( "\n\n%s: ", "First name" );
     fgets( name, MAX_FNAME_LENGTH, stdin );
     return name;
@@ -72,6 +79,13 @@ char* inputSurname() {
         
     char* sName;
     sName = (char*) malloc( MAX_SNAME_LENGTH * sizeof(char) );
+
+    if( sName == NULL ) {
+        puts( "Memory allocation failed - inputSurname" );
+        exit( EXIT_FAILURE );
+    }
+
+
     printf( "\n%s: ", "Surname");
     fgets( sName, MAX_SNAME_LENGTH, stdin );
     return sName;
@@ -83,6 +97,11 @@ char* inputPhoneNumber() {
     
     char* phoneNumber;
     phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
+    
+    if( phoneNumber == NULL ) {
+        puts( "Memory allocation failed - inputPhoneNumber" );
+        exit( EXIT_FAILURE );
+    }
 
     printf( "\n%s: ", "Phone number" );
     fgets( phoneNumber, MAX_PHONENUMBER_LENGTH, stdin );
@@ -91,7 +110,12 @@ char* inputPhoneNumber() {
 //search for duplicates
 bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
     
-    char* properties = (char*) malloc( BUFFER_SIZE );
+    char* properties = (char*) malloc( BUFFER_SIZE * sizeof(char) );
+
+    if( properties == NULL ) {
+        puts( "Memory allocation failed - searchDuplicatedNumber" );
+        exit( EXIT_FAILURE );
+    }
     //point to character
     char *ptc;
     while( ( fgets(properties, BUFFER_SIZE, fp) ) != NULL ) {
@@ -110,9 +134,13 @@ char* checkConditions(FILE *fp) {
     char continue_Question;
     char* phone_Number;
     char* which_Ordinal;
+
     phone_Number = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
     which_Ordinal = (char*) malloc( 2 * sizeof(char) );
-
+    if( phone_Number == NULL || which_Ordinal == NULL ) {
+        puts( "Memory allocation failed - checkConditions" );
+        exit( EXIT_FAILURE );
+    }
     phone_Number = inputPhoneNumber();
     
     //check if it has character
@@ -166,6 +194,10 @@ char* ordinals( int i ) {
 char* generateID() {
     srand(time(NULL));
     char* str_id = malloc(4 * sizeof(char));
+    if( str_id == NULL ) {
+        puts( "Memory allocation failed - generateID" );
+        exit( EXIT_FAILURE );
+    }
     sprintf(str_id, "%d", (rand() % (99999 - 10000 + 1)) + 10000);
     return str_id;
 }
@@ -201,6 +233,11 @@ void addNewContact( char* path, FILE *allContacts ) {
     f_Name = (char*) malloc(MAX_FNAME_LENGTH * sizeof(char));
     surname = (char*) malloc(MAX_SNAME_LENGTH * sizeof(char));
     ph_Number = malloc(MAX_PHONENUMBER_LENGTH * sizeof(ph_Number));
+    //check allocation
+    if(f_Name == NULL || surname == NULL || ph_Number == NULL) {
+        puts( "Memory allocation failed - addNewContact" );
+        exit( EXIT_FAILURE );
+    }
     //assign functions to variables
     f_Name = inputFirstName();
     surname = inputSurname();
