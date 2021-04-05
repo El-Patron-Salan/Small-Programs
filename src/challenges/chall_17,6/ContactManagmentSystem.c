@@ -21,7 +21,7 @@ char* ordinals( int i );
 char* generateID();
 FILE *checkInAllContacts();
 void addNewContact( char* path, FILE *allContacts );
-
+void addToAllContacts( char* path );
 
 int main(int argC, char* argV[]) {
     //declare
@@ -52,6 +52,7 @@ int main(int argC, char* argV[]) {
         case 1:
             addNewContact(id, checkInAllContacts());
             fclose(checkInAllContacts());
+            addToAllContacts(id);
             break;
 
     }
@@ -256,4 +257,25 @@ void addNewContact( char* path, FILE *allContacts ) {
     free(surname);
     free(ph_Number);
     fclose(fp);
+}
+
+void addToAllContacts( char* path ) {
+    
+    FILE *fpS, *fpD;
+    
+    char putIn;
+
+    fpS = fopen(path, "r");
+    fpD = fopen("All_Contacts.txt", "a");
+
+    if( fpS == NULL || fpD == NULL ) {
+        puts( "File not found - appending" );
+        exit( EXIT_FAILURE );
+    }
+
+    while ( (putIn = fgetc( fpS )) != EOF ) {
+        fputc(putIn, fpD);
+    }
+    fclose(fpS);
+    fclose(fpD);
 }
