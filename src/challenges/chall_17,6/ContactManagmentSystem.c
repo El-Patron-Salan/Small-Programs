@@ -41,7 +41,7 @@ int main(int argC, char* argV[]) {
     }
 
     printf(     "\n\t\t***Contact management system***\n1. Add new contact\n2. Show all contacts\n3. Show specific contact\n"      );
-    fgets( option, 1, stdin );
+    fgets( option, 3, stdin );
     
     //assign
     id = generateID();
@@ -52,6 +52,7 @@ int main(int argC, char* argV[]) {
         case 1:
             addNewContact(id, checkInAllContacts());
             fclose(checkInAllContacts());
+            break;
 
     }
     return 0;
