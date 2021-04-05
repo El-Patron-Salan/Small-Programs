@@ -1,5 +1,4 @@
-                CONTACTS
-
+                        CONTACTS
 
 
 First name: Alan
@@ -9,3 +8,33 @@ Surname: Czajkowski
 Phone number: 516616781
 
 id: 74638
+
+----------------------------------------
+
+First name: Michal
+
+Surname: Koka\
+
+Phone number: 8897345671
+
+id: 96160
+
+----------------------------------------
+
+First name: Agata
+
+Surname: Wojak
+
+Phone number: 678919100
+
+id: 39662
+
+----------------------------------------
+
+First name: Marcin
+
+Surname: Boniek
+
+Phone number: 1352352352
+
+id: 54250

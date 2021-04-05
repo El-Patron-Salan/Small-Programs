@@ -264,9 +264,9 @@ void addNewContact( char* path, FILE *allContacts ) {
 void addToAllContacts( char* path ) {
     
     FILE *fpS, *fpD;
-    
+    //buffer
     char putIn;
-
+    
     fpS = fopen(path, "r");
     fpD = fopen("All_Contacts.txt", "a");
 
@@ -274,8 +274,13 @@ void addToAllContacts( char* path ) {
         puts( "File not found - appending" );
         exit( EXIT_FAILURE );
     }
-
+    
+    //add line to make it more readable
+    fprintf(fpD, "\n----------------------------------------\n");
+    
+    //get text from source
     while ( (putIn = fgetc( fpS )) != EOF ) {
+        //put it to destination file
         fputc(putIn, fpD);
     }
     fclose(fpS);
