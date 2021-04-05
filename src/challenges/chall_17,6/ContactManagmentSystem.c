@@ -24,6 +24,7 @@ void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
 
 int main(int argC, char* argV[]) {
+    
     //declare
     char* id;
     char* option;
@@ -46,7 +47,8 @@ int main(int argC, char* argV[]) {
     //assign
     id = generateID();
     integer_option = strtol( option, &eptr, BASE_DECIMAL );
-
+    
+    //MENU
     switch(integer_option) {
         
         case 1:
