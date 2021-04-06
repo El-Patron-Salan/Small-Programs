@@ -22,7 +22,7 @@ char* generateID();
 FILE *checkInAllContacts();
 void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
-void showAllContacts();
+void showContactBasedOnPath( char* path );
 
 int main(int argC, char* argV[]) {
     
@@ -31,10 +31,12 @@ int main(int argC, char* argV[]) {
     char* option;
     int integer_option;
     char *eptr;
+    char* path_to_specific_file;
 
     //allocate
     id = malloc(5 * sizeof(char));
     option = malloc(sizeof(char));
+    path_to_specific_file = malloc(5 * sizeof(char));
 
     //check
     if( id == NULL || option == NULL ) {
@@ -58,9 +60,15 @@ int main(int argC, char* argV[]) {
             addToAllContacts(id);
             break;
         case 2:
-            showAllContacts();
+            showContactBasedOnPath("All_Contacts.txt");
             break;
-
+        case 3:
+            puts( "Input path to file(based on given id!): ");
+            fgets( path_to_specific_file, 6, stdin );
+            showContactBasedOnPath(path_to_specific_file);
+            break;
+        default:
+            exit(0);
     }
     return 0;
 }
@@ -291,15 +299,15 @@ void addToAllContacts( char* path ) {
     fclose(fpD);
 }
 
-void showAllContacts() {
+void showContactBasedOnPath( char* path ) {
     
     FILE* fp;
     char char_from_file;
 
-    fp = fopen("All_Contacts.txt", "r");
+    fp = fopen(path, "r");
     //check if exist
     if( !fp ) {
-        puts( "File not found - showAllContacts" );
+        puts( "File not found - showContactBasedOnPath" );
         exit( EXIT_FAILURE );
     }
 
