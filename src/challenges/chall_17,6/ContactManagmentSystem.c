@@ -22,6 +22,7 @@ char* generateID();
 FILE *checkInAllContacts();
 void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
+void showAllContacts();
 
 int main(int argC, char* argV[]) {
     
@@ -55,6 +56,9 @@ int main(int argC, char* argV[]) {
             addNewContact(id, checkInAllContacts());
             fclose(checkInAllContacts());
             addToAllContacts(id);
+            break;
+        case 2:
+            showAllContacts();
             break;
 
     }
@@ -246,7 +250,7 @@ void addNewContact( char* path, FILE *allContacts ) {
     f_Name = inputFirstName();
     surname = inputSurname();
     ph_Number = checkConditions(allContacts);
-    printf( "Generated id: %s\n", path );
+    printf( "\nGenerated id: %s\n", path );
     
     //add them to file
     fprintf( fp, "\nFirst name: %s", f_Name );
