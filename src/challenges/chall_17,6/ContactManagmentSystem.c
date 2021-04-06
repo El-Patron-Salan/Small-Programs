@@ -28,48 +28,57 @@ int main(int argC, char* argV[]) {
     
     //declare
     char* id;
-    char* option;
-    int integer_option;
-    char *eptr;
+    char option;
     char* path_to_specific_file;
 
     //allocate
     id = malloc(5 * sizeof(char));
-    option = malloc(sizeof(char));
     path_to_specific_file = malloc(5 * sizeof(char));
 
     //check
-    if( id == NULL || option == NULL ) {
+    if( id == NULL || path_to_specific_file == NULL) {
         puts( "Memory allocation failed" );
         return 0;
     }
+    
+    do{
 
-    printf(     "\n\t\t***Contact management system***\n1. Add new contact\n2. Show all contacts\n3. Show specific contact\n"      );
-    fgets( option, 3, stdin );
+    printf(     "\n\t\t***Contact management system***\n1. Add new contact\n2. Show all contacts\n3. Show specific contact\n*Press 'q' to exit*\n"      );
+    fgets( &option, 3, stdin );
     
     //assign
     id = generateID();
-    integer_option = strtol( option, &eptr, BASE_DECIMAL );
     
     //MENU
-    switch(integer_option) {
+    switch(option) {
         
-        case 1:
+        case '1':
             addNewContact(id, checkInAllContacts());
             fclose(checkInAllContacts());
             addToAllContacts(id);
+            free(id);
             break;
-        case 2:
+
+        case '2':
             showContactBasedOnPath("All_Contacts.txt");
             break;
-        case 3:
+
+        case '3':
             puts( "Input path to file(based on given id!): ");
             fgets( path_to_specific_file, 6, stdin );
             showContactBasedOnPath(path_to_specific_file);
+            free(path_to_specific_file);
             break;
-        default:
+        
+        case 'q':
+            puts( "Exiting...");
             exit(0);
+
+        default:
+            puts( "Undefined option!");
+            break;
     }
+    }while(1);
     return 0;
 }
 
@@ -307,7 +316,7 @@ void showContactBasedOnPath( char* path ) {
     fp = fopen(path, "r");
     //check if exist
     if( !fp ) {
-        puts( "File not found - showContactBasedOnPath" );
+        puts( "\n**File not found**\n" );
         exit( EXIT_FAILURE );
     }
 
