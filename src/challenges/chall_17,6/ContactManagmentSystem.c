@@ -21,8 +21,8 @@
 char* inputFirstName();
 char* inputSurname();
 char* inputPhoneNumber();
-bool searchDuplicatedNumber(FILE *fp, char* search_Number);
-char* checkConditions(FILE *fp);
+bool searchDuplicatedNumber( FILE *fp, char* search_Number );
+char* checkConditions( FILE *fp );
 char* ordinals( int i );
 char* generateID();
 FILE *checkInAllContacts();
@@ -30,7 +30,7 @@ void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
 void showContactBasedOnPath( char* path );
 
-int main(int argC, char* argV[]) {
+int main( int argC, char* argV[] ) {
     
     //declare
     char* id;
