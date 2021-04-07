@@ -6,10 +6,16 @@
 #include <time.h>
 
 #define BASE_DECIMAL 10
+#define ID_LENGTH 5
 #define MAX_FNAME_LENGTH 16
 #define MAX_SNAME_LENGTH 32
 #define MAX_PHONENUMBER_LENGTH 15
 #define BUFFER_SIZE 256
+//colors
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
 //prototypes
 char* inputFirstName();
@@ -32,8 +38,8 @@ int main(int argC, char* argV[]) {
     char* path_to_specific_file;
 
     //allocate
-    id = malloc(5 * sizeof(char));
-    path_to_specific_file = malloc(5 * sizeof(char));
+    id = malloc(ID_LENGTH * sizeof(char));
+    path_to_specific_file = malloc(ID_LENGTH * sizeof(char));
 
     //check
     if( id == NULL || path_to_specific_file == NULL) {
@@ -66,7 +72,7 @@ int main(int argC, char* argV[]) {
         case '3':
             do{
                 puts( "Input path to file(based on given id!): ");
-                fgets( path_to_specific_file, 6, stdin );
+                fgets( path_to_specific_file, (ID_LENGTH + 1), stdin );
                 showContactBasedOnPath(path_to_specific_file);
             }while((getchar()) != '\n');
             
@@ -74,11 +80,11 @@ int main(int argC, char* argV[]) {
             break;
         
         case 'q':
-            puts( "Exiting...");
+            printf(ANSI_COLOR_RED   "\nExiting...\n"   ANSI_COLOR_RESET);
             exit(0);
 
         default:
-            puts( "Undefined option!");
+            puts( "Undefined option!" );
             break;
     }
     }while(1);
@@ -324,7 +330,7 @@ void showContactBasedOnPath( char* path ) {
     }
 
     while( (char_from_file = fgetc(fp)) != EOF ) {
-        printf( "%c", char_from_file );
+        printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , char_from_file );
     }
     fclose(fp);
 }
