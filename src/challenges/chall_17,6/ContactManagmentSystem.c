@@ -64,9 +64,12 @@ int main(int argC, char* argV[]) {
             break;
 
         case '3':
-            puts( "Input path to file(based on given id!): ");
-            fgets( path_to_specific_file, 6, stdin );
-            showContactBasedOnPath(path_to_specific_file);
+            do{
+                puts( "Input path to file(based on given id!): ");
+                fgets( path_to_specific_file, 6, stdin );
+                showContactBasedOnPath(path_to_specific_file);
+            }while((getchar()) != '\n');
+            
             free(path_to_specific_file);
             break;
         
@@ -317,7 +320,7 @@ void showContactBasedOnPath( char* path ) {
     //check if exist
     if( !fp ) {
         puts( "\n**File not found**\n" );
-        exit( EXIT_FAILURE );
+        return;
     }
 
     while( (char_from_file = fgetc(fp)) != EOF ) {
