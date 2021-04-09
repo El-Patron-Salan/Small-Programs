@@ -22,9 +22,9 @@
 char* inputFirstName(void);
 char* inputSurname(void);
 char* inputPhoneNumber(void);
-bool searchDuplicatedNumber( FILE *fp, char* search_Number );
+bool searchDuplicatedNumber( FILE *fp, const char* search_Number );
 char* checkConditions( FILE *fp );
-char* ordinals( int i );
+const char* ordinals( int i );
 char* generateID(void);
 FILE *checkInAllContacts(void);
 void addNewContact( char* path, FILE *allContacts );
@@ -39,8 +39,6 @@ int main( void ) {
     char option;
     char* path_to_specific_file;
 
-    const char path_all[16] = "All_Contacts.txt";
-
     //allocate
     id = malloc(ID_LENGTH * sizeof(char));
     path_to_specific_file = malloc(ID_LENGTH * sizeof(char));
@@ -53,53 +51,54 @@ int main( void ) {
     int count = 0; 
     do{
 
-    printf(
-            "\n\t\t***Contact management system***"
-            "\n1. Add new contact"
-            "\n2. Show all contacts"
-            "\n3. Show specific contact"
-            "\n*Press 'q' to exit*\n"
-            );
+        printf(
+                "\n\t\t***Contact management system***"
+                "\n1. Add new contact"
+                "\n2. Show all contacts"
+                "\n3. Show specific contact"
+                "\n*Press 'q' to exit*\n"
+                );
 
-    fgets( &option, 2, stdin );
-    printf( "\nOption = %c and count = %d\n", option, count++);
+        fgets( &option, 2, stdin );
+        printf( "\nOption = %c and count = %d\n", option, count++);
     
-    //assign
-    id = generateID();
+        //assign
+        id = generateID();
     
-    //MENU
-    switch(option) {
+        //MENU
+        switch(option) {
         
-        case '1':
-            addNewContact(id, checkInAllContacts());
-            fclose(checkInAllContacts());
-            addToAllContacts(id);
-            free(id);
-            break;
+            case '1':
+                addNewContact(id, checkInAllContacts());
+                fclose(checkInAllContacts());
+                addToAllContacts(id);
+                free(id);
+                break;
 
-        case '2':
-            showAllContacts();
-            break;
+            case '2':
+                showAllContacts();
+                break;
 
-        case '3':
-            do{
-                puts( "Input path to file(based on given id!): ");
-                fgets( path_to_specific_file, (ID_LENGTH + 1), stdin );
-                showContactBasedOnPath(path_to_specific_file);
-            }while((getchar()) != '\n');
+            case '3':
+                do{
+                    puts( "Input path to file(based on given id!): ");
+                    fgets( path_to_specific_file, (ID_LENGTH + 1), stdin );
+                    showContactBasedOnPath(path_to_specific_file);
+                }while((getchar()) != '\n');
             
-            free(path_to_specific_file);
-            break;
+                free(path_to_specific_file);
+                break;
         
-        case 'q':
-            printf(ANSI_COLOR_RED   "\nExiting...\n"   ANSI_COLOR_RESET);
-            exit(0);
+            case 'q':
+                printf(ANSI_COLOR_RED   "\nExiting...\n"   ANSI_COLOR_RESET);
+                exit(0);
 
-        default:
-            puts( "Undefined option!" );
-            break;
-    }
+            default:
+                puts( "Undefined option!" );
+                break;
+        }
     }while(1);
+
     return 0;
 }
 
@@ -154,7 +153,7 @@ char* inputPhoneNumber() {
     return phoneNumber;
 }
 //search for duplicates
-bool searchDuplicatedNumber(FILE *fp, char* search_Number) {
+bool searchDuplicatedNumber(FILE *fp, const char* search_Number) {
     
     char* properties = (char*) malloc( BUFFER_SIZE * sizeof(char) );
 
@@ -179,28 +178,26 @@ char* checkConditions(FILE *fp) {
     
     char continue_Question;
     char* phone_Number;
-    char* which_Ordinal;
+    const char* which_Ordinal;
 
     phone_Number = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
-    which_Ordinal = (char*) malloc( 2 * sizeof(char) );
-    if( phone_Number == NULL || which_Ordinal == NULL ) {
+    if( !phone_Number ) {
         puts( "Memory allocation failed - checkConditions" );
         exit( EXIT_FAILURE );
     }
     phone_Number = inputPhoneNumber();
     
     //check if it has character
-    for(int i = 0; i < strlen(phone_Number) - 1; ++i) {
+    for(int i = 0; i < (int)strlen(phone_Number) - 1; ++i) {
         if( !isdigit( phone_Number[i] ) ){
             
-            which_Ordinal = ordinals(i + 1);
+            which_Ordinal = ordinals( ++i );
             printf( "\nDetected error in input at %d%s position\nTry again\n"
-                    , i + 1, which_Ordinal);
+                    , i , which_Ordinal);
             //use recursion to make user provide correct input
             return checkConditions(fp);
         }
     }
-    free(which_Ordinal);
     //check for duplicated number 
     if( searchDuplicatedNumber(fp, phone_Number) ) {
         printf( "\nPhone number -> %s is assigned to another contact!\n", phone_Number );
@@ -218,7 +215,7 @@ char* checkConditions(FILE *fp) {
     return phone_Number;
 }
 //add ordinals to the number so it'd be grammatically correct 
-char* ordinals( int i ) {
+const char* ordinals( int i ) {
 
     switch(i) {
         case 1:
@@ -238,7 +235,7 @@ char* ordinals( int i ) {
 
 //generate unique id for each contact
 char* generateID() {
-    srand(time(NULL));
+    srand( (unsigned int) time(NULL));
     char* str_id = malloc(4 * sizeof(char));
     if( str_id == NULL ) {
         puts( "Memory allocation failed - generateID" );
@@ -321,7 +318,7 @@ void addToAllContacts( char* path ) {
     fprintf(fpD, "\n----------------------------------------\n");
     
     //get text from source
-    while ( (putIn = fgetc( fpS )) != EOF ) {
+    while ( (putIn = (char) fgetc( fpS )) != EOF ) {
         //put it to destination file
         fputc(putIn, fpD);
     }
@@ -342,7 +339,7 @@ void showAllContacts() {
         return;
     }
 
-    while( (char_from_file = fgetc(fp)) != EOF ) {
+    while( (char_from_file = (char) fgetc(fp)) != EOF ) {
         printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , char_from_file );
     }
     fclose(fp);
@@ -360,7 +357,7 @@ void showContactBasedOnPath( char* path ) {
         return;
     }
 
-    while( (char_from_file = fgetc(fp)) != EOF ) {
+    while( (char_from_file = (char) fgetc(fp)) != EOF ) {
         printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , char_from_file );
     }
     fclose(fp);
