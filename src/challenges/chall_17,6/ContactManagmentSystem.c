@@ -189,7 +189,8 @@ char* checkConditions(FILE *fp) {
     phone_Number = inputPhoneNumber();
     
     //check if it has character
-    for(int i = 0; i < (int)strlen(phone_Number) - 1; ++i) {
+    const size_t phone_length = strlen( phone_Number );
+    for(size_t i = 0; i < phone_length; ++i) {
         if( !isdigit( phone_Number[i] ) ){
             
             which_Ordinal = ordinals( ++i );
@@ -215,7 +216,7 @@ char* checkConditions(FILE *fp) {
     }
     return phone_Number;
 }
-//add ordinals to the number so it'd be grammatically correct 
+//add ordinals to the number so it'd be grammatically correct
 const char* ordinals( int i ) {
 
     switch(i) {
