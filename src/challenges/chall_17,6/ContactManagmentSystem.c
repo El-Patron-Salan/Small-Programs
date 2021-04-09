@@ -40,15 +40,16 @@ int main( void ) {
     char* path_to_specific_file;
 
     //allocate
-    id = malloc(ID_LENGTH * sizeof(id));
     path_to_specific_file = malloc(ID_LENGTH);
-
+    id = malloc(ID_LENGTH);
+    
+    id = generateID();
+    
     //check
     if( id == NULL || path_to_specific_file == NULL) {
         puts( "Memory allocation failed" );
         return 0;
     }
-    int count = 0; 
     do{
 
         printf(
@@ -61,9 +62,6 @@ int main( void ) {
 
         fgets( &option, 2, stdin );
         printf( "\nOption = %c and count = %d\n", option, count++);
-    
-        //assign
-        id = generateID();
     
         //MENU
         switch(option) {
