@@ -11,6 +11,7 @@
 #define MAX_SNAME_LENGTH 32
 #define MAX_PHONENUMBER_LENGTH 15
 #define BUFFER_SIZE 256
+
 //colors
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_MAGENTA "\x1b[35m"
@@ -30,12 +31,14 @@ void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
 void showContactBasedOnPath( char* path );
 
-int main( int argC, char* argV[] ) {
+int main( void ) {
     
     //declare
     char* id;
     char option;
     char* path_to_specific_file;
+
+    const char path_all[16] = "All_Contacts.txt";
 
     //allocate
     id = malloc(ID_LENGTH * sizeof(char));
@@ -49,7 +52,14 @@ int main( int argC, char* argV[] ) {
     int count = 0; 
     do{
 
-    printf(     "\n\t\t***Contact management system***\n1. Add new contact\n2. Show all contacts\n3. Show specific contact\n*Press 'q' to exit*\n"      );
+    printf(
+            "\n\t\t***Contact management system***"
+            "\n1. Add new contact"
+            "\n2. Show all contacts"
+            "\n3. Show specific contact"
+            "\n*Press 'q' to exit*\n"
+            );
+
     fgets( &option, 2, stdin );
     printf( "\nOption = %c and count = %d\n", option, count++);
     
@@ -67,7 +77,7 @@ int main( int argC, char* argV[] ) {
             break;
 
         case '2':
-            showContactBasedOnPath("All_Contacts.txt");
+            showContactBasedOnPath(path_all);
             break;
 
         case '3':
