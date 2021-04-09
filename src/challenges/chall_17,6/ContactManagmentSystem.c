@@ -18,14 +18,14 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 //prototypes
-char* inputFirstName();
-char* inputSurname();
-char* inputPhoneNumber();
+char* inputFirstName(void);
+char* inputSurname(void);
+char* inputPhoneNumber(void);
 bool searchDuplicatedNumber( FILE *fp, char* search_Number );
 char* checkConditions( FILE *fp );
 char* ordinals( int i );
-char* generateID();
-FILE *checkInAllContacts();
+char* generateID(void);
+FILE *checkInAllContacts(void);
 void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
 void showContactBasedOnPath( char* path );
@@ -46,11 +46,12 @@ int main( int argC, char* argV[] ) {
         puts( "Memory allocation failed" );
         return 0;
     }
-    
+    int count = 0; 
     do{
 
     printf(     "\n\t\t***Contact management system***\n1. Add new contact\n2. Show all contacts\n3. Show specific contact\n*Press 'q' to exit*\n"      );
-    fgets( &option, 3, stdin );
+    fgets( &option, 2, stdin );
+    printf( "\nOption = %c and count = %d\n", option, count++);
     
     //assign
     id = generateID();
