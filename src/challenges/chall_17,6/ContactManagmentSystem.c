@@ -40,8 +40,8 @@ int main( void ) {
     char* path_to_specific_file;
 
     //allocate
-    id = malloc(ID_LENGTH * sizeof(char));
-    path_to_specific_file = malloc(ID_LENGTH * sizeof(char));
+    id = malloc(ID_LENGTH * sizeof(id));
+    path_to_specific_file = malloc(ID_LENGTH);
 
     //check
     if( id == NULL || path_to_specific_file == NULL) {
@@ -107,7 +107,7 @@ int main( void ) {
 char* inputFirstName() {
     
     char* name;
-    name = (char*) malloc( MAX_FNAME_LENGTH * sizeof(char) );
+    name = (char*) malloc( MAX_FNAME_LENGTH );
     
     if( name == NULL ) {
         puts( "Memory allocation failed - inputFirstName" );
@@ -123,7 +123,7 @@ char* inputFirstName() {
 char* inputSurname() {
         
     char* sName;
-    sName = (char*) malloc( MAX_SNAME_LENGTH * sizeof(char) );
+    sName = (char*) malloc( MAX_SNAME_LENGTH );
 
     if( sName == NULL ) {
         puts( "Memory allocation failed - inputSurname" );
@@ -141,7 +141,7 @@ char* inputSurname() {
 char* inputPhoneNumber() {
     
     char* phoneNumber;
-    phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
+    phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH );
     
     if( phoneNumber == NULL ) {
         puts( "Memory allocation failed - inputPhoneNumber" );
@@ -155,7 +155,7 @@ char* inputPhoneNumber() {
 //search for duplicates
 bool searchDuplicatedNumber(FILE *fp, const char* search_Number) {
     
-    char* properties = (char*) malloc( BUFFER_SIZE * sizeof(char) );
+    char* properties = (char*) malloc( BUFFER_SIZE );
 
     if( properties == NULL ) {
         puts( "Memory allocation failed - searchDuplicatedNumber" );
@@ -180,7 +180,8 @@ char* checkConditions(FILE *fp) {
     char* phone_Number;
     const char* which_Ordinal;
 
-    phone_Number = (char*) malloc( MAX_PHONENUMBER_LENGTH * sizeof(char) );
+    phone_Number = malloc( MAX_PHONENUMBER_LENGTH * sizeof(phone_Number));
+    
     if( !phone_Number ) {
         puts( "Memory allocation failed - checkConditions" );
         exit( EXIT_FAILURE );
@@ -235,8 +236,11 @@ const char* ordinals( int i ) {
 
 //generate unique id for each contact
 char* generateID() {
+    
     srand( (unsigned int) time(NULL));
-    char* str_id = malloc(4 * sizeof(char));
+    
+    char* str_id = malloc(4 * sizeof(str_id));
+    
     if( str_id == NULL ) {
         puts( "Memory allocation failed - generateID" );
         exit( EXIT_FAILURE );
@@ -273,8 +277,8 @@ void addNewContact( char* path, FILE *allContacts ) {
     char* surname;
     char* ph_Number;
     //allocate memory
-    f_Name = (char*) malloc(MAX_FNAME_LENGTH * sizeof(char));
-    surname = (char*) malloc(MAX_SNAME_LENGTH * sizeof(char));
+    f_Name = (char*) malloc(MAX_FNAME_LENGTH);
+    surname = (char*) malloc(MAX_SNAME_LENGTH);
     ph_Number = malloc(MAX_PHONENUMBER_LENGTH * sizeof(ph_Number));
     //check allocation
     if(f_Name == NULL || surname == NULL || ph_Number == NULL) {
@@ -304,7 +308,7 @@ void addToAllContacts( char* path ) {
     
     FILE *fpS, *fpD;
     //buffer
-    char putIn;
+    int putIn;
     
     fpS = fopen(path, "r");
     fpD = fopen("All_Contacts.txt", "a");
@@ -318,7 +322,7 @@ void addToAllContacts( char* path ) {
     fprintf(fpD, "\n----------------------------------------\n");
     
     //get text from source
-    while ( (putIn = (char) fgetc( fpS )) != EOF ) {
+    while ( (putIn = fgetc( fpS )) != EOF ) {
         //put it to destination file
         fputc(putIn, fpD);
     }
@@ -330,7 +334,7 @@ void addToAllContacts( char* path ) {
 void showAllContacts() {
     
     FILE* fp;
-    char char_from_file;
+    int buffer;
 
     fp = fopen("All_Contacts.txt", "r");
     //check if exist
@@ -339,8 +343,8 @@ void showAllContacts() {
         return;
     }
 
-    while( (char_from_file = (char) fgetc(fp)) != EOF ) {
-        printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , char_from_file );
+    while( (buffer = fgetc(fp)) != EOF ) {
+        printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , buffer );
     }
     fclose(fp);
 }
@@ -348,7 +352,7 @@ void showAllContacts() {
 void showContactBasedOnPath( char* path ) {
     
     FILE* fp;
-    char char_from_file;
+    int buffer;
 
     fp = fopen(path, "r");
     //check if exist
@@ -357,8 +361,8 @@ void showContactBasedOnPath( char* path ) {
         return;
     }
 
-    while( (char_from_file = (char) fgetc(fp)) != EOF ) {
-        printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , char_from_file );
+    while( (buffer = fgetc(fp)) != EOF ) {
+        printf(ANSI_COLOR_MAGENTA   "%c"   ANSI_COLOR_RESET , buffer );
     }
     fclose(fp);
 }
