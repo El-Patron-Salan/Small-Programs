@@ -29,6 +29,7 @@ char* generateID(void);
 FILE *checkInAllContacts(void);
 void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
+void showAllContacts( void );
 void showContactBasedOnPath( char* path );
 
 int main( void ) {
@@ -77,7 +78,7 @@ int main( void ) {
             break;
 
         case '2':
-            showContactBasedOnPath(path_all);
+            showAllContacts();
             break;
 
         case '3':
@@ -326,6 +327,25 @@ void addToAllContacts( char* path ) {
     }
     fclose(fpS);
     fclose(fpD);
+}
+
+
+void showAllContacts() {
+    
+    FILE* fp;
+    char char_from_file;
+
+    fp = fopen("All_Contacts.txt", "r");
+    //check if exist
+    if( !fp ) {
+        puts( "\n**File not found**\n" );
+        return;
+    }
+
+    while( (char_from_file = fgetc(fp)) != EOF ) {
+        printf(ANSI_COLOR_CYAN   "%c"   ANSI_COLOR_RESET , char_from_file );
+    }
+    fclose(fp);
 }
 
 void showContactBasedOnPath( char* path ) {
