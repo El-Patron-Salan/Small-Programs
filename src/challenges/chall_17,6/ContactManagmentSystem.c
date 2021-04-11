@@ -18,6 +18,16 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
+//structure for contact
+struct Contact {
+    
+    char first_name[MAX_FNAME_LENGTH];
+    char surname[MAX_SNAME_LENGTH];
+    char phone_number[MAX_PHONENUMBER_LENGTH];
+    char generated_id[ID_LENGTH];
+
+};
+
 //prototypes
 char* inputFirstName(void);
 char* inputSurname(void);
@@ -29,7 +39,7 @@ char* generateID(void);
 FILE *checkInAllContacts(void);
 void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
-void showAllContacts( void );
+void showAllContacts(void);
 void showContactBasedOnPath( char* path );
 
 int main( void ) {
@@ -61,7 +71,6 @@ int main( void ) {
                 );
 
         fgets( &option, 2, stdin );
-        printf( "\nOption = %c and count = %d\n", option, count++);
     
         //MENU
         switch(option) {
@@ -89,7 +98,7 @@ int main( void ) {
         
             case 'q':
                 printf(ANSI_COLOR_RED   "\nExiting...\n"   ANSI_COLOR_RESET);
-                exit(0);
+                return 0;
 
             default:
                 puts( "Undefined option!" );
@@ -187,12 +196,13 @@ char* checkConditions(FILE *fp) {
     phone_Number = inputPhoneNumber();
     
     //check if it has character
+    const size_t one = 1;
     const size_t phone_length = strlen( phone_Number );
     for(size_t i = 0; i < phone_length; ++i) {
         if( !isdigit( phone_Number[i] ) ){
             
-            which_Ordinal = ordinals( ++i );
-            printf( "\nDetected error in input at %d%s position\nTry again\n"
+            which_Ordinal = ordinals( i + one );
+            printf( "\nDetected error in input at %ld%s position\nTry again\n"
                     , i , which_Ordinal);
             //use recursion to make user provide correct input
             return checkConditions(fp);
@@ -338,7 +348,7 @@ void showAllContacts() {
     fp = fopen("All_Contacts.txt", "r");
     //check if exist
     if( !fp ) {
-        puts( "\n**File not found**\n" );
+        fprintf( stderr, "\n**File not found**\n" );
         return;
     }
 
@@ -356,7 +366,7 @@ void showContactBasedOnPath( char* path ) {
     fp = fopen(path, "r");
     //check if exist
     if( !fp ) {
-        puts( "\n**File not found**\n" );
+        fprintf( stderr, "\n**File not found**\n" );
         return;
     }
 
