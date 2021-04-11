@@ -46,7 +46,7 @@ int main( void ) {
     
     //declare
     char* id;
-    char option;
+    char option[2];
     char* path_to_specific_file;
 
     //allocate
@@ -70,7 +70,7 @@ int main( void ) {
                 "\n*Press 'q' to exit*\n"
                 );
 
-        fgets( &option, 2, stdin );
+        fgets( option, sizeof(option), stdin );
     
         //MENU
         switch(option) {
@@ -286,7 +286,7 @@ void addNewContact( char* path, FILE *allContacts ) {
     char* surname;
     char* ph_Number;
     //allocate memory
-    f_Name = (char*) malloc(MAX_FNAME_LENGTH);
+    inputFirstName() = (char*) malloc(MAX_FNAME_LENGTH);
     surname = (char*) malloc(MAX_SNAME_LENGTH);
     ph_Number = malloc(MAX_PHONENUMBER_LENGTH * sizeof(ph_Number));
     //check allocation
@@ -295,7 +295,7 @@ void addNewContact( char* path, FILE *allContacts ) {
         exit( EXIT_FAILURE );
     }
     //assign functions to variables
-    f_Name = inputFirstName();
+    //f_Name = inputFirstName();
     surname = inputSurname();
     ph_Number = checkConditions(allContacts);
     printf( "\nGenerated id: %s\n", path );
