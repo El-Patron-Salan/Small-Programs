@@ -117,8 +117,9 @@ char* inputFirstName() {
     name = (char*) malloc( MAX_FNAME_LENGTH );
     
     if( name == NULL ) {
-        puts( "Memory allocation failed - inputFirstName" );
-        exit( EXIT_FAILURE );
+        fprintf( stderr, "Memory allocation failed - inputFirstName" );
+        free(name);
+        return NULL;
     }
 
 
@@ -133,8 +134,9 @@ char* inputSurname() {
     sName = (char*) malloc( MAX_SNAME_LENGTH );
 
     if( sName == NULL ) {
-        puts( "Memory allocation failed - inputSurname" );
-        exit( EXIT_FAILURE );
+        fprintf( stderr, "Memory allocation failed - inputSurname" );
+        free(sName);
+        return NULL;
     }
 
 
@@ -151,8 +153,8 @@ char* inputPhoneNumber() {
     phoneNumber = (char*) malloc( MAX_PHONENUMBER_LENGTH );
     
     if( phoneNumber == NULL ) {
-        puts( "Memory allocation failed - inputPhoneNumber" );
-        exit( EXIT_FAILURE );
+        fprintf( stderr, "Memory allocation failed - inputPhoneNumber" );
+        return NULL;
     }
 
     printf( "\n%s: ", "Phone number" );
@@ -165,8 +167,9 @@ bool searchDuplicatedNumber(FILE *fp, const char* search_Number) {
     char* properties = (char*) malloc( BUFFER_SIZE );
 
     if( properties == NULL ) {
-        puts( "Memory allocation failed - searchDuplicatedNumber" );
-        exit( EXIT_FAILURE );
+        fprintf( stderr, "Memory allocation failed - searchDuplicatedNumber" );
+        free(properties);
+        return NULL;
     }
     //point to character
     char *ptc;
@@ -190,18 +193,19 @@ char* checkConditions(FILE *fp) {
     phone_Number = malloc( MAX_PHONENUMBER_LENGTH * sizeof(phone_Number));
     
     if( !phone_Number ) {
-        puts( "Memory allocation failed - checkConditions" );
+        fprintf( stderr, "Memory allocation failed - checkConditions" );
+        free(phone_Number);
         exit( EXIT_FAILURE );
     }
     phone_Number = inputPhoneNumber();
     
     //check if it has character
-    const size_t one = 1;
+    size_t iteration = 0;
     const size_t phone_length = strlen( phone_Number );
     for(size_t i = 0; i < phone_length; ++i) {
         if( !isdigit( phone_Number[i] ) ){
-            
-            which_Ordinal = ordinals( i + one );
+            iteration = i + 1; 
+            which_Ordinal = ordinals( iteration );
             printf( "\nDetected error in input at %ld%s position\nTry again\n"
                     , i , which_Ordinal);
             //use recursion to make user provide correct input
@@ -248,10 +252,11 @@ char* generateID() {
     
     srand( (unsigned int) time(NULL));
     
-    char* str_id = malloc(4 * sizeof(str_id));
+    char* str_id = malloc(5 * sizeof(str_id));
     
     if( str_id == NULL ) {
-        puts( "Memory allocation failed - generateID" );
+        fprintf( stderr, "Memory allocation failed - generateID" );
+        free(str_id);
         exit( EXIT_FAILURE );
     }
     sprintf(str_id, "%d", (rand() % (99999 - 10000 + 1)) + 10000);
@@ -266,7 +271,7 @@ FILE *checkInAllContacts() {
     FILE *fp;
     fp = fopen( "All_Contacts.txt", "r");
     if( fp == NULL ) {
-        printf( "\nCould not open file\n" );
+        fprintf( stderr, "\nCould not open file\n" );
         exit( EXIT_FAILURE );
     }
     return fp;
@@ -286,12 +291,15 @@ void addNewContact( char* path, FILE *allContacts ) {
     char* surname;
     char* ph_Number;
     //allocate memory
-    inputFirstName() = (char*) malloc(MAX_FNAME_LENGTH);
+    f_Name = (char*) malloc(MAX_FNAME_LENGTH);
     surname = (char*) malloc(MAX_SNAME_LENGTH);
     ph_Number = malloc(MAX_PHONENUMBER_LENGTH * sizeof(ph_Number));
     //check allocation
     if(f_Name == NULL || surname == NULL || ph_Number == NULL) {
         puts( "Memory allocation failed - addNewContact" );
+        free(f_Name);
+        free(surname);
+        free(ph_Number);
         exit( EXIT_FAILURE );
     }
     //assign functions to variables
@@ -323,7 +331,7 @@ void addToAllContacts( char* path ) {
     fpD = fopen("All_Contacts.txt", "a");
 
     if( fpS == NULL || fpD == NULL ) {
-        puts( "File not found - appending" );
+        fprintf( stderr, "File not found - appending" );
         exit( EXIT_FAILURE );
     }
     
