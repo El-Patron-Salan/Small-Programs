@@ -18,16 +18,6 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-//structure for contact
-struct Contact {
-    
-    char first_name[MAX_FNAME_LENGTH];
-    char surname[MAX_SNAME_LENGTH];
-    char phone_number[MAX_PHONENUMBER_LENGTH];
-    char generated_id[ID_LENGTH];
-
-};
-
 //prototypes
 char* inputFirstName(void);
 char* inputSurname(void);
@@ -41,6 +31,7 @@ void addNewContact( char* path, FILE *allContacts );
 void addToAllContacts( char* path );
 void showAllContacts(void);
 void showContactBasedOnPath( char* path );
+void showContactCaseThree( char* path_to_file );
 
 int main( void ) {
     
@@ -87,12 +78,7 @@ int main( void ) {
                 break;
 
             case '3':
-                do{
-                    puts( "Input path to file(based on given id!): ");
-                    fgets( path_to_specific_file, (ID_LENGTH + 1), stdin );
-                    showContactBasedOnPath(path_to_specific_file);
-                }while((getchar()) != '\n');
-            
+                showContactCaseThree(path_to_specific_file); 
                 free(path_to_specific_file);
                 break;
         
@@ -382,4 +368,16 @@ void showContactBasedOnPath( char* path ) {
         printf(ANSI_COLOR_MAGENTA   "%c"   ANSI_COLOR_RESET , buffer );
     }
     fclose(fp);
+}
+
+void showContactCaseThree( char* path_to_file ) {
+    
+    do{
+
+        puts( "Input path to file(based on given id!): ");
+        fgets( path_to_file, (ID_LENGTH + 1), stdin );
+        showContactBasedOnPath(path_to_file);
+
+    }while((getchar()) != '\n');
+
 }
