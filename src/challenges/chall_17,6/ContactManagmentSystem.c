@@ -46,7 +46,7 @@ int main( void ) {
     
     //declare
     char* id;
-    char option[2];
+    char option;
     char* path_to_specific_file;
 
     //allocate
@@ -70,7 +70,7 @@ int main( void ) {
                 "\n*Press 'q' to exit*\n"
                 );
 
-        fgets( option, sizeof(option), stdin );
+        fgets( &option, sizeof(option), stdin );
     
         //MENU
         switch(option) {
