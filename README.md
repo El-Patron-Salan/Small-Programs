@@ -23,4 +23,4 @@
 [16] - [Reverse a string](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_16) :heavy_check_mark:\
 [17] - [Eulerian Path](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_17) :x:\
 [17,5] - [Diary in C](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_17%2C5) :heavy_check_mark:\
-[17,6] - done 
+[17,6] - [Contact Management](https://github.com/El-Patron-Salan/challenges/tree/master/src/challenges/chall_17%2C6) :heavy_check_mark:\
